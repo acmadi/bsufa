@@ -185,7 +185,7 @@ $("#apno").change(function(){
 		<td>Jumlah Bayar</td>
 			<td>:</td>
 			<td>
-			<input type="text" name="byr" id="byr" value="<?php echo number_format($bayar->amount);?>" style="width:220px;border:1px solid lightgray;padding:3px;text-align:right;background-color:red" readonly >
+			<input type="text" name="byr" id="byr" value="<?php echo number_format($bayar->amount);?>" style="width:220px;border:1px solid lightgray;padding:3px;text-align:right;background-color:#80FF80" readonly >
 			</td>
 		<td>Sisa Pembayaran</td>
 			<td>:</td>

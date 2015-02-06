@@ -29,10 +29,15 @@ Class request extends AdminPage{
 	}
 	function appervendor()
 	{
-		
+		/*
 		$data['project'] = $this->db->where('judul','N')
 									->get('project')->result();
 		
+		$this->db->query("select * from db_subproject where id_pt='".$this->pt."' and pt_id <> 12 order by nm_subproject")->result();
+*/
+$data['project'] = $this->db->query("select * from db_subproject where id_pt=11 and pt_id <> 12 order by nm_subproject")->result();
+		
+
 		$this->parameters['data'] = $data;
 		
 		
@@ -47,7 +52,7 @@ Class request extends AdminPage{
 	function get_project($id){
 		$data = "<option value='-'></option>";
 		$data .= "<option value='0'>All</option>";
-		$sql = $this->db->query("select subproject_id,nm_subproject from db_subproject where id_pt = '$id'")->result();
+		$sql = $this->db->query("select subproject_id,nm_subproject from db_subproject where id_pt = '$id' and pt_id <> 12")->result();
 		
 		foreach($sql as $row){
 		$data .= "<option value='".$row->subproject_id."'>".$row->nm_subproject."</option>";

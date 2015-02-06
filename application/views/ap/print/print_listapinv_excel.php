@@ -58,7 +58,7 @@ $i++;
 		<td><?=indo_date($row->due_date)?></td>
 		<td><?=$row->descs?></td>
 		<td><?=number_format($row->pphtb)?></td>
-		<td><?=number_format($row->base_amt)?></td>
+		<td><?=number_format($row->base_amt*10/100)?></td>
 		<td><?php echo ""; ?></td>
 		<td><?=number_format($tot8)?></td>
 	</tr>

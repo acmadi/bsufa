@@ -4,27 +4,27 @@ A. AP BSU
 
 1. form input field Invoice Amount = Invoice Amount (Incld. PPn) => OK
 2. validasi Invoice amount tidak boleh lebih besar dari nilai total Budget => OK
-3. validasi alert apabila tidak balance invoice input, ketika save invoice AP, validasi nya tidak loncat ke grid AP invoice
+3. validasi alert apabila tidak balance invoice input, ketika save invoice AP, validasi nya tidak loncat ke grid AP invoice --> Progress
 4. Cek Report ketika print AP, tidak bisa print Request Payment Voucher   -----------> OK
-5. di Report Invoice AP (Format Excel) nilai PPN seharus nya nilai 10% dari invoice Amount
-6. Report Aging cek per vendor, AP pada hari ini tidak masuk ketika tanggal nya lewat Due Date, seharusnya masuk.
-7. Ap Vendor Project nya Di filter agar tidak ada project rental
-8. Ap vendor tidak nampil AP yang di buat barusan - Excel tidak jalan
-9. di AP per Vendor tulisan Ass of di gannti menjadi as off 
+5. di Report Invoice AP (Format Excel) nilai PPN seharus nya nilai 10% dari invoice Amount ----> OK
+6. Report Aging cek per vendor, AP pada hari ini tidak masuk ketika tanggal nya lewat Due Date, seharusnya masuk. --> Progres
+7. Ap Vendor Project nya Di filter agar tidak ada project rental --->OK
+8. Ap vendor tidak nampil AP yang di buat barusan - Excel tidak jalan ---> OK
+9. di AP per Vendor tulisan Ass of di gannti menjadi as off --> OK
 
 
 B. CB  
 1. Note Cash plan "Full Payment" => OK
-2. di Bank Payment warna Jumlah Bayar jadi warna Hijau, cek Coa nya => MAKSUDNYA??
+2. di Bank Payment warna Jumlah Bayar jadi warna Hijau, cek Coa nya => MAKSUDNYA?? --> warna hijau OK, progres cek Coa
 3. No BK masih sama ketika di bayar partial, harusnya payment 1 cash plan, tetapi malah semua cash plan AP yang terbayar => PROGRESS
-4. Ketika paid seharusnya ngurani AP, dikartu hutang masih tampil ketika as off nya kurang dari tanggal bayar
+4. Ketika paid seharusnya ngurani AP, dikartu hutang masih tampil ketika as off nya kurang dari tanggal bayar --> Progress
 5. Bank transaction
 
 
-6. Petty Cash, sama dengan The Wave
+6. Petty Cash, sama dengan The Wave 
 7. cash Flow pakai As Off
 
-
+--------------------------------------------- Malik -----------------------------------------------------------------------------------
 
 * Query untuk "header uraian" cashflow berdasarkan project 
 select kodecash,nama from cash_proj where kd_project = 11101

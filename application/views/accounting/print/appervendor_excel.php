@@ -14,32 +14,26 @@ header("Expires: 0");
 		<td><b>NO</b></td>
 		<td><b>SUPPLIER</b></td>
 		<td><b>NO AP</b></td>
-		<td><b>TANGGAL</b></td>
+		<td><b>PROJECT</b></td>
+		
+		<td><b>NO INVOICE</b></td>
+		<td><b>TGL INVOICE</b></td>
+		<td><b>TGL Jatuh TEMPO</b></td>
+		
 		<td><b>URAIAN</b></td>
-		<td><b>AMOUNT</b></td>
-		<td><b>AMOUNT</b></td>
+		
+		<td><b>NILAI TAGIHAN</b></td>
+		<td><b>PEMBAYARAN</b></td>
+		<td><b>SISA TAGIHAN</b></td>
+		<td><b>DPP PPH</b></td>
+		<td><b>PPH</b></td>
+		<td><b>DPP PPN</b></td>
+		<td><b>PPN</b></td>
 		
 		
 	</tr>
 
-
-
 <?php
-extract(PopulateForm());
-ini_set('memory_limit','512M');
-if($project==0){
-$oo = $this->db->query("select a.vendor_acct,b.nm_supplier from db_apinvoice a 
-	join pemasokmaster b on a.vendor_acct = b.kd_supplier
-	where a.due_date >= '".inggris_date($startdate)."' and due_date <= '".inggris_date($enddate)."'
-	group by a.vendor_acct,b.nm_supplier");
-}else{
-$oo = $this->db->query("select a.vendor_acct,b.nm_supplier from db_apinvoice a 
-	join pemasokmaster b on a.vendor_acct = b.kd_supplier
-	where (a.due_date >= '".inggris_date($startdate)."' and due_date <= '".inggris_date($enddate)."') and a.project_no = '$project'
-	group by a.vendor_acct,b.nm_supplier");
-}
-$dd = $oo->result();
-
 #$mining = $this->db->query("sp_appervendor '".$tanggal."'")->row();
 //~ var_dump($data);exit();
 $i = 0;
@@ -73,8 +67,17 @@ $i = 0;
 //~ $note = $ab.$row->customer_tlp;
 //~ $nope = $ab.$row->customer_hp;
 #$sql = $this->db->query("sp_appervendor")->row();
+extract(PopulateForm());
 
-foreach($dd as $row):
+$session_id = $this->UserLogin->isLogin();
+$pt = $session_id['id_pt'];
+
+$atartdate = inggris_date($startdate);
+$enddate = inggris_date($enddate);
+
+$data = $this->db->query("sp_appervendor '".$pt."','".$project."','".$enddate."'")->result();
+
+foreach($data as $row):
 
 $i++;
 ?>
@@ -85,14 +88,13 @@ $i++;
 		<td><?=$row->project?></td>
 		
 		<td><?=$row->noinvoice?></td>
-		<td><?=$row->tgl_inv?></td>
+		<td><?=$row->indo_date(tgl_inv)?></td>
 		<td><?=$row->jatuhtempo?></td>
 		
 		<td><?=$row->uraian?></td>
 		
 		<td><?=number_format($row->nilai)?></td>
 		<td><?=number_format($row->nilaibayar)?></td>
-		<td><?=number_format($row->nilaiadj)?></td>
 		<td><?=number_format($row->sisa)?></td>
 		<td><?=number_format($row->dpp_pph)?></td>
 		<td><?=number_format($row->pph23)?></td>

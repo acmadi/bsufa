@@ -85,7 +85,7 @@ $('#amount1').keyup(function(){
 	var b = parseInt($('#total_billing').val().replace(/,/g,''));
 	//alert(c+' '+t);
 	if(c > t){
-	alert('Tidak Boleh Melebihi Nominal Total PO');
+	alert('Tidak Boleh Melebihi Nominal Total AP');
 	$('#amount1').val(0);
 	}
 	$('#nett1').val(numToCurr(c));
@@ -1488,7 +1488,7 @@ $(document).ready(function(){
 	<td>Pph Type</td>
 			<td>:</td>
 			<td colspan="3">  
-						<select name="ppn_type" id="pph_type1" class="get_popphtype" style="background:white;border:1px solid #cbcbcb;padding:3px;width:205px">
+						<select name="pph_type" id="pph_type1" class="get_popphtype" style="background:white;border:1px solid #cbcbcb;padding:3px;width:205px">
 						<option value=''></option>
 							<? foreach($pphPajak as $row): ?>
 							<option value="<?=@$row->id_coa?>"><?=@$row->acc_name?> | <?=@$row->acc_no?></option> 

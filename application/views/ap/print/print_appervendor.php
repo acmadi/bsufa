@@ -10,12 +10,12 @@
 			if($project==0){
 			$oo = $this->db->query("select a.vendor_acct,b.nm_supplier from db_apinvoice a 
 			join pemasokmaster b on a.vendor_acct = b.kd_supplier
-			where a.due_date >= '".inggris_date($startdate)."' and due_date <= '".inggris_date($enddate)."'
+			where a.doc_date >= '".inggris_date($startdate)."' and doc_date <= '".inggris_date($enddate)."'
 			group by a.vendor_acct,b.nm_supplier");
 			}else{
 			$oo = $this->db->query("select a.vendor_acct,b.nm_supplier from db_apinvoice a 
 			join pemasokmaster b on a.vendor_acct = b.kd_supplier
-			where (a.due_date >= '".inggris_date($startdate)."' and due_date <= '".inggris_date($enddate)."') and a.project_no = '$project'
+			where (a.doc_date >= '".inggris_date($startdate)."' and doc_date <= '".inggris_date($enddate)."') and a.project_no = '$project'
 			group by a.vendor_acct,b.nm_supplier");
 			}
 			$dd = $oo->result();
@@ -80,7 +80,7 @@
 			$pdf->Cell(30,10,'Date',1,0,'C',1);
 			$pdf->Cell(150,10,'Description',1,0,'C',1);
 			$pdf->Cell(20,10,'Amount',1,0,'C',1);
-			$pdf->Cell(20,10,'Amount',1,0,'C',1);
+			$pdf->Cell(20,10,'Total Amount',1,0,'C',1);
 						
 			$pdf->Ln(5);
 			
@@ -102,7 +102,7 @@
 			$pdf->Ln(5);
 	
 			
-			$cb = $this->db->query("select * from db_apinvoice where vendor_acct = '".$rowk->vendor_acct."' and (due_date >= '".inggris_date($startdate)."' and due_date <= '".inggris_date($enddate)."')")->result();
+			$cb = $this->db->query("select * from db_apinvoice where vendor_acct = '".$rowk->vendor_acct."' and (doc_date >= '".inggris_date($startdate)."' and doc_date <= '".inggris_date($enddate)."')")->result();
 			$nos = 1;
 			$ta = 0;
 			if(!empty($cb)){
