@@ -1,2 +1,2 @@
-# fuckbsu
+# BSU disini
 au

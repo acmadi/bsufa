@@ -18,7 +18,7 @@
 |	['database'] The name of the database you want to connect to
 |	['dbdriver'] The database type. ie: mysql.  Currently supported:
 				 mysql, mysqli, postgre, odbc, mssql, sqlite, oci8
-|	['dbprefix'] You can add an optional prefix, which will be added
+|	['dbprefix'] You can add an optional prefix, whic h will be added
 |				 to the table name when using the  Active Record class
 |	['pconnect'] TRUE/FALSE - Whether to use a persistent connection
 |	['db_debug'] TRUE/FALSE - Whether database errors should be displayed.
@@ -37,9 +37,9 @@
 $active_group = "default";
 $active_record = TRUE;
 
-$db['default']['hostname'] = "HRISBSU";
+$db['default']['hostname'] = "LENOVO";
 $db['default']['username'] = "sa";
-$db['default']['password'] = "b1smill@h";
+$db['default']['password'] = "123";
 $db['default']['database'] = "BSUALL2005trial";
 $db['default']['dbdriver'] = "mssql";
 $db['default']['dbprefix'] = "";

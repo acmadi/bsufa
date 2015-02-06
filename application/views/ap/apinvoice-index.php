@@ -60,7 +60,7 @@ function generateGrid(gridData,moduleURL,width,height){
 		   }, 
 		   position:"last"
 		})
-*/
+*/ 
 		.navButtonAdd('#pager',{
 		   caption:"AP Cust", 
 		   buttonicon:"ui-icon-plus", 

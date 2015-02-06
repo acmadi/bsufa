@@ -1097,7 +1097,7 @@
 					//$this->load->view('ap/print/print_rpayvoucher3',$dtprv);
 					//redirect('apinvoice');	
 					die('sukses');
-					}					
+					}					 
 			}	
 			
 		function print_slip($id){	

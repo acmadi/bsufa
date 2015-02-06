@@ -7,11 +7,11 @@
 |
 | URL to your CodeIgniter root. Typically this will be your base URL,
 | WITH a trailing slash:
-|
+| 
 |	http://example.com/
 |
 */
-$config['base_url']	= "https://localhost/fa_bsu";
+$config['base_url']	= "https://localhost/fabsu";
 #$config['base_url']	= "172.16.1.13/mis";
 
 /*
