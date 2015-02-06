@@ -1,2 +1,0 @@
-# BSU disini
-au
