@@ -37,9 +37,9 @@
 $active_group = "default";
 $active_record = TRUE;
 
-$db['default']['hostname'] = "HRISBSU";
+$db['default']['hostname'] = "FATA";
 $db['default']['username'] = "sa";
-$db['default']['password'] = "b1smill@h";
+$db['default']['password'] = "123";
 $db['default']['database'] = "BSUALL2005trial";
 $db['default']['dbdriver'] = "mssql";
 $db['default']['dbprefix'] = "";

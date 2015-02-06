@@ -164,11 +164,11 @@ function generateGrid(gridData,moduleURL,width,height){
 <br>
 <br>
 <div style="left">
-<table >
+<table >                        
 		<tr>
-			<td style="background-color:white;width:130px;height:25px" align="center">NEW PLANNING</td>
-			<td style="background-color:#C1FFC1;;width:130px;height:25px">PLANNING</td>
-			<td style="background-color:pink;width:130px;height:25px" >PAYMENT PLAN</td>
+			<td style="background-color:white;width:130px;height:25px" align="center">New Planning</td>
+			<td style="background-color:#C1FFC1;;width:130px;height:25px">Not Full Payment</td>
+			<td style="background-color:pink;width:130px;height:25px" >Full Payment</td>
 			
 			
 		

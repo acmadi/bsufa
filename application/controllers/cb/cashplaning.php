@@ -146,8 +146,8 @@ class cashplaning extends DBController{
 		}else{
 		$cek = $this->db->query("select status from db_apinvoice where apinvoice_id='$id'")->row()->status;
 		if($cek==2){
-			echo "<script>alert('gagal');
-			document.location.href='".base_url()."cb/cashplanning_call';
+			echo "<script>alert('Sudah Full Payment');
+			refreshTable();
 			</script>";
 		}else{
 		

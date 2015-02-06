@@ -84,10 +84,10 @@ $('#amount1').keyup(function(){
 	var c = parseInt($('#amount1').val().replace(/,/g,''));
 	var b = parseInt($('#total_billing').val().replace(/,/g,''));
 	//alert(c+' '+t);
-	/*if(c > t){
+	if(c > t){
 	alert('Tidak Boleh Melebihi Nominal Total PO');
 	$('#amount1').val(0);
-	}*/
+	}
 	$('#nett1').val(numToCurr(c));
 	var afj = $("#aktif_flagjurnal").val();
 	if(afj=="po") {	$( "#view-jurnal-po" ).trigger( "click" );}
@@ -1408,7 +1408,7 @@ $(document).ready(function(){
 			<!--a href="#multi-pro"><input type="button" id="mul-pro" class="obj-pro btn-small" value="Multi"></a>
 			<!-- area area edit-update *)remove this mark after copy  -->
 		</td> 
-		<td>Invoice Amount</td>		
+		<td>Invoice Amount (Incld. PPn) </td>		
 		<td>:</td>
 		<td><input type="text" class="input calculate"  name="amount" id="amount1" class="calculate input validate[required]" value="<?=@$data->amount?>" class="validate[required]" size="30" style="background:white;border:1px solid #cbcbcb;padding:3px;width:198px"  /></td>
 	</tr>

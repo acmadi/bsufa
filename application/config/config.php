@@ -11,7 +11,7 @@
 |	http://example.com/
 |
 */
-$config['base_url']	= "https://localhost/fa_bsu";
+$config['base_url']	= "https://localhost/fa-bsu";
 #$config['base_url']	= "172.16.1.13/mis";
 
 /*

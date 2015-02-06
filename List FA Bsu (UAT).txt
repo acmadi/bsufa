@@ -2,8 +2,8 @@
 
 A. AP BSU
 
-1. form input field Invoice Amount = Invoice Amount (Incld. PPn) => OK
-2. validasi Invoice amount tidak boleh lebih besar dari nilai total Budget => OK
+1. form input field Invoice Amount = Invoice Amount (Incld. PPn)
+2. validasi Invoice amount tidak boleh lebih besar dari nilai total Budget
 3. validasi alert apabila tidak balance invoice input, ketika save invoice AP, validasi nya tidak loncat ke grid AP invoice
 4. Cek Report ketika print AP, tidak bisa print Request Payment Voucher 
 5. di Report Invoice AP (Format Excel) nilai PPN seharus nya nilai 10% dari invoice Amount
@@ -14,9 +14,9 @@ A. AP BSU
 
 
 B. CB  
-1. Note Cash plan "Full Payment" => OK
-2. di Bank Payment warna Jumlah Bayar jadi warna Hijau, cek Coa nya => MAKSUDNYA??
-3. No BK masih sama ketika di bayar partial, harusnya payment 1 cash plan, tetapi malah semua cash plan AP yang terbayar => PROGRESS
+1. Note Cash plan "Full Payment"
+2. di Bank Payment warna Jumlah Bayar jadi warna Hijau, cek Coa nya 
+3. No BK masih sama ketika di bayar partial, harusnya payment 1 cash plan, tetapi malah semua cash plan AP yang terbayar
 4. Ketika paid seharusnya ngurani AP, dikartu hutang masih tampil ketika as off nya kurang dari tanggal bayar
 5. Bank transaction
 
@@ -39,5 +39,5 @@ select bank_store from db_bank where project = 11101
 1. cash_proj
 2. db_bank
 3. db_subproject
-4. db_cashheaderga
+4. db_cashheader
 5. db_cashdetail
