@@ -1,2 +1,2 @@
-# fuckbsu
+# BBSU
 au
