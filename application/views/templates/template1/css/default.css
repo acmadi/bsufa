@@ -1,0 +1,181 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+body {
+	/*background-color: #438917;*/
+	background: #204907 url(../images/bgmenu3.gif) repeat-x;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;	
+	margin:0px;
+}
+
+#header{
+	padding: 4px;
+	border-bottom: 2px solid #f3e8d2;
+}
+.top10{
+	margin-top: 10px;
+}
+.bottom10{
+	margin-bottom:10px;
+	
+}
+
+.coverBerita{
+	border: 1px solid #a9a9a9;
+	height: 100px;
+	background: url(../images/avatar.jpg) no-repeat;
+	background-position: center;
+}
+.styleTgl{
+	margin-left: 130px;
+	background-color: #424242;
+	height: 20px;
+	padding-left:10px;
+}
+.rm{
+	margin-bottom: 5px;
+	background-color: #d6d6d6;
+	height: 20px;
+	text-align: right;
+	padding-right: 10px;
+}
+.tdspace{
+
+	background-color:#a9a9a9;
+}
+.tdjudul{
+	height:20%;
+	padding-top: 5px;
+	padding-left: 10px; 
+}
+.tdarticle{
+	height:80%;
+	padding-left: 10px;
+}
+
+.gray{
+	color: #FFF;
+	font-size:13px;
+}
+.gray a:link, .gray a:visited{
+	color: #FFF;
+	text-decoration: none;
+}
+.gray a:hover, .gray a:active{
+	text-decoration: underline;
+}
+.borderGray-left{
+	border-right: 2px solid #a8aaa7;
+	padding: 4px 10px;
+}
+.borderGray-center{
+	--border-right: 2px solid #a8aaa7;
+	padding: 4px 10px;
+}
+.borderGray-right{
+	border-left: 2px solid #a8aaa7;
+	padding: 4px 10px;
+}
+#content{
+	color:#000;
+	font-size:13px;
+	
+}
+#content a:link,#content a:visited{
+	text-decoration:none;
+	color:#666;
+	font-weight:bold
+}
+#content a:hover,#content a:active{
+	color:#000;
+}
+#tdContent{
+	padding-left:10px;
+	padding-right:10px;
+}
+#tdGallery{
+	
+	width: 750px;
+	height: 400px;
+	overflow: auto;
+	float: right;
+}
+#tdGalleryNews{
+	
+	width: 900px;
+	height: 400px;
+	overflow: auto;
+	float: right;
+}
+td .sidenav{
+	background: #ffffff url(../images/sidenav213.jpg) no-repeat;
+	background-position: bottom right;
+}
+.menuatas{
+	background: url(../images/menuatas.gif) repeat-x; 
+	height:20px;
+}
+.menuatas1{
+	background: url(../images/menuatas1.gif) no-repeat; 
+	height:20px;
+	width:13px;
+}
+.menuatas2{
+	background: url(../images/menuatas2.gif) no-repeat; 
+	height:20px;
+	width:14px;
+	background-position: top;
+}
+.menubawah{
+	background: url(../images/menubawah3.gif) repeat-x; 
+	height:20px;
+}
+.menubawah1{
+	background: url(../images/menubawah1.gif) no-repeat; 
+	height:20px;
+	width:12px;
+}
+.menubawah2{
+	background: url(../images/menubawah2.gif) no-repeat; 
+	height:20px;
+	width:15px;
+	
+}
+#tdLatestProduct img{
+	border: 0px;
+	margin-right: 5px;
+}
+#menu{
+	height: 34px;
+	background: #f7f017 url(../images/bgmenu.jpg) repeat-x left top;	
+}
+#trContent{
+	background: #204907 url(../images/bgcontent.jpg) repeat-x left top;
+
+}
+#searchTable{
+	border: 2px solid #7de78e;
+}
+#searchText{
+	background: #FFF url(../images/glass.jpg) no-repeat left center;
+	padding-left: 20px;
+}
+.selectedAnchor{
+	color:#FFF;
+	background-color: #635419;
+}
+h3 a{
+	color: #FFF;
+	margin-left: 10px
+}
+
+#footer label{
+	color: #ffffff;
+	text-align: center;
+	padding-bottom: 20px;	
+	margin-top: 100px;	
+}

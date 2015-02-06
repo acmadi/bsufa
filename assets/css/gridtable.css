@@ -1,0 +1,85 @@
+table {border:1px solid #ccc;width:600px;background:#fff;}
+table td{padding:5px;border:1px solid #ccc;}
+table th{border:1px solid #ccc;background:#ccc;}
+
+table tr:hover{border:1px solid #ccc;background:#008fff;cursor:pointer;}
+
+#content{margin:0 0 0 0; auto;width:800px;clear:both;}
+#content input[type='text']{
+	width:120px;
+	border:1px solid #ccc;
+}
+.rounded-corners {
+     -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+}
+
+
+#content label {
+    margin: 0px 0px 0 0; width: 100px;
+    float:left;
+    font-size: 10px; color: #000;
+    font-weight:bold;
+    /*text-transform: uppercase; text-shadow: 0px 2px 0px #111111;*/
+}
+
+
+#content .x1{
+float:left;
+width:300px;
+}
+
+#content input[type='text'] readonly{background:#ccc;}
+hr{border:1px solid #ccc;}
+#content{width:600px;}
+.select{background:#008fff;border:1px solid #ddd;}
+button{background:#008fff;border:1px solid #3a8fb0;font-weight:bolder;color:#fff;padding:5px;
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.37, rgb(57,138,176)),
+    color-stop(0.69, rgb(90,171,196))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(57,138,176) 37%,
+    rgb(90,171,196) 69%
+);
+}
+button:hover{background:#76bff7;border:1px solid #3a8fb0;font-weight:bolder;color:#fff;cursor:pointer;
+padding:5px;
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.37, rgb(58,143,176)),
+    color-stop(0.69, rgb(90,178,196))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(58,143,176) 37%,
+    rgb(90,178,196) 69%
+);}
+.readonly{background:#ccc;}
+.right{float:right;clear:both}
+
+#content div.terms {
+   width:800px;
+   height:100px;
+   border:1px solid #ccc;
+   background:#f2f2f2;
+   padding:6px;
+   overflow:auto;
+}
+#content div.terms p,
+#content div.terms li {font:normal 11px/15px arial;color:#333;}
+#content div.terms h3 {font:bold 14px/19px arial;color:#000;}
+#content div.terms h4 {font:bold 12px/17px arial;color:#000;}
+#content div.terms strong {color:#000;}
+
+
+
+

@@ -1,0 +1,478 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+DEBUG - 2010-12-05 10:56:52 --> Config Class Initialized
+DEBUG - 2010-12-05 10:56:52 --> Hooks Class Initialized
+DEBUG - 2010-12-05 10:56:52 --> URI Class Initialized
+DEBUG - 2010-12-05 10:56:52 --> No URI present. Default controller set.
+DEBUG - 2010-12-05 10:56:52 --> Router Class Initialized
+DEBUG - 2010-12-05 10:56:52 --> Output Class Initialized
+DEBUG - 2010-12-05 10:56:53 --> Input Class Initialized
+DEBUG - 2010-12-05 10:56:53 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 10:56:53 --> Language Class Initialized
+DEBUG - 2010-12-05 10:56:53 --> Loader Class Initialized
+DEBUG - 2010-12-05 10:56:53 --> Controller Class Initialized
+DEBUG - 2010-12-05 10:56:53 --> File loaded: C:\AppServ\www\Test\CI/system/application/views/welcome_message.php
+DEBUG - 2010-12-05 10:56:53 --> Final output sent to browser
+DEBUG - 2010-12-05 10:56:53 --> Total execution time: 0.6849
+DEBUG - 2010-12-05 11:08:20 --> Config Class Initialized
+DEBUG - 2010-12-05 11:08:20 --> Hooks Class Initialized
+DEBUG - 2010-12-05 11:08:20 --> URI Class Initialized
+DEBUG - 2010-12-05 11:08:20 --> No URI present. Default controller set.
+DEBUG - 2010-12-05 11:08:20 --> Router Class Initialized
+DEBUG - 2010-12-05 11:08:20 --> Output Class Initialized
+DEBUG - 2010-12-05 11:08:20 --> Input Class Initialized
+DEBUG - 2010-12-05 11:08:20 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 11:08:20 --> Language Class Initialized
+DEBUG - 2010-12-05 11:08:20 --> Loader Class Initialized
+DEBUG - 2010-12-05 11:08:20 --> Controller Class Initialized
+DEBUG - 2010-12-05 11:08:20 --> File loaded: C:\AppServ\www\Test\CI/system/application/views/welcome_message.php
+DEBUG - 2010-12-05 11:08:20 --> Final output sent to browser
+DEBUG - 2010-12-05 11:08:20 --> Total execution time: 0.3733
+DEBUG - 2010-12-05 11:10:04 --> Config Class Initialized
+DEBUG - 2010-12-05 11:10:04 --> Hooks Class Initialized
+DEBUG - 2010-12-05 11:10:04 --> URI Class Initialized
+DEBUG - 2010-12-05 11:10:04 --> No URI present. Default controller set.
+DEBUG - 2010-12-05 11:10:04 --> Router Class Initialized
+DEBUG - 2010-12-05 11:10:04 --> Output Class Initialized
+DEBUG - 2010-12-05 11:10:04 --> Input Class Initialized
+DEBUG - 2010-12-05 11:10:04 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 11:10:04 --> Language Class Initialized
+DEBUG - 2010-12-05 11:10:04 --> Loader Class Initialized
+DEBUG - 2010-12-05 11:10:04 --> Controller Class Initialized
+DEBUG - 2010-12-05 11:10:04 --> File loaded: C:\AppServ\www\Test\CI/system/application/views/welcome_message.php
+DEBUG - 2010-12-05 11:10:04 --> Final output sent to browser
+DEBUG - 2010-12-05 11:10:04 --> Total execution time: 0.2697
+DEBUG - 2010-12-05 11:27:24 --> Config Class Initialized
+DEBUG - 2010-12-05 11:27:24 --> Hooks Class Initialized
+DEBUG - 2010-12-05 11:27:24 --> URI Class Initialized
+DEBUG - 2010-12-05 11:27:24 --> Router Class Initialized
+DEBUG - 2010-12-05 11:27:25 --> Output Class Initialized
+DEBUG - 2010-12-05 11:27:25 --> Input Class Initialized
+DEBUG - 2010-12-05 11:27:25 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 11:27:25 --> Language Class Initialized
+DEBUG - 2010-12-05 11:27:33 --> Config Class Initialized
+DEBUG - 2010-12-05 11:27:33 --> Hooks Class Initialized
+DEBUG - 2010-12-05 11:27:33 --> URI Class Initialized
+DEBUG - 2010-12-05 11:27:33 --> Router Class Initialized
+DEBUG - 2010-12-05 11:27:33 --> Output Class Initialized
+DEBUG - 2010-12-05 11:27:33 --> Input Class Initialized
+DEBUG - 2010-12-05 11:27:33 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 11:27:33 --> Language Class Initialized
+DEBUG - 2010-12-05 11:27:34 --> Loader Class Initialized
+DEBUG - 2010-12-05 11:27:34 --> Controller Class Initialized
+DEBUG - 2010-12-05 11:27:34 --> Final output sent to browser
+DEBUG - 2010-12-05 11:27:34 --> Total execution time: 0.3651
+DEBUG - 2010-12-05 11:35:39 --> Config Class Initialized
+DEBUG - 2010-12-05 11:35:39 --> Hooks Class Initialized
+DEBUG - 2010-12-05 11:35:39 --> URI Class Initialized
+DEBUG - 2010-12-05 11:35:39 --> Router Class Initialized
+DEBUG - 2010-12-05 11:35:39 --> Output Class Initialized
+DEBUG - 2010-12-05 11:35:39 --> Input Class Initialized
+DEBUG - 2010-12-05 11:35:39 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 11:35:39 --> Language Class Initialized
+DEBUG - 2010-12-05 11:35:39 --> Loader Class Initialized
+DEBUG - 2010-12-05 11:35:39 --> Controller Class Initialized
+DEBUG - 2010-12-05 11:35:39 --> Final output sent to browser
+DEBUG - 2010-12-05 11:35:39 --> Total execution time: 0.2751
+DEBUG - 2010-12-05 11:36:54 --> Config Class Initialized
+DEBUG - 2010-12-05 11:36:54 --> Hooks Class Initialized
+DEBUG - 2010-12-05 11:36:54 --> URI Class Initialized
+DEBUG - 2010-12-05 11:36:54 --> Router Class Initialized
+DEBUG - 2010-12-05 11:36:54 --> Output Class Initialized
+DEBUG - 2010-12-05 11:36:54 --> Input Class Initialized
+DEBUG - 2010-12-05 11:36:54 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 11:36:54 --> Language Class Initialized
+DEBUG - 2010-12-05 11:36:54 --> Loader Class Initialized
+DEBUG - 2010-12-05 11:36:54 --> Controller Class Initialized
+DEBUG - 2010-12-05 11:36:54 --> Final output sent to browser
+DEBUG - 2010-12-05 11:36:54 --> Total execution time: 0.4018
+DEBUG - 2010-12-05 11:36:58 --> Config Class Initialized
+DEBUG - 2010-12-05 11:36:58 --> Hooks Class Initialized
+DEBUG - 2010-12-05 11:36:58 --> URI Class Initialized
+DEBUG - 2010-12-05 11:36:58 --> Router Class Initialized
+DEBUG - 2010-12-05 11:36:58 --> Output Class Initialized
+DEBUG - 2010-12-05 11:36:58 --> Input Class Initialized
+DEBUG - 2010-12-05 11:36:58 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 11:36:58 --> Language Class Initialized
+DEBUG - 2010-12-05 11:36:58 --> Loader Class Initialized
+DEBUG - 2010-12-05 11:36:59 --> Controller Class Initialized
+DEBUG - 2010-12-05 11:36:59 --> Final output sent to browser
+DEBUG - 2010-12-05 11:36:59 --> Total execution time: 0.4081
+DEBUG - 2010-12-05 11:40:58 --> Config Class Initialized
+DEBUG - 2010-12-05 11:40:58 --> Hooks Class Initialized
+DEBUG - 2010-12-05 11:40:58 --> URI Class Initialized
+DEBUG - 2010-12-05 11:40:58 --> Router Class Initialized
+DEBUG - 2010-12-05 11:40:58 --> Output Class Initialized
+DEBUG - 2010-12-05 11:40:58 --> Input Class Initialized
+DEBUG - 2010-12-05 11:40:58 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 11:40:58 --> Language Class Initialized
+DEBUG - 2010-12-05 11:40:58 --> Loader Class Initialized
+DEBUG - 2010-12-05 11:40:58 --> Controller Class Initialized
+ERROR - 2010-12-05 11:40:58 --> 404 Page Not Found --> demo/cobaview
+DEBUG - 2010-12-05 11:41:10 --> Config Class Initialized
+DEBUG - 2010-12-05 11:41:10 --> Hooks Class Initialized
+DEBUG - 2010-12-05 11:41:10 --> URI Class Initialized
+DEBUG - 2010-12-05 11:41:10 --> Router Class Initialized
+DEBUG - 2010-12-05 11:41:10 --> Output Class Initialized
+DEBUG - 2010-12-05 11:41:10 --> Input Class Initialized
+DEBUG - 2010-12-05 11:41:10 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 11:41:10 --> Language Class Initialized
+DEBUG - 2010-12-05 11:41:10 --> Loader Class Initialized
+DEBUG - 2010-12-05 11:41:10 --> Controller Class Initialized
+DEBUG - 2010-12-05 11:41:10 --> Final output sent to browser
+DEBUG - 2010-12-05 11:41:10 --> Total execution time: 0.4519
+DEBUG - 2010-12-05 11:50:32 --> Config Class Initialized
+DEBUG - 2010-12-05 11:50:32 --> Hooks Class Initialized
+DEBUG - 2010-12-05 11:50:32 --> URI Class Initialized
+DEBUG - 2010-12-05 11:50:32 --> Router Class Initialized
+DEBUG - 2010-12-05 11:50:32 --> Output Class Initialized
+DEBUG - 2010-12-05 11:50:32 --> Input Class Initialized
+DEBUG - 2010-12-05 11:50:32 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 11:50:32 --> Language Class Initialized
+DEBUG - 2010-12-05 11:50:32 --> Loader Class Initialized
+DEBUG - 2010-12-05 11:50:32 --> Controller Class Initialized
+DEBUG - 2010-12-05 11:50:32 --> Final output sent to browser
+DEBUG - 2010-12-05 11:50:32 --> Total execution time: 0.4589
+DEBUG - 2010-12-05 11:51:00 --> Config Class Initialized
+DEBUG - 2010-12-05 11:51:00 --> Hooks Class Initialized
+DEBUG - 2010-12-05 11:51:00 --> URI Class Initialized
+DEBUG - 2010-12-05 11:51:00 --> Router Class Initialized
+DEBUG - 2010-12-05 11:51:00 --> Output Class Initialized
+DEBUG - 2010-12-05 11:51:00 --> Input Class Initialized
+DEBUG - 2010-12-05 11:51:00 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 11:51:00 --> Language Class Initialized
+DEBUG - 2010-12-05 11:51:00 --> Loader Class Initialized
+DEBUG - 2010-12-05 11:51:00 --> Controller Class Initialized
+DEBUG - 2010-12-05 11:51:00 --> Final output sent to browser
+DEBUG - 2010-12-05 11:51:00 --> Total execution time: 0.3142
+DEBUG - 2010-12-05 11:51:53 --> Config Class Initialized
+DEBUG - 2010-12-05 11:51:53 --> Hooks Class Initialized
+DEBUG - 2010-12-05 11:51:53 --> URI Class Initialized
+DEBUG - 2010-12-05 11:51:53 --> Router Class Initialized
+DEBUG - 2010-12-05 11:51:53 --> Output Class Initialized
+DEBUG - 2010-12-05 11:51:53 --> Input Class Initialized
+DEBUG - 2010-12-05 11:51:53 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 11:51:54 --> Language Class Initialized
+DEBUG - 2010-12-05 11:51:54 --> Loader Class Initialized
+DEBUG - 2010-12-05 11:51:54 --> Controller Class Initialized
+DEBUG - 2010-12-05 11:51:54 --> Final output sent to browser
+DEBUG - 2010-12-05 11:51:54 --> Total execution time: 0.3282
+DEBUG - 2010-12-05 11:53:44 --> Config Class Initialized
+DEBUG - 2010-12-05 11:53:44 --> Hooks Class Initialized
+DEBUG - 2010-12-05 11:53:44 --> URI Class Initialized
+DEBUG - 2010-12-05 11:53:44 --> Router Class Initialized
+DEBUG - 2010-12-05 11:53:44 --> Output Class Initialized
+DEBUG - 2010-12-05 11:53:45 --> Input Class Initialized
+DEBUG - 2010-12-05 11:53:45 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 11:53:45 --> Language Class Initialized
+DEBUG - 2010-12-05 11:53:45 --> Loader Class Initialized
+DEBUG - 2010-12-05 11:53:45 --> Controller Class Initialized
+DEBUG - 2010-12-05 11:53:45 --> Final output sent to browser
+DEBUG - 2010-12-05 11:53:45 --> Total execution time: 0.6310
+DEBUG - 2010-12-05 12:34:16 --> Config Class Initialized
+DEBUG - 2010-12-05 12:34:16 --> Hooks Class Initialized
+DEBUG - 2010-12-05 12:34:16 --> URI Class Initialized
+DEBUG - 2010-12-05 12:34:16 --> Router Class Initialized
+DEBUG - 2010-12-05 12:34:16 --> Output Class Initialized
+DEBUG - 2010-12-05 12:34:17 --> Input Class Initialized
+DEBUG - 2010-12-05 12:34:17 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 12:34:17 --> Language Class Initialized
+DEBUG - 2010-12-05 12:34:17 --> Loader Class Initialized
+DEBUG - 2010-12-05 12:34:17 --> Controller Class Initialized
+DEBUG - 2010-12-05 12:34:17 --> Final output sent to browser
+DEBUG - 2010-12-05 12:34:17 --> Total execution time: 0.3516
+DEBUG - 2010-12-05 12:37:38 --> Config Class Initialized
+DEBUG - 2010-12-05 12:37:38 --> Hooks Class Initialized
+DEBUG - 2010-12-05 12:37:38 --> URI Class Initialized
+ERROR - 2010-12-05 12:37:38 --> 404 Page Not Found --> test
+DEBUG - 2010-12-05 12:37:45 --> Config Class Initialized
+DEBUG - 2010-12-05 12:37:45 --> Hooks Class Initialized
+DEBUG - 2010-12-05 12:37:45 --> URI Class Initialized
+DEBUG - 2010-12-05 12:37:45 --> Router Class Initialized
+DEBUG - 2010-12-05 12:37:45 --> Output Class Initialized
+DEBUG - 2010-12-05 12:37:45 --> Input Class Initialized
+DEBUG - 2010-12-05 12:37:45 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 12:37:45 --> Language Class Initialized
+DEBUG - 2010-12-05 12:37:45 --> Loader Class Initialized
+DEBUG - 2010-12-05 12:37:45 --> Controller Class Initialized
+DEBUG - 2010-12-05 12:37:45 --> Final output sent to browser
+DEBUG - 2010-12-05 12:37:45 --> Total execution time: 0.3534
+DEBUG - 2010-12-05 13:18:10 --> Config Class Initialized
+DEBUG - 2010-12-05 13:18:10 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:18:10 --> URI Class Initialized
+DEBUG - 2010-12-05 13:18:10 --> Router Class Initialized
+DEBUG - 2010-12-05 13:18:10 --> Output Class Initialized
+DEBUG - 2010-12-05 13:18:11 --> Input Class Initialized
+DEBUG - 2010-12-05 13:18:11 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:18:11 --> Language Class Initialized
+DEBUG - 2010-12-05 13:18:19 --> Config Class Initialized
+DEBUG - 2010-12-05 13:18:19 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:18:19 --> URI Class Initialized
+ERROR - 2010-12-05 13:18:19 --> 404 Page Not Found --> demo_view
+DEBUG - 2010-12-05 13:18:29 --> Config Class Initialized
+DEBUG - 2010-12-05 13:18:30 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:18:30 --> URI Class Initialized
+ERROR - 2010-12-05 13:18:30 --> 404 Page Not Found --> demo_view.php
+DEBUG - 2010-12-05 13:20:01 --> Config Class Initialized
+DEBUG - 2010-12-05 13:20:01 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:20:01 --> URI Class Initialized
+DEBUG - 2010-12-05 13:20:02 --> Router Class Initialized
+DEBUG - 2010-12-05 13:20:02 --> Output Class Initialized
+DEBUG - 2010-12-05 13:20:02 --> Input Class Initialized
+DEBUG - 2010-12-05 13:20:02 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:20:02 --> Language Class Initialized
+DEBUG - 2010-12-05 13:22:00 --> Config Class Initialized
+DEBUG - 2010-12-05 13:22:01 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:22:01 --> URI Class Initialized
+DEBUG - 2010-12-05 13:22:01 --> Router Class Initialized
+DEBUG - 2010-12-05 13:22:01 --> Output Class Initialized
+DEBUG - 2010-12-05 13:22:01 --> Input Class Initialized
+DEBUG - 2010-12-05 13:22:01 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:22:01 --> Language Class Initialized
+DEBUG - 2010-12-05 13:22:32 --> Config Class Initialized
+DEBUG - 2010-12-05 13:22:32 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:22:32 --> URI Class Initialized
+DEBUG - 2010-12-05 13:22:32 --> Router Class Initialized
+DEBUG - 2010-12-05 13:22:32 --> Output Class Initialized
+DEBUG - 2010-12-05 13:22:32 --> Input Class Initialized
+DEBUG - 2010-12-05 13:22:32 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:22:33 --> Language Class Initialized
+DEBUG - 2010-12-05 13:23:33 --> Config Class Initialized
+DEBUG - 2010-12-05 13:23:33 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:23:33 --> URI Class Initialized
+DEBUG - 2010-12-05 13:23:33 --> Router Class Initialized
+DEBUG - 2010-12-05 13:23:33 --> Output Class Initialized
+DEBUG - 2010-12-05 13:23:34 --> Input Class Initialized
+DEBUG - 2010-12-05 13:23:34 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:23:34 --> Language Class Initialized
+DEBUG - 2010-12-05 13:23:34 --> Loader Class Initialized
+DEBUG - 2010-12-05 13:23:34 --> Controller Class Initialized
+ERROR - 2010-12-05 13:23:34 --> 404 Page Not Found --> demo/coba_view
+DEBUG - 2010-12-05 13:24:11 --> Config Class Initialized
+DEBUG - 2010-12-05 13:24:11 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:24:11 --> URI Class Initialized
+DEBUG - 2010-12-05 13:24:11 --> Router Class Initialized
+DEBUG - 2010-12-05 13:24:11 --> Output Class Initialized
+DEBUG - 2010-12-05 13:24:11 --> Input Class Initialized
+DEBUG - 2010-12-05 13:24:11 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:24:11 --> Language Class Initialized
+DEBUG - 2010-12-05 13:24:11 --> Loader Class Initialized
+DEBUG - 2010-12-05 13:24:11 --> Controller Class Initialized
+ERROR - 2010-12-05 13:24:11 --> 404 Page Not Found --> demo/coba_view
+DEBUG - 2010-12-05 13:25:01 --> Config Class Initialized
+DEBUG - 2010-12-05 13:25:01 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:25:01 --> URI Class Initialized
+DEBUG - 2010-12-05 13:25:01 --> Router Class Initialized
+DEBUG - 2010-12-05 13:25:01 --> Output Class Initialized
+DEBUG - 2010-12-05 13:25:01 --> Input Class Initialized
+DEBUG - 2010-12-05 13:25:01 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:25:01 --> Language Class Initialized
+DEBUG - 2010-12-05 13:25:01 --> Loader Class Initialized
+DEBUG - 2010-12-05 13:25:01 --> Controller Class Initialized
+ERROR - 2010-12-05 13:25:01 --> 404 Page Not Found --> demo/coba_view
+DEBUG - 2010-12-05 13:29:22 --> Config Class Initialized
+DEBUG - 2010-12-05 13:29:22 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:29:22 --> URI Class Initialized
+DEBUG - 2010-12-05 13:29:22 --> Router Class Initialized
+DEBUG - 2010-12-05 13:29:22 --> Output Class Initialized
+DEBUG - 2010-12-05 13:29:22 --> Input Class Initialized
+DEBUG - 2010-12-05 13:29:22 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:29:22 --> Language Class Initialized
+DEBUG - 2010-12-05 13:29:22 --> Loader Class Initialized
+DEBUG - 2010-12-05 13:29:22 --> Controller Class Initialized
+ERROR - 2010-12-05 13:29:22 --> 404 Page Not Found --> demo/coba_view
+DEBUG - 2010-12-05 13:29:30 --> Config Class Initialized
+DEBUG - 2010-12-05 13:29:30 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:29:30 --> URI Class Initialized
+DEBUG - 2010-12-05 13:29:30 --> Router Class Initialized
+DEBUG - 2010-12-05 13:29:30 --> Output Class Initialized
+DEBUG - 2010-12-05 13:29:30 --> Input Class Initialized
+DEBUG - 2010-12-05 13:29:30 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:29:30 --> Language Class Initialized
+DEBUG - 2010-12-05 13:29:30 --> Loader Class Initialized
+DEBUG - 2010-12-05 13:29:30 --> Controller Class Initialized
+ERROR - 2010-12-05 13:29:30 --> Severity: Notice  --> Use of undefined constant tanggal - assumed 'tanggal' C:\AppServ\www\CI\application\views\demo_view.php 4
+ERROR - 2010-12-05 13:29:30 --> Severity: Notice  --> Undefined variable: hobby C:\AppServ\www\CI\application\views\demo_view.php 8
+ERROR - 2010-12-05 13:29:30 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\AppServ\www\CI\application\views\demo_view.php 8
+DEBUG - 2010-12-05 13:29:30 --> File loaded: application/views/demo_view.php
+DEBUG - 2010-12-05 13:29:30 --> Final output sent to browser
+DEBUG - 2010-12-05 13:29:30 --> Total execution time: 0.6870
+DEBUG - 2010-12-05 13:30:35 --> Config Class Initialized
+DEBUG - 2010-12-05 13:30:35 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:30:35 --> URI Class Initialized
+DEBUG - 2010-12-05 13:30:35 --> Router Class Initialized
+DEBUG - 2010-12-05 13:30:35 --> Output Class Initialized
+DEBUG - 2010-12-05 13:30:35 --> Input Class Initialized
+DEBUG - 2010-12-05 13:30:35 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:30:36 --> Language Class Initialized
+DEBUG - 2010-12-05 13:30:36 --> Loader Class Initialized
+DEBUG - 2010-12-05 13:30:36 --> Controller Class Initialized
+ERROR - 2010-12-05 13:30:36 --> Severity: Notice  --> Use of undefined constant tanggal - assumed 'tanggal' C:\AppServ\www\CI\application\views\demo_view.php 4
+ERROR - 2010-12-05 13:30:36 --> Severity: Notice  --> Undefined variable: hobby C:\AppServ\www\CI\application\views\demo_view.php 8
+ERROR - 2010-12-05 13:30:36 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\AppServ\www\CI\application\views\demo_view.php 8
+DEBUG - 2010-12-05 13:30:36 --> File loaded: application/views/demo_view.php
+DEBUG - 2010-12-05 13:30:36 --> Final output sent to browser
+DEBUG - 2010-12-05 13:30:36 --> Total execution time: 0.5870
+DEBUG - 2010-12-05 13:30:43 --> Config Class Initialized
+DEBUG - 2010-12-05 13:30:43 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:30:43 --> URI Class Initialized
+DEBUG - 2010-12-05 13:30:43 --> Router Class Initialized
+DEBUG - 2010-12-05 13:30:43 --> Output Class Initialized
+DEBUG - 2010-12-05 13:30:43 --> Input Class Initialized
+DEBUG - 2010-12-05 13:30:43 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:30:43 --> Language Class Initialized
+DEBUG - 2010-12-05 13:30:43 --> Loader Class Initialized
+DEBUG - 2010-12-05 13:30:43 --> Controller Class Initialized
+ERROR - 2010-12-05 13:30:43 --> Severity: Notice  --> Undefined variable: hobby C:\AppServ\www\CI\application\views\demo_view.php 8
+ERROR - 2010-12-05 13:30:43 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\AppServ\www\CI\application\views\demo_view.php 8
+DEBUG - 2010-12-05 13:30:43 --> File loaded: application/views/demo_view.php
+DEBUG - 2010-12-05 13:30:44 --> Final output sent to browser
+DEBUG - 2010-12-05 13:30:44 --> Total execution time: 0.6582
+DEBUG - 2010-12-05 13:31:01 --> Config Class Initialized
+DEBUG - 2010-12-05 13:31:01 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:31:01 --> URI Class Initialized
+DEBUG - 2010-12-05 13:31:01 --> Router Class Initialized
+DEBUG - 2010-12-05 13:31:01 --> Output Class Initialized
+DEBUG - 2010-12-05 13:31:01 --> Input Class Initialized
+DEBUG - 2010-12-05 13:31:01 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:31:01 --> Language Class Initialized
+DEBUG - 2010-12-05 13:31:01 --> Loader Class Initialized
+DEBUG - 2010-12-05 13:31:01 --> Controller Class Initialized
+ERROR - 2010-12-05 13:31:01 --> Severity: Notice  --> Undefined variable: hobby C:\AppServ\www\CI\application\views\demo_view.php 8
+ERROR - 2010-12-05 13:31:01 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\AppServ\www\CI\application\views\demo_view.php 8
+DEBUG - 2010-12-05 13:31:01 --> File loaded: application/views/demo_view.php
+DEBUG - 2010-12-05 13:31:02 --> Final output sent to browser
+DEBUG - 2010-12-05 13:31:02 --> Total execution time: 0.9136
+DEBUG - 2010-12-05 13:33:46 --> Config Class Initialized
+DEBUG - 2010-12-05 13:33:46 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:33:46 --> URI Class Initialized
+DEBUG - 2010-12-05 13:33:46 --> Router Class Initialized
+DEBUG - 2010-12-05 13:33:47 --> Output Class Initialized
+DEBUG - 2010-12-05 13:33:47 --> Input Class Initialized
+DEBUG - 2010-12-05 13:33:47 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:33:47 --> Language Class Initialized
+DEBUG - 2010-12-05 13:33:47 --> Loader Class Initialized
+DEBUG - 2010-12-05 13:33:47 --> Controller Class Initialized
+ERROR - 2010-12-05 13:33:47 --> 404 Page Not Found --> demo/model.php
+DEBUG - 2010-12-05 13:42:00 --> Config Class Initialized
+DEBUG - 2010-12-05 13:42:00 --> Hooks Class Initialized
+DEBUG - 2010-12-05 13:42:00 --> URI Class Initialized
+DEBUG - 2010-12-05 13:42:00 --> Router Class Initialized
+DEBUG - 2010-12-05 13:42:00 --> Output Class Initialized
+DEBUG - 2010-12-05 13:42:00 --> Input Class Initialized
+DEBUG - 2010-12-05 13:42:00 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 13:42:00 --> Language Class Initialized
+DEBUG - 2010-12-05 13:42:00 --> Loader Class Initialized
+DEBUG - 2010-12-05 13:42:00 --> Controller Class Initialized
+ERROR - 2010-12-05 13:42:00 --> 404 Page Not Found --> demo/cobamodel
+DEBUG - 2010-12-05 14:21:56 --> Config Class Initialized
+DEBUG - 2010-12-05 14:21:56 --> Hooks Class Initialized
+DEBUG - 2010-12-05 14:21:56 --> URI Class Initialized
+DEBUG - 2010-12-05 14:21:56 --> Router Class Initialized
+DEBUG - 2010-12-05 14:21:56 --> Output Class Initialized
+DEBUG - 2010-12-05 14:21:56 --> Input Class Initialized
+DEBUG - 2010-12-05 14:21:56 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 14:21:56 --> Language Class Initialized
+DEBUG - 2010-12-05 14:23:31 --> Config Class Initialized
+DEBUG - 2010-12-05 14:23:31 --> Hooks Class Initialized
+DEBUG - 2010-12-05 14:23:31 --> URI Class Initialized
+DEBUG - 2010-12-05 14:23:31 --> Router Class Initialized
+DEBUG - 2010-12-05 14:23:31 --> Output Class Initialized
+DEBUG - 2010-12-05 14:23:32 --> Input Class Initialized
+DEBUG - 2010-12-05 14:23:32 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 14:23:32 --> Language Class Initialized
+DEBUG - 2010-12-05 14:25:51 --> Config Class Initialized
+DEBUG - 2010-12-05 14:25:51 --> Hooks Class Initialized
+DEBUG - 2010-12-05 14:25:51 --> URI Class Initialized
+DEBUG - 2010-12-05 14:25:51 --> Router Class Initialized
+DEBUG - 2010-12-05 14:25:51 --> Output Class Initialized
+DEBUG - 2010-12-05 14:25:51 --> Input Class Initialized
+DEBUG - 2010-12-05 14:25:51 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 14:25:51 --> Language Class Initialized
+DEBUG - 2010-12-05 14:25:51 --> Loader Class Initialized
+DEBUG - 2010-12-05 14:25:51 --> Controller Class Initialized
+ERROR - 2010-12-05 14:25:51 --> 404 Page Not Found --> demo/coba_view
+DEBUG - 2010-12-05 14:26:01 --> Config Class Initialized
+DEBUG - 2010-12-05 14:26:01 --> Hooks Class Initialized
+DEBUG - 2010-12-05 14:26:01 --> URI Class Initialized
+DEBUG - 2010-12-05 14:26:01 --> Router Class Initialized
+DEBUG - 2010-12-05 14:26:01 --> Output Class Initialized
+DEBUG - 2010-12-05 14:26:01 --> Input Class Initialized
+DEBUG - 2010-12-05 14:26:01 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 14:26:01 --> Language Class Initialized
+DEBUG - 2010-12-05 14:26:01 --> Loader Class Initialized
+DEBUG - 2010-12-05 14:26:02 --> Controller Class Initialized
+ERROR - 2010-12-05 14:26:02 --> Severity: Notice  --> Undefined property: demo::$cobamodel C:\AppServ\www\CI\application\controllers\demo.php 19
+DEBUG - 2010-12-05 14:26:31 --> Config Class Initialized
+DEBUG - 2010-12-05 14:26:31 --> Hooks Class Initialized
+DEBUG - 2010-12-05 14:26:31 --> URI Class Initialized
+DEBUG - 2010-12-05 14:26:31 --> Router Class Initialized
+DEBUG - 2010-12-05 14:26:31 --> Output Class Initialized
+DEBUG - 2010-12-05 14:26:32 --> Input Class Initialized
+DEBUG - 2010-12-05 14:26:32 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 14:26:32 --> Language Class Initialized
+DEBUG - 2010-12-05 14:26:40 --> Config Class Initialized
+DEBUG - 2010-12-05 14:26:40 --> Hooks Class Initialized
+DEBUG - 2010-12-05 14:26:40 --> URI Class Initialized
+DEBUG - 2010-12-05 14:26:40 --> Router Class Initialized
+DEBUG - 2010-12-05 14:26:40 --> Output Class Initialized
+DEBUG - 2010-12-05 14:26:40 --> Input Class Initialized
+DEBUG - 2010-12-05 14:26:40 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 14:26:40 --> Language Class Initialized
+DEBUG - 2010-12-05 14:26:40 --> Loader Class Initialized
+DEBUG - 2010-12-05 14:26:40 --> Controller Class Initialized
+DEBUG - 2010-12-05 14:27:02 --> Config Class Initialized
+DEBUG - 2010-12-05 14:27:02 --> Hooks Class Initialized
+DEBUG - 2010-12-05 14:27:02 --> URI Class Initialized
+DEBUG - 2010-12-05 14:27:02 --> Router Class Initialized
+DEBUG - 2010-12-05 14:27:02 --> Output Class Initialized
+DEBUG - 2010-12-05 14:27:02 --> Input Class Initialized
+DEBUG - 2010-12-05 14:27:02 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 14:27:02 --> Language Class Initialized
+DEBUG - 2010-12-05 14:27:02 --> Loader Class Initialized
+DEBUG - 2010-12-05 14:27:02 --> Controller Class Initialized
+DEBUG - 2010-12-05 14:27:02 --> Model Class Initialized
+DEBUG - 2010-12-05 14:27:17 --> Config Class Initialized
+DEBUG - 2010-12-05 14:27:18 --> Hooks Class Initialized
+DEBUG - 2010-12-05 14:27:18 --> URI Class Initialized
+DEBUG - 2010-12-05 14:27:18 --> Router Class Initialized
+DEBUG - 2010-12-05 14:27:18 --> Output Class Initialized
+DEBUG - 2010-12-05 14:27:18 --> Input Class Initialized
+DEBUG - 2010-12-05 14:27:18 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 14:27:18 --> Language Class Initialized
+DEBUG - 2010-12-05 14:27:18 --> Loader Class Initialized
+DEBUG - 2010-12-05 14:27:18 --> Controller Class Initialized
+DEBUG - 2010-12-05 14:27:18 --> Model Class Initialized
+ERROR - 2010-12-05 14:27:18 --> Severity: Notice  --> Undefined index: rasuna C:\AppServ\www\CI\application\views\demomodel_view.php 6
+ERROR - 2010-12-05 14:27:18 --> Severity: Notice  --> Undefined index: laki-laki C:\AppServ\www\CI\application\views\demomodel_view.php 7
+DEBUG - 2010-12-05 14:27:18 --> File loaded: application/views/demomodel_view.php
+DEBUG - 2010-12-05 14:27:18 --> Final output sent to browser
+DEBUG - 2010-12-05 14:27:18 --> Total execution time: 0.7656
+DEBUG - 2010-12-05 14:27:36 --> Config Class Initialized
+DEBUG - 2010-12-05 14:27:36 --> Hooks Class Initialized
+DEBUG - 2010-12-05 14:27:36 --> URI Class Initialized
+DEBUG - 2010-12-05 14:27:36 --> Router Class Initialized
+DEBUG - 2010-12-05 14:27:37 --> Output Class Initialized
+DEBUG - 2010-12-05 14:27:37 --> Input Class Initialized
+DEBUG - 2010-12-05 14:27:37 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 14:27:37 --> Language Class Initialized
+DEBUG - 2010-12-05 14:27:37 --> Loader Class Initialized
+DEBUG - 2010-12-05 14:27:37 --> Controller Class Initialized
+DEBUG - 2010-12-05 14:27:37 --> Model Class Initialized
+DEBUG - 2010-12-05 14:27:37 --> File loaded: application/views/demomodel_view.php
+DEBUG - 2010-12-05 14:27:37 --> Final output sent to browser
+DEBUG - 2010-12-05 14:27:37 --> Total execution time: 0.6892
+DEBUG - 2010-12-05 14:27:47 --> Config Class Initialized
+DEBUG - 2010-12-05 14:27:47 --> Hooks Class Initialized
+DEBUG - 2010-12-05 14:27:47 --> URI Class Initialized
+DEBUG - 2010-12-05 14:27:47 --> Router Class Initialized
+DEBUG - 2010-12-05 14:27:47 --> Output Class Initialized
+DEBUG - 2010-12-05 14:27:47 --> Input Class Initialized
+DEBUG - 2010-12-05 14:27:47 --> Global POST and COOKIE data sanitized
+DEBUG - 2010-12-05 14:27:47 --> Language Class Initialized
+DEBUG - 2010-12-05 14:27:47 --> Loader Class Initialized
+DEBUG - 2010-12-05 14:27:47 --> Controller Class Initialized
+DEBUG - 2010-12-05 14:27:47 --> Model Class Initialized
+DEBUG - 2010-12-05 14:27:47 --> File loaded: application/views/demomodel_view.php
+DEBUG - 2010-12-05 14:27:47 --> Final output sent to browser
+DEBUG - 2010-12-05 14:27:47 --> Total execution time: 0.7110

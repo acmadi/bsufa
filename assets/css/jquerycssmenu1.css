@@ -1,0 +1,78 @@
+.jquerycssmenu_tenismeja {
+	background: #FFF;
+/*
+	border-bottom: 1px solid #315091;
+	padding: 2px 0 0 4px;
+*/
+}
+.jquerycssmenu_tenismeja ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.jquerycssmenu_tenismeja ul li {
+	position: relative;
+	display: inline;
+	float: left;
+}
+.jquerycssmenu_tenismeja ul li a {
+	display: block;
+	padding: 2px 8px;
+	margin-right: 2px;
+	border-bottom-width: 0;
+	color: #0a3a06;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 13px;
+	font-weight: bold;
+}
+.jquerycssmenu_tenismeja ul li a:hover {
+	text-decoration: underline;
+}
+.jquerycssmenu_tenismeja ul li a.selectedAnchor {
+	color:#FFF;
+	background-color: #635419;
+}
+.jquerycssmenu_tenismeja ul li ul {
+	position: absolute;
+	left: 0;
+	display: block;
+	visibility: hidden;
+/*
+	border-bottom: 1px solid #315091;
+	border-top: 1px solid #315091;
+*/
+}
+.jquerycssmenu_tenismeja ul li ul li {
+	display: list-item;
+	float: none;
+}
+.jquerycssmenu_tenismeja ul li ul li ul {
+	top: 0;
+}
+.jquerycssmenu_tenismeja ul li ul li a {
+	width: 120px;
+	background: #e9cc18;
+	color: black;
+	padding: 2px 8px;
+	margin: 0;
+	border: 1px solid #FFF;
+/*
+	border-top-width: 0;
+	border-top: 1px solid #eee;
+*/
+}
+.jquerycssmenu_tenismeja ul li ul li a:hover {
+	background: #635419;
+	color: #fff;
+}
+.downarrowclass {
+	position: absolute;
+	top: 8px;
+	right: 10px;
+}
+.rightarrowclass {
+	position: absolute;
+	top: 8px;
+	right: 5px;
+}

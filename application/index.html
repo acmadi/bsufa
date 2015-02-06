@@ -1,0 +1,116 @@
+<html>
+<head>
+ <title>Demo jQuery Validation Engine</title>
+ <link href="css/validationEngine.jquery.css" rel="stylesheet" type="text/css">
+ <script language="javascript" src="js/jquery-1.6.min.js"></script>
+ <script language="javascript" src="js/jquery.validationEngine.js"></script>
+ <script language="javascript" src="js/jquery.validationEngine-en.js"></script>
+ <script language="javascript" src="js/jquery.form.js"></script>
+ <script language="javascript">
+  $(function(){
+	  /* berikut adalah cara menambahkan fungsi custom utk pengecekan value 
+	     dari form dengan ajax */
+	  $.validationEngineLanguage.allRules['ajaxCheckNIM'] = {
+		  "url": "check.php", // URL ajax
+		  "alertText": "* NIM ini sudah ada sebelumnya", // alert text apabila ajax mengembalikan false
+		  "alertTextOk": "* NIM tersedia", // alert text apabila ajax mengembalikan true
+		  "alertTextLoad": "* Sedang proses check NIM" // alert text ketika proses pengecekan ajax sedang berlangsung
+	  }
+	  /* pengecekan email url-nya sama dengan pengecekan nim, namun fieldId yang akan dikirim akan
+		 menjadikan perbedaan ketika pengecekan pada file check.php */
+	  $.validationEngineLanguage.allRules['ajaxCheckEmail'] = {
+		  "url": "check.php",		  
+		  "alertText": "* Email ini sudah ada sebelumnya",
+		  "alertTextOk": "* Email tersedia",
+		  "alertTextLoad": "* Sedang proses check Email"
+	  }
+	  $('#formMhs')
+		.validationEngine() // fungsi untuk menambahkan feature validation ke form
+		.ajaxForm({ // ketika validasi berhasil, inputan form akan dikirim via ajax dengan plugin jQuery ajax form
+			success: function(response){
+				alert(response);
+				$('#btnReset').click(); // kosongkan form setelah selesai menyimpan data
+			}
+		  });
+  });
+ </script>
+ <style>
+  body,table,input,textarea{
+	  font-family: Verdana;
+	  font-size: 11px;
+  }
+ </style>
+</head>
+<body bgcolor="#BBCFDD">
+<form action="save.php" method="post" id="formMhs">
+<h2>Daftar Mahasiswa Baru</h2>
+<table>
+  <tr>
+	<td>NIM</td>
+	<td>:</td>
+	<td><input type="text" name="NIM" id="NIM" class="validate[required,custom[onlyNumber],length[10],ajax[ajaxCheckNIM]]" size="10" /> <small>* max char: 10</small></td>
+  </tr>
+  <tr>
+	<td>Nama</td>
+	<td>:</td>
+	<td><input type="text" name="nama" id="nama" class="validate[required]" size="30" /></td>
+  </tr>
+  <tr>
+	<td>Jenkel</td>
+	<td>:</td>
+	<td>
+		<input type="radio" name="jeniskelamin" id="jeniskelamin1" class="validate[required]" value="pria" /> Pria
+		<input type="radio" name="jeniskelamin" id="jeniskelamin2" class="validate[required]" value="wanita" /> Wanita
+	</td>
+  </tr>
+  <tr>
+	<td>Tgl Lahir</td>
+	<td>:</td>
+	<td><input type="text" name="tgllahir" id="tgllahir" class="validate[required,custom[dateFormat]]" size="10" /> <small>* yyyy-mm-dd</small></td>
+  </tr>
+  <tr valign="top">
+	<td>Alamat</td>
+	<td>:</td>
+	<td><textarea name="alamat" id="alamat" rows="3" cols="30" class="validate[required]"></textarea></td>
+  </tr>
+  <tr>
+	<td>Email</td>
+	<td>:</td>
+	<td><input type="text" name="email" id="email" class="validate[custom[email],ajax[ajaxCheckEmail]]" size="25" /></td>
+  </tr>
+  <tr>
+	<td>Jumlah SKS</td>
+	<td>:</td>
+	<td><input type="text" name="jumlahsks" id="jumlahsks" class="validate[min[10],max[24]]" size="3" /> <small>* minimal 10, maksimal 24</small></td>
+  </tr>  
+  <tr>
+	<td>Website</td>
+	<td>:</td>
+	<td><input type="text" name="website" id="website" class="validate[custom[url]]" size="30" value="http://" /></td>
+  </tr>
+  <tr valign="top">
+	<td>Pilih Mata Kuliah</td>
+	<td>:</td>
+	<td>
+		<input type="checkbox" name="matakuliah[]" id="matakuliah1" class="validate[required]" value="Programming" /> Programming<br />
+		<input type="checkbox" name="matakuliah[]" id="matakuliah2" class="validate[required]" value="Kalkulus" /> Kalkulus<br />
+		<input type="checkbox" name="matakuliah[]" id="matakuliah2" class="validate[required]" value="Logika Matematika" /> Logika Matematika<br />
+		<input type="checkbox" name="matakuliah[]" id="matakuliah2" class="validate[required]" value="Bahasa Inggris" /> Bahasa Inggris
+	</td>
+  </tr>
+  <tr>
+	<td>Masukkan Password</td>
+	<td>:</td>
+	<td><input type="password" name="password" id="password" class="validate[required]" size="10" /></td>
+  </tr>
+  <tr>
+	<td>Ulangi Password</td>
+	<td>:</td>
+	<td><input type="password" name="password2" id="password2" class="validate[required,equals[password]]" size="10" /></td>
+  </tr>
+</table>
+<input type="submit" name="submit" value="Simpan" />
+<input type="reset" value="Batal" id="btnReset" />
+</form>
+</body>
+</html>

@@ -1,0 +1,108 @@
+label {
+    float: left;margin: 2px 10px 0 0; width: 100px;
+    font-size: 12px; color: #000;
+    /*font-weight:bold;*/
+    font-family:verdana
+    /*text-transform: uppercase; text-shadow: 0px 2px 0px #111111;*/
+}
+
+
+input[type=text]{
+    height: 20px; padding: 0px 2px 0px 2px; margin: 0 0 10px 0;
+    font-size: 10px; color: #444444;font-family:verdana;
+}
+
+select{
+   width: 120px; height: 20px;  margin: 0 0 10px 0;
+}
+
+.x1{
+float:left;
+width:400px;
+}
+
+div.terms p,
+div.terms li {font:normal 11px/15px arial;color:#333;}
+div.terms h3 {font:bold 14px/19px arial;color:#000;}
+div.terms h4 {font:bold 12px/17px arial;color:#000;}
+div.terms strong {color:#000;}
+
+
+#setlabel {
+float: left;
+width: 400px;
+height: 500px;
+
+
+}
+
+
+
+
+
+#setlabel input {
+  
+  float: left;
+  font-size: 12px;
+  padding: 4px 2px;
+  text-align: right;
+  border: solid 1px #aacfe4;
+  width: 150px;
+  margin: 2px 0 4px 10px;
+  background-color: #FFFF00
+
+}
+
+
+
+#setlabel2 {
+float: left;
+width: 300px;
+height: 500px;
+
+
+}
+#setlabel2 input {
+
+  float: left;
+  font-size: 12px;
+  padding: 4px 2px;
+  text-align: right;
+  border: solid 1px #aacfe4;
+  width: 150px;
+  margin: 2px 0 4px 10px;
+  background-color: #97CBFF;
+
+}
+#setlabel2 button {
+	
+	margin-left: 10px;
+	width: 60px;
+	height: 31px;
+	text-align: center;
+	line-height: 11px;
+	font-size: 8px;
+	font-weight: bold;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

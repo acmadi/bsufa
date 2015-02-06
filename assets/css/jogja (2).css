@@ -1,0 +1,174 @@
+html, body {
+	width: 100%;
+
+}
+body {
+	
+	margin: 0;
+	padding: 0;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	background: url(images/jogja.jpg) no-repeat  top;
+	#background:2px;
+	background-attachment:fixed;
+	color: #000000;
+	font-size:2px;
+}
+
+
+b {
+font-family:Geneva, Arial, Helvetica, sans-serif;
+color: #000000;
+font-size : 10px;
+}
+
+#wrap{
+	width:80%;
+	padding:0 0 0 0;
+	margin:0 0 0 0;	
+}
+
+.classhome{
+margin:2 0 0 2;
+font-size:12px;
+font-family:sans-serif;
+color:#877352;
+}
+
+.classhome a{
+border:none;
+color:#000;
+font-size:11px;
+font-weight:200;
+text-decoration: none;
+}
+
+
+.classhome a:hover {
+	color: #990000;
+}
+
+
+#wrapheader{
+border:1;
+	padding:0 0 0 0;
+	font-family:verdana;
+	font-size:10px;
+	text-align:center;
+	margin:0 0 0 -500; 
+}
+
+#wrapcenter{
+	width:110%;
+	padding:0 0 0 0;
+	margin:-150 0 0 370; 
+	#margin:0 0 0 0;
+	 
+	#position:center;
+}
+
+
+
+#wrapcenter a{
+border:none;
+color:#000;
+font-size:10px;
+font-weight:200;
+text-decoration: none;
+}
+
+#wrapcenter a:hover {
+	color: #990000;
+}
+
+#wrapcenter table{
+	width:50%;
+}
+
+#wrapcenter td{
+text-align:center;
+}	
+
+#wrapform{
+padding:10 0 0 0;
+font-family:Verdana;
+}
+
+#wrapform table{
+width:750px;
+font-size:12px;
+} 
+
+#wrapform input{
+width:100px;
+}
+
+
+#wrapfooter{
+	width:100%;
+	padding:0 0 0 0;
+	margin: 10 0 0 110;
+	font-family:verdana;
+	font-size:10px;
+	text-align:center;
+}
+
+.class1{
+/*float:right;*/
+padding:6 6 6 6;
+margin: 0 0 0 100;
+background-color:#00FF66;
+text-align:center;
+}
+
+.class2{
+/*float:right;*/
+padding:6 6 6 6;
+margin: 0 0 0 100;
+background-color:#FFFF66;
+text-align:center;
+}
+
+.class3{
+/*float:right;*/
+padding:6 6 6 6;
+margin: 0 0 0 100;
+background-color:#FF0000;
+text-align:center;
+}
+
+.class4{
+/*float:right;*/
+padding:6 6 6 6;
+margin: 0 0 0 100;
+background-color:#666666;
+text-align:center;
+}
+
+.class5{
+/*float:right;*/
+padding:6 6 6 6;
+margin: 0 0 0 100;
+background-color:#33CCFF;
+text-align:center;
+}
+
+table{
+margin: 0 0 0 50;
+background-color:#FFFFFF;
+}
+
+
+td {
+
+
+    font-family:arial;
+	font-size:10px;
+	text-align:left;
+	
+	
+}
+
+
+
+
+

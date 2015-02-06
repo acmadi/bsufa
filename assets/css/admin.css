@@ -1,0 +1,114 @@
+a:link, a:visited{
+	text-decoration: none;
+	color: #006;
+}
+a:hover, a:active{
+	text-decoration: underline;
+	color: #00A;
+}
+#divPageTitle{
+	font-weight:bold;
+	font-size:15px;
+	margin:0px 4px 4px 4px;
+	border-bottom:2px solid #000;	
+}
+#tdHeader,#tdFooter{
+	letter-spacing:1px;
+	text-align:center;
+	background-color:#273C55;
+	border: 1px solid #AAA;
+	color: #FFF
+}
+#tdHeader{
+	height:40px;
+}
+#tdFooter{
+	height:30px;
+}
+#markButton input,.bd-button{
+	background-color:#424242;
+	color:#FFF;
+	cursor:pointer;
+}
+#markButton input:hover,.bd-button:hover{
+	background-color:#666;
+}
+#tableDataHeader{
+	background-color:#273C55;
+	color:#FFF;
+	letter-spacing:1px;
+}
+#divAdminPagging{
+	text-align:center;
+}
+#divAdminPagging a:link,#divAdminPagging a:visited{
+	font-size: 12px;
+	text-decoration: none;
+	font-weight: bold;
+	margin: 2px;
+	color: #006;
+}
+#divAdminPagging a:hover,#divAdminPagging a:active{
+	text-decoration: underline;
+	color: #00F;
+}
+.tableDataColomn{
+	background-color:#75AFD1;
+}
+.tableDataColomn td a:link,.tableDataColomn td a:visited{
+	text-decoration: none;
+	font-size:11px
+}
+.tableDataColomn td a:hover,.tableDataColomn td a:active{
+	text-decoration: underline;
+}
+.blackRow td{
+	background-color:#000;
+	color:#FFF;
+	font-weight:bold
+}
+.menuItem{
+	width:120px;
+	border:1px solid #000;
+	padding:2px;
+	background-color:#EEF;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.menuItem a:link,.menuItem a:visited{
+	display:block;
+	width:98%;
+	padding:2px;
+	text-decoration:none;
+	background-color:#EEF;
+}
+.menuItem a:hover,.menuItem a:active{
+	background-color:#DDD;
+}
+
+.ulMenu{
+	padding-left: 8px;
+	margin-left: 8px;
+	list-style-type: circle
+}
+.ulMenu a:link,.ulMenu a:visited{
+	font-size: 13px;
+	text-decoration: none;
+	color: #006;	
+}
+.ulMenu a:hover,a:active{
+	text-decoration: underline;
+}
+.tr1{
+	background-color:#75AFD1;
+}
+.tr2{
+	background-color:#EEEEEE;
+}
+.tr1 td, .tr1 th{
+	border-right: 1px solid #000
+}
+.tr2 td, .tr2 th{
+	border-right: 1px solid #000
+}

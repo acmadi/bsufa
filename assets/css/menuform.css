@@ -1,0 +1,105 @@
+table{
+font-size: 10px;
+font-family:verdana;
+color: #000;
+}
+
+h1{
+	font-size: 16px;
+	color:#000000;
+}
+h2{
+	font-size: 14px;
+	font-weight:bold;
+	color: black;
+}
+
+label {
+    float: left;margin: 2px 20px 0 0; width: 100px;
+    font-size: 12px; color: #000;
+    /*font-weight:bold;*/
+    font-family:verdana
+    /*text-transform: uppercase; text-shadow: 0px 2px 0px #111111;*/
+}
+
+input[type=text]{
+    width: 150px; padding: 0px 10px 0px 10px; margin: 0 0 20px 0;
+}
+
+select{
+	 width: 150px;  padding: 0px 0px 0px 0px; margin: 0 0 20px 0;
+}
+
+
+.spanclass{
+width:100px;
+padding:0 20 0 0;
+}
+
+tr{
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+td{
+	padding:0 5 2 2;
+	
+}
+#utama{
+width:100%;
+padding : 0 0 0 0;
+}
+.input{
+	width:120px;
+	text-align : right;
+}
+.readonly{
+	width:120px;
+	text-align : right;
+	background-color : #FFFF00;
+}
+.midreadonly{
+	width:250px;
+	background-color : #FFFF00;
+}
+.longreadonly{
+	width:500px;
+	background-color : #FFFF00;
+}
+
+.midinput{
+	width:250px;
+	text-align : left;
+	
+}
+.xinput{
+	width:150px;
+}
+.sinput{
+	width:300px;
+	font-size: 20px;
+	
+}
+.tb1{
+	float:left;
+	padding : 5 2 5 0;
+}
+.bottom_bawah{
+border-bottom:solid;
+}
+.bottom_atas{
+border-bottom:solid;
+}
+huruf{
+	font-size: 36px;
+	color: white;
+}
+
+#wrapform{
+padding: 20 0 0 120;
+}
+
+.x1{
+float:left;
+width:400px;
+}
+

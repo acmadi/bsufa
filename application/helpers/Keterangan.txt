@@ -1,0 +1,2 @@
+- Pada folder helper tersedia file main_helper.php sebagai kumpulan fungsi2 standar dari website
+- Dan ada pula template helper untuk membantu mendesain tiap custom template

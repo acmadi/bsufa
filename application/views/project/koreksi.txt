@@ -1,0 +1,27 @@
+-Proposed Budget                               
+ 1. Proposed by	          Approved by			Acknowledge
+
+ 
+   Project Manager          General Manager	        Director
+ 
+ 2. Menu Approved Sort By Date
+ 3. CSS di approved di perbaiki
+ 4. Approved ditambah proposed amount dn approved amount, 
+    balance proposed amount
+ 5. Di tender diganti contractor 
+ 6. Di tender Price Offering, Final Nego, Saving
+ 7. Job di tambah width di input
+ 8. Angka di saving , remark dan total di cek di tender form
+ 9. Refresh di tender
+ 10. Benerin master contractor
+ 11. Detail job -> produk
+ 12. DELETE DETAIL JOB
+ 13. DELETE DI TENDER  
+ 14. Judul di Detail JOb dan GRID ganti dengan ITEM PRODUCT 
+ 15. Di Approve perbaiki css dan gridnya
+ 16. NO SPK OTOMATIS
+ 17. Perbaikin CSS
+ 18. Contract Number klo yang sudah diapprove spk
+ 19. Approve tidak muncul dan berubah
+ 20. Evaluation Number
+

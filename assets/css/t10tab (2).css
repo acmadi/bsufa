@@ -1,0 +1,41 @@
+/* For javascript tab */ 
+ #divTriggerTab{
+	width: 250px;
+	cursor: pointer;
+	padding: 2px 6px;
+	color: #000
+ }
+ #divTriggerTab img{
+	margin-right: 6px;
+ }
+ #divTriggerTab div{
+	margin-top: 8px;
+ }
+ /* link yang dilalui oleh mouse dan element dengan class='selected' akan mempunyai efek yang sama 
+ #divTriggerTab a:hover,#divTriggerTab a:active,.selected{ 
+	color: #FFF;
+ }*/
+ #divContentTab{
+	margin: 4px auto;
+	width: 526px;
+ }
+ #divProfileDesc{
+	margin: 2px auto;
+	width: 526px;
+	color: #000;
+ }
+ #divContentTab div,#divProfileDesc div{ 
+	/* semua div di dalam element dengan id='divContent' akan di sembunyikan sementara */
+	display:none
+ }
+ #divProfileDesc div{
+ 	padding: 0px 15px 0px 4px;
+ }
+ #divProfileDesc a{
+	font-size: 16px;
+	display: block;
+	margin-bottom: 4px;
+ }
+ #divContentTab div img,#divTriggerTab a img{
+ 	border: 2px solid #EEE;
+ }

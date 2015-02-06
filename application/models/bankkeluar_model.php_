@@ -1,0 +1,44 @@
+<?php
+	class bankkeluar_model extends DBModel{
+		//editan danu
+		function __construct(){ 
+			parent::__construct('view_bankpayment','id_plan');
+			/*parent::__construct('db_cashplan a','a.id_plan');	
+			$this->set_join('db_apinvoice b','b.apinvoice_id = a.id_ap');
+		//	$this->set_join('db_subproject f','b.project_no = f.subproject_id');
+		//	$this->set_join('project f','b.project_no = f.kd_project');
+			$this->set_join('pemasokmaster c','c.kd_supplier = b.vendor_acct');
+			$this->set_join('project g','g.kd_project = b.project_no');
+			$this->set_join('db_cashheader e','e.apinvoice_id = b.apinvoice_id');*/
+		}	
+
+	
+		function before_fetch(){
+			$session_id = $this->UserLogin->isLogin();
+			
+			$pt = $session_id['id_pt'];
+			/*$q = $this->db->query("select * from db_subproject where id_pt = ".$pt." ")->result();
+			foreach ($q as $row) {
+				$project[] = $row->subproject_id;
+			}*/
+
+			//$status = array('1','2','3');
+			//$this->db->select('e.trans_date,a.id_plan as id_plan,b.descs as descs,b.doc_no as doc_no,c.nm_supplier as nm_supplier,e.voucher as voucher,e.no_arsip as no_arsip,e.amount as amount,e.amt_balance as amt_balance,e.slipno as slipno,e.slip_date as slip_date,e.payment_date as payment_date,e.status as status');
+			
+			$status = array('1','2','3');
+			//$this->db->where_in('b.status',$status);
+			$this->db->where('pt_project',$pt);
+			$this->db->where_in('status_ap',$status);
+			//$this->db->where_in('b.project_no',$project);
+
+			/*$this->db->select("a.id_plan,a.id_cash,isnull(voucher,'-') as voucher, isnull(convert(varchar(12), trans_date, 105),'-') as trans_date, 
+			e.status, slipno, isnull(convert(varchar(12), slip_date, 105),'-') as slip_date, isnull(convert(varchar(12), payment_date, 105),'-') as payment_date, 
+			e.descs, paidby, h.nm_supplier as nm_supplier,h.npwp as npwp, b.doc_no, convert(varchar, CONVERT(money, mbase_amt), 1) as mbase_amt, 
+			convert(varchar, CONVERT(money, malloc_amt), 1) as malloc_amt, convert(varchar, CONVERT(money, mbal_amt), 1) as mbal_amt, f.acc_name, 
+			isnull(convert(varchar, CONVERT(money, amount), 1),'-') as amount");
+			$this->db->where_in('b.status',$status);*/
+			parent::before_fetch();
+		}
+
+	}
+?>

@@ -1,0 +1,62 @@
+html, body {
+	height: 100%;
+	background-attachment:fixed;
+}
+body {;
+	margin: 0;
+	padding: 0;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #AFCE7C;
+}
+h1{
+	font-size: 16px;
+	color:#000000;
+}
+h2{
+	font-size: 10px;
+	color: black;
+}
+
+.spanclass{
+width:100px;
+padding:0 20 0 0;
+}
+
+tr{
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+td{
+	padding:0 5 2 2;
+	
+}
+#utama{
+width:100%;
+padding : 0 0 0 0;
+}
+.input{
+	width:120px;
+	text-align : right;
+}
+.xinput{
+	width:150px;
+}
+.tb1{
+	float:left;
+	padding : 5 2 5 0;
+}
+.bottom_bawah{
+border-bottom:solid;
+}
+.bottom_atas{
+border-bottom:solid;
+}
+huruf{
+	font-size: 36px;
+	color: white;
+}
+.teks{
+font:bold;
+color: Black;
+}

@@ -1,0 +1,45 @@
+html, body {
+	height: 100%;
+	background-attachment:fixed;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #AFCE7C;
+}
+h1{
+	font-size: 16px;
+	color:#FF0000;
+}
+h2{
+	font-size: 10px;
+	color: white;
+}
+tr{
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+td{
+	padding:0 5 2 2;
+	
+}
+#utama{
+width:100%;
+padding : 0 0 0 0;
+}
+.input{
+	width:120px;
+	text-align:right;
+	
+}
+.tb1{
+	float:left;
+	padding : 5 2 5 0;
+}
+.headertr{
+	background-color:#000000;
+	font-size:36px;
+}
+

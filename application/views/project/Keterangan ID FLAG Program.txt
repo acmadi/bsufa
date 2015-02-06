@@ -1,0 +1,5 @@
+Keterangan Program :
+1 => Approval
+2 => Berhasil
+3 => Tolak / Unapprove
+10 => Cancel /  Hapus

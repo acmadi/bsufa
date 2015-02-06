@@ -1,0 +1,48 @@
+.menuParent {
+	margin: 0;
+	padding: 0;
+	list-style: none;	
+}
+
+.menuParent li {
+	display: inline;
+}
+
+.menuParent a:link, .menuParent a:visited {
+	display: block;
+	float: left;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	font-size: 13px;
+	background: #FFF;
+	color: #000;
+}
+
+.menuParent a:hover,.menuParent a:active  {
+	background: #f59a25;
+	color: #FFF;
+}
+
+.menuChild{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	position: absolute;
+}
+.menuChild a:link, .menuChild a:visited {
+	background-color:#f3e8d2;
+	border: 1px solid #FFF;
+	display: block;
+	float: none;
+	width: 120px;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: left;
+	color: #000;
+	font-size: 13px;
+}
+.menuChild a:hover,.menuChild a:active {
+	background: #f59a25;
+	color: #FFF;
+}
