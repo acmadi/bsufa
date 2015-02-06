@@ -41,3 +41,6 @@ select bank_store from db_bank where project = 11101
 3. db_subproject
 4. db_cashheaderga
 5. db_cashdetail
+
+
+gunawan
