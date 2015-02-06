@@ -1,2 +1,2 @@
 # BBSU
-au
+aut
