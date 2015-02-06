@@ -1,0 +1,43 @@
+=== List Review FA-BSU ===
+
+A. AP BSU
+
+1. form input field Invoice Amount = Invoice Amount (Incld. PPn)
+2. validasi Invoice amount tidak boleh lebih besar dari nilai total Budget
+3. validasi alert apabila tidak balance invoice input, ketika save invoice AP, validasi nya tidak loncat ke grid AP invoice
+4. Cek Report ketika print AP, tidak bisa print Request Payment Voucher 
+5. di Report Invoice AP (Format Excel) nilai PPN seharus nya nilai 10% dari invoice Amount
+6. Report Aging cek per vendor, AP pada hari ini tidak masuk ketika tanggal nya lewat Due Date, seharusnya masuk.
+7. Ap Vendor Project nya Di filter agar tidak ada project rental
+8. Ap vendor tidak nampil AP yang di buat barusan - Excel tidak jalan
+9. di AP per Vendor tulisan Ass of di gannti menjadi as off
+
+
+B. CB  
+1. Note Cash plan "Full Payment"
+2. di Bank Payment warna Jumlah Bayar jadi warna Hijau, cek Coa nya 
+3. No BK masih sama ketika di bayar partial, harusnya payment 1 cash plan, tetapi malah semua cash plan AP yang terbayar
+4. Ketika paid seharusnya ngurani AP, dikartu hutang masih tampil ketika as off nya kurang dari tanggal bayar
+5. Bank transaction
+
+
+6. Petty Cash, sama dengan The Wave
+7. cash Flow pakai As Off
+
+
+
+* Query untuk "header uraian" cashflow berdasarkan project 
+select kodecash,nama from cash_proj where kd_project = 11101
+order by kodecash asc
+
+
+* Query untuk kode bank "header kolom bank" berdasarkan project 
+select bank_store from db_bank where project = 11101
+
+
+* Tabel-tabel 
+1. cash_proj
+2. db_bank
+3. db_subproject
+4. db_cashheaderga
+5. db_cashdetail

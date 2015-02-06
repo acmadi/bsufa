@@ -17,6 +17,7 @@
 		}
 		
 		function add_supp_code(){
+			// tes
 			//ini_set('memory_limit','512M');
 			$data = $this->db->query("select * from pemasokmaster order by kd_supplier")->result();
 			$new_no = 1;
