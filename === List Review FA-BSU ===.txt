@@ -15,7 +15,7 @@ A. AP BSU
 
 B. CB  
 1. Note Cash plan "Full Payment" => OK
-2. di Bank Payment warna Jumlah Bayar jadi warna Hijau, cek Coa nya => MAKSUDNYA?? --> warna hijau OK, progres cek Coa
+2. di Bank Payment warna Jumlah Bayar jadi warna Hijau, cek Coa nya => MAKSUDNYA?? --> warna hijau OK, progres cek Coa --> OK
 3. No BK masih sama ketika di bayar partial, harusnya payment 1 cash plan, tetapi malah semua cash plan AP yang terbayar ---> OK COY
 4. Ketika paid seharusnya ngurani AP, dikartu hutang masih tampil ketika as off nya kurang dari tanggal bayar --> Progress
 5. Bank transaction --> OK
