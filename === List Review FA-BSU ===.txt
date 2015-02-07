@@ -18,10 +18,10 @@ B. CB
 2. di Bank Payment warna Jumlah Bayar jadi warna Hijau, cek Coa nya => MAKSUDNYA?? --> warna hijau OK, progres cek Coa
 3. No BK masih sama ketika di bayar partial, harusnya payment 1 cash plan, tetapi malah semua cash plan AP yang terbayar ---> OK COY
 4. Ketika paid seharusnya ngurani AP, dikartu hutang masih tampil ketika as off nya kurang dari tanggal bayar --> Progress
-5. Bank transaction
+5. Bank transaction --> OK
 
 
-6. Petty Cash, sama dengan The Wave 
+6. Petty Cash, sama dengan The Wave -->OK
 7. cash Flow pakai As Off
 
 --------------------------------------------- Malik -----------------------------------------------------------------------------------
