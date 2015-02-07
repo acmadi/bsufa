@@ -34,22 +34,22 @@
 			var amount = parseInt($('#amount').val().replace(rep_coma,""));
 			var saldo = parseInt($('#saldo').val().replace(rep_coma,""));
 			var total = amount+saldo;
-			var nilai = 5000000;
+			var nilai = 15000000;
 		
 					if($("#type option:selected").val()==1){
 			
-					if (saldo <  amount) {
+					// if (saldo <  amount) {
 					
-                              alert('Nilai Reimburse lebih besar daripada Saldo Petty Cash');
-							  $('#amount').val(0);
-							}	else
-							 if (total > 5000000){
-								alert('Nilai Harus 5.000.000');
+                              // alert('Nilai Reimburse lebih besar daripada Saldo Petty Cash');
+							  // $('#amount').val(0);
+							// }	else
+							 if (total > 15000000){
+								alert('Nilai Harus 15.000.000');
 							  $('#amount').val(0);
 			
 							}else
 							if (amount>nilai){
-							alert('Nilai Harus 5.000.000');
+							alert('Nilai Harus 15.000.000');
 							  $('#amount').val(0);
 			
 							}
@@ -94,7 +94,7 @@
         url:'pettycash/cashflow',  
         columns:[[  
             {field:'kodecash',title:'kodecash',width:100},  
-            {field:'nama',title:'nama',width:200},  
+            {field:'nama',title:'nama',width:300},  
 
         ]]  
     });  
@@ -102,6 +102,7 @@
 				$('#formAdd')
 		//.validationEngine()
 		.ajaxForm({
+			
 			success:function(response){
 				//alert(response);
 				if(response=="sukses"){
@@ -114,6 +115,7 @@
 		});			
 		
 		$('#type').change(function(){
+				
 				if($("#type option:selected").val()==1){
 
 				//$('#cc').attr('readOnly',true);
@@ -151,7 +153,7 @@
 
 </script>
 
-<form id="formAdd" action="<?=site_url()?>cb/pettycash/input" method="post" >
+<form id="formAdd" action="<?=site_url()?>pettycash/input" method="post" >
 <table>
 	<tr>
 		<td colspan='3'><font color='red'><b>INPUT PETTY CASH</b></font></td>
@@ -181,7 +183,7 @@
 		<tr>
 		<td>Cash Out</td>
 			<td>:</td>
-			<td><select id="cc" name="acc_no" size="80" readonly="true"></select> </td>
+			<td><select id="cc" name="acc_no" size="80" class="validate[required] xinput" readonly="true"></select> </td>
 			
 	</tr>
 	<tr>
