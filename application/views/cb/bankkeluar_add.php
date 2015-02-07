@@ -110,7 +110,8 @@ $("#apno").change(function(){
 			<td>:</td>			
 			<td>
                         <input type="text" name="apno" id="apno" value="<?php echo $row->doc_no;?>" style="width:220px;border:1px solid lightgray;padding:3px">
-                        <input type="hidden" name="id_plan" id="id_plan" value="<?php echo $row->id_plan;?>">
+                        <input type="hidden" name="id_plan" id="id_plan" value="<?php echo $id_plan?>">
+                        <input type="hidden" name="id_cash" id="id_cash" value="<?php echo $id_cash?>">
 			</td>
 		<td>Cara Bayar</td>			
 			<td>:</td>

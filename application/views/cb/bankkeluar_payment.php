@@ -110,6 +110,7 @@
 		<td>Voucher</td>
 			<td>:</td>
 			<input type="hidden" name="id_plan" value="<?php echo $row->id_plan;?>">
+			<input type="hidden" name="id_text" value="<?php echo $id_cash;?>">
 			<td><input type="text" name="voucher" id="voucher" class="validate[required] xinput" xinput" value="<?php echo $row->voucher;?>"  style="width:180px;background-color:#EFFC94" readonly="true" size="30" /></td>
 <td>Trans Date</td>
 			<td>:</td>		

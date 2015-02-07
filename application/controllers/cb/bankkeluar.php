@@ -48,7 +48,7 @@
 		
 		
 		function index(){ 
-			$this->set_grid_column('id_plan','ID',array('hidden'=>true));
+			$this->set_grid_column('id_cash','ID',array('hidden'=>true));
 			$this->set_grid_column('doc_no','No AP',array('width'=>200, 'formatter' => 'cellColumn'));
 			$this->set_grid_column('voucher','Voucher',array('width'=>200, 'formatter' => 'cellColumn'));
 			$this->set_grid_column('no_arsip','No Arsip',array('width'=>200, 'formatter' => 'cellColumn'));
@@ -117,6 +117,8 @@
 							where a.id_plan = '".$id."' and debet != 0 and acc_name not like '%ppn%' and acc_no!='' ")->row();*/
 			$data['bayar'] = $this->db->query("select amount from db_cashheader where id_cash = '$id_cash'")->row();
 			//}else{
+				$data['id_plan'] = $id;
+				$data['id_cash'] = $id_cash;
 			$data['row'] = $this->db->query("select b.project_no,b.descs as rem,a.id_plan,c.nm_supplier,c.alamat,b.doc_no,b.base_amt,b.project_no from db_cashplan a
 							join db_apinvoice b on a.id_ap = b.apinvoice_id 
 							join PemasokMaster c on b.vendor_acct = c.kd_supplier where a.id_plan = '$id' ")->row(); 
@@ -361,18 +363,20 @@
 					//$from = $this->input->post('from');
 					$kodecash = $this->input->post('kodecash');
 					$apno = $this->input->post('id_plan');
+					$idcash  = $this->input->post('id_cash');
 					//$no_cek = $this->input->post('nocek');
 					//$cek_date = $this->input->post('cek_date');
 					//$paid_date = $this->input->post('paid_date');
-					$amount = $this->input->post('amount');
+					$amount = $this->input->post('byr');
 					$remark = $this->input->post('remark');	
 					$input_user = $this->user;					
 					$memo = $this->input->post('memo'); 
 					$dtprv['voucher'] = $voucher;
+				//	die("sp_InsertBK '".$idcash."','".$proj."','".$trx_type."','".$input_user."','".$voucher."','".$bank."','".inggris_date($tgl)."','".$paid."','".$apno."',".replace_numeric($amount).",'".$remark."','".$memo."'");
 					//die($apno);
 					//die("sp_InsertBK '".$trx_type."','".$input_user."','".$voucher."','".$bank."','".inggris_date($tgl)."','".$paid."','".$apno."',".replace_numeric($amount).",'".$remark."','".$memo);
 					//die("sp_InsertBK '".$proj."','".$trx_type."','".$input_user."','".$voucher."','".$bank."','".inggris_date($tgl)."','".$paid."','".$apno."',".replace_numeric($amount).",'".$remark."','".$memo."'");
-					$query = $this->db->query("sp_InsertBK '".$proj."','".$trx_type."','".$input_user."','".$voucher."','".$bank."','".inggris_date($tgl)."','".$paid."','".$apno."',".replace_numeric($amount).",'".$remark."','".$memo."'");
+					$query = $this->db->query("sp_InsertBK '".$idcash."','".$proj."','".$trx_type."','".$input_user."','".$voucher."','".$bank."','".inggris_date($tgl)."','".$paid."','".$apno."',".replace_numeric($amount).",'".$remark."','".$memo."'");
 					//$this->load->view('cb/print/print_rpayvoucher',$dtprv);
 					$total_row = $this->input->post('total_row');
 					for($no=1;$no<=$total_row;$no++){
@@ -426,6 +430,7 @@
 					die('Bulan tersebut sudah closing');
 				} else {
 				#end update danu
+					$id_cash = $this->input->post('id_cash');
 					$id_plan = $this->input->post('id_plan'); 
 					//die($id_plan);
 					$voucher = $this->input->post('voucher');
@@ -473,7 +478,7 @@
 					$gldetail = $this->db->query("select count(*) as total from db_gldetail where voucher = '$voucher'")->row()->total;
 					//die($gldetail." ".$glheader);
 					if($glheader==0 && $gldetail==0){
-					$cb = $this->db->query("select a.* from db_cashheader a join db_cashplan b on a.apinvoice_id = b.id_ap where b.id_plan = '$id_plan'")->row();
+					$cb = $this->db->query("select * from db_cashheader where id_cash = '$id_cash'")->row();
 					$data = array(
 					'project_cd'	=> $cb->project_cd,
 					'voucher'		=> $cb->voucher,
@@ -514,7 +519,7 @@
 												join db_apinvoiceoth d on d.doc_no = c.doc_no 
 												join db_cashplan e on e.id_ap = a.apinvoice_id 
 												join db_glheader f on f.voucher = a.voucher
-												where e.id_plan = '$id_plan' and d.acc_name like 'ap trade%'")->row();
+												where a.id_cash = '$id_cash' and d.acc_name like 'ap trade%'")->row();
 					$data1 = array(
 					'voucher'		=> $jurcb->voucher,
 					'acc_no'		=> $jurcb->acc_no,
@@ -580,6 +585,7 @@
 			echo "<script>alert('Sudah Payment Plan');
 				refreshTable();</script>";
 			}else{*/
+			$data['id_cash'] = $id_cash;
 			$data['nilai'] = $this->db->query("select amount from db_cashheader where id_cash = '$id_cash'")->row()->amount;
 			$data['row'] = $this->db->query("select c.slip_date,c.payment_date,c.paid_date,c.slipno,c.no_arsip,c.trans_date,c.voucher,c.bankacc,c.descs,c.amount,c.paidby,b.doc_no,c.id_cash,a.id_plan from db_cashplan a
 							join db_apinvoice b on a.id_ap = b.apinvoice_id 
