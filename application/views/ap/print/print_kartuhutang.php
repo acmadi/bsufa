@@ -245,16 +245,18 @@
 
 					$cas = "select id_cash,id_ap from db_cashplan where id_ap =".$id_ap->apinvoice_id;
 					$id_cash = $this->db->query($cas)->row();
- 						
+ 					
+
+
 					$d = "select a.*,b.doc_no as ap from db_cashheader a
 							left join db_apinvoice b on a.apinvoice_id = b.apinvoice_id
-							where b.apinvoice_id = ".$row->apinvoice_id;
+							where b.apinvoice_id = ".$row->apinvoice_id."  and a.voucher is not null  and a.trans_date <= '".inggris_date($startdate)."'";
  					$detail = $this->db->query($d)->result();						
 				#var_dump($detail);exit();
 				$pdf->Ln(10);
 					foreach ($detail as $pow){
 
-$pdf->setFillColor(120,221,45);
+					$pdf->setFillColor(120,221,45);
 
 							$pdf->Cell(8,10,'',1,0,'C',0);
 							$pdf->Cell(45,10,$pow->ap,1,0,'C',0);

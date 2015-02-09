@@ -268,5 +268,5 @@
 			$pdf->Cell(20,5,number_format($tot),1,0,'R',0);
 			//$pdf->Cell(20,5,$trx,10,0,'C',0);
 		
-			$pdf->Output("hasil.pdf","I");	;
+			$pdf->Output("BankTransaction.pdf","I");	;
 	

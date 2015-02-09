@@ -18,6 +18,7 @@
 
 
 <script language="javascript">
+	
 	$(function(){
 	
 		$.fn.datebox.defaults.formatter = function(date) {
@@ -69,18 +70,15 @@
 			// }
 		// });
 	});
-	
-	$('#cc').combogrid({  
-        panelWidth:450,  
-        value:'006',  
-       
+
+	$('#cc').combogrid({ 
+        panelWidth:450,    
         idField:'kodecash',  
         textField:'kodecash',  
-        url:'pettycash/cashflow',  
+        url:'pettycash/cashflow', 
         columns:[[  
             {field:'kodecash',title:'kodecash',width:100},  
-            {field:'nama',title:'nama',width:200},  
-
+            {field:'nama',title:'nama',width:300} 
         ]]  
     });  
 	
@@ -96,15 +94,17 @@
 					alert(response);
 				}
 			}
-		});			
+		});		
+
+		$( document ).ready(function() {
 		
-		$('#type').change(function(){
-				if($("#type option:selected").val()==1){
+				var id_petty = '<?=@$data->pettycash_id?>';	
+				
+				var type_petty = '<?=@$data->type?>';
+			
+				if(type_petty==1){
 
-				//$('#cc').attr('readOnly',true);
-				 $('#cc').combogrid('disable');
-
-				$.getJSON('<?=site_url('pettycash/getsaldo')?>/'+$(this).val(),
+				$.getJSON('<?=site_url('pettycash/getsaldo_last')?>/'+type_petty+'/'+id_petty,
 							function(data){
 								
 								$("#saldo").val(numToCurr(data.saldo));
@@ -113,9 +113,36 @@
 				}
 				else
 				{
+					$.getJSON('<?=site_url('pettycash/getsaldo_last')?>/'+type_petty+'/'+id_petty,
+							function(data){
+								
+								$("#saldo").val(numToCurr(data.saldo));
+							});
+				
+	
+				}
+				
+		});
+		
+		$('#type').change(function(){
+					
+				var id_petty = '<?=@$data->pettycash_id?>';	
+			
+				if($("#type option:selected").val()==1){
 
+				//$('#cc').attr('readOnly',true);
+				 $('#cc').combogrid('disable');
+				$.getJSON('<?=site_url('pettycash/getsaldo')?>/'+$(this).val()+'/'+id_petty,
+							function(data){
+								
+								$("#saldo").val(numToCurr(data.saldo));
+							});
+				
+				}
+				else
+				{
 					 $('#cc').combogrid('enable');
-					$.getJSON('<?=site_url('pettycash/getsaldo')?>/'+$(this).val(),
+					$.getJSON('<?=site_url('pettycash/getsaldo')?>/'+$(this).val()+'/'+id_petty,
 							function(data){
 								
 								$("#saldo").val(numToCurr(data.saldo));
@@ -133,13 +160,12 @@
 				
 				});
 	
-
 </script>
 
-<form id="formAdd" action="<?=site_url()?>cb/pettycash/input" method="post" >
+<form id="formAdd" action="<?=site_url()?>pettycash/edit" method="post" >
 <table>
 	<tr>
-		<td colspan='3'><font color='red'><b>INPUT PETTY CASH</b></font></td>
+		<td colspan='3'><font color='red'><b>EDIT PETTY CASH</b></font></td>
 		<td colspan='3'>&nbsp;</td>
 	</tr>
 	<tr>
@@ -158,24 +184,29 @@
 			<td>
 			<select name="type" id="type">
 			<option></option>
-			<option value='1'>Opening</option>
-			<option value='2'>Reimburse</option>
+			<?php $type_Arr = array('1'=>'Opening','2'=>'Reimburse'); ?>
+			<?php foreach($type_Arr as $key => $val):?>
+				<option value='<?php echo $key;?>' <?php if($key == $data->type){echo 'selected';}?>><?php echo $val;?></option>
+			<?php endforeach;?>
 			</select>		
 			</td>
 		</tr>
 		<tr>
-		<td>Cash Out</td>
+		<td>Cash Out </td>
 			<td>:</td>
-			<td><select id="cc" name="acc_no" size="80" readonly="true" value="<?=@$data->acc_no?>"></select> </td>
+			<td><select class="easyui-combogrid" id="cc" name="acc_no" readonly="true" value="<?=$data->acc_no?>"></select> </td>
 			
 	</tr>
 	<tr>
 		<td>Amount</td>
 			<td>:</td>
-			<td><input type="text" name="amount" class="calculate input validate[required]" id="amount" value="<?=number_format($data->credit)?>"  size="30" /></td>
+			<td>
+				<input type="text" name="amount" class="calculate input validate[required]" id="amount" value="<?=number_format($data->credit)?>"  size="30" />
+				<input type="hidden" name="amount2" class="calculate" id="amount" value="<?=number_format($data->credit)?>" />
+			</td>
 			<td>Sisa Saldo</td>
 			<td>:</td>
-			<td><input type="text" name="saldo" class="calculate input validate[required]" id="saldo" readonly="true" value="<?=number_format($data->saldo)?>"  size="30" /></td>
+			<td><input type="text" name="saldo" class="calculate input validate[required]" id="saldo" readonly="true"  size="30" /></td>
 	</tr>
 	<tr>
 		<td>Description</td>

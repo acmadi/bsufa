@@ -57,6 +57,7 @@ function generateGrid(gridData,moduleURL,width,height){
 		   }, 
 		   position:"last"
 		})
+		
 		.navButtonAdd('#pager',{
 		   caption:"Closing", 
 		   buttonicon:"ui-icon-pencil", 
@@ -67,6 +68,33 @@ function generateGrid(gridData,moduleURL,width,height){
 		//	 }else{
 		//		 alert('Pilih baris yang ingin diedit');
 		//	 }
+		   }, 
+		   position:"last"
+		})
+		
+		.navButtonAdd('#pager',{
+		   caption:"Print", 
+		   buttonicon:"ui-icon-pencil", 
+		   onClickButton: function(){ 
+			 var id = getSelectedID();
+			 if(id){
+				 window.open("<?=site_url($module_url)?>" + '/print_slip/' + id + '/?width='+900+'&height='+500);
+			 }else{
+				 alert('Pilih baris yang ingin diedit');
+			 }
+		   }, 
+		   position:"last"
+		})
+		.navButtonAdd('#pager',{
+		   caption:"Print Trx", 
+		   buttonicon:"ui-icon-pencil", 
+		   onClickButton: function(){ 
+			 var id = getSelectedID();
+			 if(id){
+				 window.open("<?=site_url($module_url)?>" + '/print_slip_transaksi/' + id + '/?width='+900+'&height='+500);
+			 }else{
+				 alert('Pilih baris yang ingin diedit');
+			 }
 		   }, 
 		   position:"last"
 		})
