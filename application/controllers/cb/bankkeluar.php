@@ -217,7 +217,7 @@
 
 		 $data = array();
 				$this->db->select('cashflow_id,kodecash,nama')->from('db_cashflow')
-																	//->where('flag_kons',0)
+																	->where('level',1)
 																	->order_by('kodecash', 'Asc');
 				$Q = $this-> db-> get();
 				if ($Q-> num_rows() > 0){

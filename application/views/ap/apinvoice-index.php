@@ -128,7 +128,7 @@ function cellColumn(cellVal,opts,element){
 		else if(element.status == 2)
 		var newVal = '<span class="customBg" style="background-color:#FFD5D5">'+cellVal+'</span>';
 		else if(element.status == 3)
-		var newVal = '<span class="customBg" style="background-color:#808080">'+cellVal+'</span>';
+		var newVal = '<span class="customBg" style="background-color:yellow">'+cellVal+'</span>';
 	else var newVal = cellVal;
 	return newVal;
 }

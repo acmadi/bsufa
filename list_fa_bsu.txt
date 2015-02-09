@@ -1,8 +1,8 @@
 1. Laporan Invoice AP Belum di filter by Date
 2. Penguraan Ap pada saat payment bukan tanggal cair / paid
 3. Pengurangan AP hanya di report bukan di grid
-4. Header coa cashflow msh masuk pada autocomplete pada saat payment form
-5. Report kartu hutang blm terfilter bedasarkan data bank payment yang telah paid
+4. Header coa cashflow msh masuk pada autocomplete pada saat payment form ----> OK
+5. Report kartu hutang blm terfilter bedasarkan data bank payment yang telah paid 
 6. Pada saat payemnt date, jangan dua kali ok
 7. Report cashbook/bank transaction belum keluar
 8. report outstanding voucher blm keluar
@@ -13,5 +13,5 @@
 13. Petty cash maksimum hanya 300rb per satu transaksi
 14. validasi pilih cash out pada add petty cash
 15. Print petty cash blm jalan
-16. gl-> view jurnal transfer sort descending pada grid
-17. ap -> grid jgn paid dahuu sebelum semua cashplannya paid
+16. gl-> view jurnal transfer sort descending pada grid ---> OK
+17. ap -> grid jgn paid dahulu sebelum semua cashplannya paid ---> CEK Fat
