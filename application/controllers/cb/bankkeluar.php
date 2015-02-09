@@ -430,7 +430,7 @@
 					die('Bulan tersebut sudah closing');
 				} else {
 				#end update danu
-					$id_cash = $this->input->post('id_cash');
+					$id_cash = $this->input->post('id_cash'); 
 					$id_plan = $this->input->post('id_plan'); 
 					//die($id_plan);
 					$voucher = $this->input->post('voucher');
