@@ -14,7 +14,7 @@
 #<<<<<<< HEAD
 #$config['base_url']	= "https://localhost/fa-bsu";
 #=======
-$config['base_url']	= "https://localhost/fabsu";
+$config['base_url']	= "https://192.168.1.106/fabsu";
 #>>>>>>> 3b7b5bb5c3bf2015b9d8c91e633781e4d17908a2
 #$config['base_url']	= "172.16.1.13/mis";
 

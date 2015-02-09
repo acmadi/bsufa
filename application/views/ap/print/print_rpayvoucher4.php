@@ -3,87 +3,8 @@
 		ini_set('memory_limit','512M');
 
 			require('fpdf/tanpapage.php');
-			//include_once( APPPATH."libraries/translate_currency.php"); 
-function konversi($x){
-   
-  $x = abs($x);
-  $angka = array ("","satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
-  $temp = "";
-   
-  if($x < 12){
-   $temp = " ".$angka[$x];
-  }else if($x<20){
-   $temp = konversi($x - 10)." belas";
-  }else if ($x<100){
-   $temp = konversi($x/10)." puluh". konversi($x%10);
-  }else if($x<200){
-   $temp = " seratus".konversi($x-100);
-  }else if($x<1000){
-   $temp = konversi($x/100)." ratus".konversi($x%100);  
-  }else if($x<2000){
-   $temp = " seribu".konversi($x-1000);
-  }else if($x<1000000){
-   $temp = konversi($x/1000)." ribu".konversi($x%1000);  
-  }else if($x<1000000000){
-   $temp = konversi($x/1000000)." juta".konversi($x%1000000);
-  }else if($x<1000000000000){
-   $temp = konversi($x/1000000000)." milyar".konversi($x%1000000000);
-  }
-   
-  return $temp;
- }
-   
- function tkoma($x){
-  $str = stristr($x,",");
-  $ex = explode('.',$x);
-   
-  if(($ex[0] / 10) >= 1){
-   $a = abs($ex[0]);
-  }
-  $string = array("nol", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan",   "sembilan","sepuluh", "sebelas");
-  $temp = "";
-  
-  $a2 = $ex[0]/10;
-  $pjg = strlen($str);
-  $i =1;
-     
-   
-  if($a>=1 && $a< 12){  
-   $temp .= " ".$string[$a];
-  }else if($a>12 && $a < 20){  
-   $temp .= konversi($a - 10)." belas";
-  }else if ($a>20 && $a<100){  
-   $temp .= konversi($a / 10)." puluh". konversi($a % 10);
-  }else{
-   if($a2<1){
-     
-    while ($i<$pjg){    
-     $char = substr($str,$i,1);    
-     $i++;
-     $temp .= " ".$string[$char];
-    }
-   }
-  } 
-  return $temp;
- }
-  
- function terbilang($x){
-  if($x<0){
-   $hasil = "minus ".trim(konversi(x));
-  }else{
-   $poin = trim(tkoma($x));
-   $hasil = trim(konversi($x));
-  }
-   
-if($poin){
-   $hasil = $hasil." Rupiah ".$poin." sen";
-  }else{
-   $hasil = $hasil;
-  }
-  return $hasil; 
- }
- 
-  
+			include_once( APPPATH."libraries/translate_currency.php"); 
+
 			extract(PopulateForm());
 			$pdf=new PDF('P','mm','A4');
 						if($pt==44){
@@ -220,7 +141,7 @@ if($poin){
 			$pdf->SetFont('Arial','',9);
 			$pdf->Cell(20,5,'Amount (IDR)',10,0,'L');
 			$pdf->Cell(4,5,':',10,0,'L');
-			$pdf->Cell(55,4,number_format($rows->trx_amt),10,0,'L');
+			$pdf->Cell(55,4,number_format($rows->base_amt),10,0,'L');
 			$pdf->Ln(5);
 			
 			$pdf->SetX(10);
@@ -228,7 +149,7 @@ if($poin){
 			$pdf->Cell(20,5,'Says',10,0,'L');
 			$pdf->Cell(4,5,':',10,0,'L');
 			#$pdf->Cell(158,4,ucwords(terbilang(10000000.78)).' Rupiah',10,0,'L');
-			$pdf->Write(5,ucwords(terbilang($rows->trx_amt)));
+			$pdf->Write(5,ucwords(toRupiah($rows->base_amt)).' Rupiah');
 			$pdf->Ln(8);
 			
 			$pdf->SetX(10);

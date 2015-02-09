@@ -250,7 +250,7 @@
 
 					$d = "select a.*,b.doc_no as ap from db_cashheader a
 							left join db_apinvoice b on a.apinvoice_id = b.apinvoice_id
-							where b.apinvoice_id = ".$row->apinvoice_id."  and a.voucher is not null  and a.trans_date <= '".inggris_date($startdate)."'";
+							where b.apinvoice_id = ".$row->apinvoice_id."  and a.voucher is not null and a.status = 3 and a.trans_date <= '".inggris_date($startdate)."'";
  					$detail = $this->db->query($d)->result();						
 				#var_dump($detail);exit();
 				$pdf->Ln(10);
