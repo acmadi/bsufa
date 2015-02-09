@@ -72,7 +72,9 @@ class cashplaning extends DBController{
 				'plan_amount'=> replace_numeric($plan_amount),
 				'blc_amount'=> (int)replace_numeric($this->input->post('amount_blc')),
 			);
-			$this->db->query("update db_apinvoice set status='7' where apinvoice_id='$id_ap'");
+			$trx = $this->db->query("select trx_amt from db_apinvoice where apinvoice_id = '$id_ap'")->row()->trx_amt;
+			$new_trx = $trx+replace_numeric($plan_amount);
+			$this->db->query("update db_apinvoice set status='7',trx_amt = '$new_trx'  where apinvoice_id='$id_ap'");
 			$cek = $this->db->query("select count(*) as total from db_cashplan where id_ap = '$id_ap'")->row()->total;
 			if($cek>0){
 				$data = array(
@@ -161,7 +163,7 @@ class cashplaning extends DBController{
 			if($cek>0){
 			$data['row'] = $this->db->query("select blc_amount as trx_amt from db_cashplan where id_ap = '$id'")->row();	
 			}else{
-			$data['row'] = $this->db->query("select trx_amt from db_apinvoice where apinvoice_id = '$id'")->row();
+			$data['row'] = $this->db->query("select (base_amt-trx_amt) as trx_amt from db_apinvoice where apinvoice_id = '$id'")->row();
 			}
 										
 										

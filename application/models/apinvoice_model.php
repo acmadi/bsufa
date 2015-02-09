@@ -17,7 +17,7 @@
 			$project[] = $row->subproject_id;
 		}
 		$this->db->select('a.apinvoice_id as apinvoice_id,a.doc_no as doc_no,a.doc_date as doc_date,a.status as status,
-		a.inv_no as inv_no,a.inv_date as inv_date,c.nm_supplier as nm_supplier,a.descs as descs,a.base_amt as base_amt');
+		a.inv_no as inv_no,a.inv_date as inv_date,c.nm_supplier as nm_supplier,a.descs as descs,(a.base_amt-a.trx_amt) as base_amt');
 		//$this->db->where_in('a.project_no',$project );
 		$this->db->where_in('f.pt_project',$pt );
 		parent::before_fetch();
