@@ -38,9 +38,9 @@ $active_group = "default";
 $active_record = TRUE;
 
 #<<<<<<< HEAD
-#db['default']['hostname'] = "FATA";
+$db['default']['hostname'] = "FATA";
 #=======
-$db['default']['hostname'] = "LENOVO";
+#$db['default']['hostname'] = "LENOVO";
 #>>>>>>> 3b7b5bb5c3bf2015b9d8c91e633781e4d17908a2
 $db['default']['username'] = "sa";
 $db['default']['password'] = "123";
