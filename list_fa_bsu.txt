@@ -5,7 +5,7 @@
 5. Report kartu hutang blm terfilter bedasarkan data bank payment yang telah paid 
 6. Pada saat payemnt date, jangan dua kali ok
 7. Report cashbook/bank transaction belum keluar
-8. report outstanding voucher blm keluar
+8. report outstanding voucher blm keluar --> OK
 9. report payment ap dibuat autocomplete di cashbook
 10. report payment ap blm keluar
 11. report payment receive AR blm keluar di cashbook
