@@ -1039,13 +1039,18 @@
 			}		
 					
 			function saveheader(){ 
+
+				extract(PopulateForm());
 				#die("tes");
 				$tdebet = replace_numeric($this->input->post('total_debet'));
 				$tcredit = replace_numeric($this->input->post('total_credit'));
-				if($tdebet!=$tcredit){
+				if($total_debet!=$total_credit){
+				/*
 					echo "<script>alert('Jurnal Tidak Balance');
 					document.location.href='".base_url()."ap/apinvoice';
 					</script>";
+				*/
+					die("Jurnal Tidak Balance");
 					}else{
 			$nett = $this->input->post('nett');
 			$types = $this->input->post('type');
@@ -1389,8 +1394,9 @@
 						$this->db->query($Q);
 					}
 					
-					echo "<script type='text/javascript'>alert('save success');window.open('".site_url()."ap/apinvoice/print_slip/$id/?width=900&height=500');</script>";
-					echo "<script type='text/javascript'>window.location.href='".site_url()."ap/apinvoice';</script>";
+					die("sukses");
+					#echo "<script type='text/javascript'>alert('save success');window.open('".site_url()."ap/apinvoice/print_slip/$id/?width=900&height=500');</script>";
+					#echo "<script type='text/javascript'>window.location.href='".site_url()."ap/apinvoice';</script>";
 			//}else{
 			}elseif($ty == "PO" or $ty == "CJC"){
 			/* kondisi PO-CJC */
@@ -1559,8 +1565,10 @@
 						//die('berisi');
 					}
 					$id = $this->db->query("select apinvoice_id from db_apinvoice where doc_no = '".$doc_no."'")->row()->apinvoice_id;
-					echo "<script type='text/javascript'>alert('save success');window.open('".site_url()."ap/apinvoice/print_slip/$id/?width=900&height=500');</script>";
-					echo "<script type='text/javascript'>window.location.href='".site_url()."ap/apinvoice';</script>";
+					
+					die("sukses");
+					#echo "<script type='text/javascript'>alert('save success');window.open('".site_url()."ap/apinvoice/print_slip/$id/?width=900&height=500');</script>";
+					#echo "<script type='text/javascript'>window.location.href='".site_url()."ap/apinvoice';</script>";
 						              
 				}
 			}elseif(($types=='multi')and($flags=='po')){
@@ -1717,8 +1725,10 @@
 						//die('berisi');
 					}
 					$id = $this->db->query("select apinvoice_id from db_apinvoice where doc_no = '".$doc_no."'")->row()->apinvoice_id;
-					echo "<script type='text/javascript'>alert('save success');window.open('".site_url()."ap/apinvoice/print_slip/$id/?width=900&height=500');</script>";
-					echo "<script type='text/javascript'>window.location.href='".site_url()."ap/apinvoice';</script>";
+					
+					die("sukses");
+					#echo "<script type='text/javascript'>alert('save success');window.open('".site_url()."ap/apinvoice/print_slip/$id/?width=900&height=500');</script>";
+					#echo "<script type='text/javascript'>window.location.href='".site_url()."ap/apinvoice';</script>";
 			
 			
 			}elseif(($types=='multi')and($flags=='ope')){
@@ -1910,8 +1920,10 @@
 						$this->db->query($Q);
 					}
 					
-					echo "<script type='text/javascript'>alert('save success');window.open('".site_url()."ap/apinvoice/print_slip/$id/?width=900&height=500');</script>";
-					echo "<script type='text/javascript'>window.location.href='".site_url()."ap/apinvoice';</script>";
+
+					die("sukses");
+					#echo "<script type='text/javascript'>alert('save success');window.open('".site_url()."ap/apinvoice/print_slip/$id/?width=900&height=500');</script>";
+					#echo "<script type='text/javascript'>window.location.href='".site_url()."ap/apinvoice';</script>";
 			}
 		}
 			}

@@ -503,11 +503,11 @@ $(document).ready(function() {
 		<td colspan="2"> <b>GRAND TOTAL </b></td>
 		<td>
 		<input type="hidden" id="total_debetal" style="text-align:right;background-color:#EFFC94;width:100%" class="mytextbox calculate" value="<?php echo $toced;?>">
-		<input type="text" id="total_debetac" style="text-align:right;background-color:#EFFC94;width:100%" class="mytextbox calculate" value="0">
+		<input type="text" id="total_debetac" name="total_debet" style="text-align:right;background-color:#EFFC94;width:100%" class="mytextbox calculate" value="0">
 		</td>
 		<td>
 		<input type="hidden" id="total_credital" style="text-align:right;background-color:#EFFC94;width:100%" class="mytextbox calculate" value="<?php echo $todeb;?>">
-		<input type="text" id="total_creditac" style="text-align:right;background-color:#EFFC94;width:100%" class="mytextbox calculate" value="0">
+		<input type="text" id="total_creditac" name="total_credit" style="text-align:right;background-color:#EFFC94;width:100%" class="mytextbox calculate" value="0">
 		</td>
 	</tr>
 	<?php } ?>
