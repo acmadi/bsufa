@@ -111,10 +111,10 @@
 					$amount 	= $this->input->post('amount');
 					$saldo 	= $this->input->post('saldo');
 			
-					if(!isset($acc_no)){
+					if($acc_no == 0){
 						echo"
 								<script type='text/javascript'>
-									alert('Blm Ada Opening Balance !!');
+									alert('Harap Isi COA Finance !!');
 									refreshTable();
 								</script>
 							";
@@ -146,7 +146,7 @@
 							
 							   
 						if($cek_status->status == 0 and $type==2 ){
-						die("Data Opening Belum Ada");
+						die("Cash Out Harus DIisi");
 						}else
 						if($cek_opening->status == 1 and $type==1 ){
 						die("Petty Cash Belum Closing");

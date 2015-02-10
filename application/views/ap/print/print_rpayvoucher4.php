@@ -26,7 +26,7 @@
 			$pdf->setFillColor(222,222,222);
 			#HEAD
 			#HEADER CONTENT
-			#$pdf->Image(site_url().'assets/images/bakrie_gmi.JPG',4,8,20);	
+			###$pdf->Image(site_url().'assets/images/bakrie_gmi.JPG',4,8,20);	
 				
 			#CETAK TANGGAL
 				#$tgl  = date("d-m-Y");
@@ -35,7 +35,7 @@
 			#	$pdf->Cell(10,4,$tgl,0,0,'L');
 			
 				#Header
-			##$pdf->Image(site_url().'assets/images/bakrie_gmi.JPG',4,8,20);	
+			####$pdf->Image(site_url().'assets/images/bakrie_gmi.JPG',4,8,20);	
 			$pdf->SetX(25);
 				
 			// Start diatas tabel

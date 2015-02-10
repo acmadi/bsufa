@@ -10,8 +10,8 @@
 10. report payment ap blm keluar
 11. report payment receive AR blm keluar di cashbook
 12. Cash Out di petty cash hana kepala 6 dan header tdk ditampilkan
-13. Petty cash maksimum hanya 300rb per satu transaksi
-14. validasi pilih cash out pada add petty cash
-15. Print petty cash blm jalan
+13. Petty cash maksimum hanya 300rb per satu transaksi  ---> OK
+14. validasi pilih cash out pada add petty cash ---> OK
+15. Print petty cash blm jalan --> OK
 16. gl-> view jurnal transfer sort descending pada grid ---> OK
 17. ap -> grid jgn paid dahulu sebelum semua cashplannya paid ---> CEK Fat

@@ -45,20 +45,24 @@
 							// }	else
 							 if (total > 15000000){
 								alert('Nilai Harus 15.000.000');
-							  $('#amount').val(0);
-			
-							}else
-							if (amount>nilai){
-							alert('Nilai Harus 15.000.000');
-							  $('#amount').val(0);
-			
-							}
+								  $('#amount').val(0);
+				
+								}else
+								if (amount > 300000 ){
+								alert('Nilai Tidak Boleh lebih dari Rp 300.000');
+								  $('#amount').val(0);
+				
+								}
 			}else {
 			if (saldo <  amount) {
 					
                               alert('Nilai Reimburse lebih besar daripada Saldo Petty Cash');
 							  $('#amount').val(0);
-							}	
+							} else if (amount > 300000 ){
+								alert('Nilai Reimburse Tidak Boleh lebih dari Rp 300.000');
+								  $('#amount').val(0);
+				
+								}	
 							//else
 							 // if (total > 5000000){
 								// alert('Nilai Harus 5.000.000');
@@ -70,7 +74,7 @@
 							  // $('#amount').val(0);
 			
 							// }
-							}
+			}
 			
 			});	
 	     
@@ -174,7 +178,7 @@
 			<td>:</td>
 			<td>
 			<select name="type" id="type">
-			<option></option>
+			<option value='0'></option>
 			<option value='1'>Opening</option>
 			<option value='2'>Reimburse</option>
 			</select>		
@@ -183,7 +187,7 @@
 		<tr>
 		<td>Cash Out</td>
 			<td>:</td>
-			<td><select id="cc" name="acc_no" size="80" class="validate[required] xinput" readonly="true"></select> </td>
+			<td><select id="cc" name="acc_no" size="80" class="validate[required] xinput" readonly></select> </td>
 			
 	</tr>
 	<tr>
