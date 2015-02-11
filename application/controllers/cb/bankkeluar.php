@@ -432,6 +432,7 @@
 				#end update danu
 					$id_cash = $this->input->post('id_cash'); 
 					$id_plan = $this->input->post('id_plan'); 
+					$id_ap = $this->db->query("select apinvoice_id from db_cashheader where id_cash = '$id_cash'")->row()->apinvoice_id;
 					//die($id_plan);
 					$voucher = $this->input->post('voucher');
 					$nocek = $this->input->post('nocek');
@@ -439,10 +440,11 @@
 					$paid_date = $this->input->post('paid_date'); 
 					$payment_date = $this->input->post('payment_date');
 					$trans_date = $this->input->post('tgl');
+					$amount = $this->input->post('amount');
 					if($paid_date == ''){
 					$no_arsip = '';
 					}else{
-					$new_no = $this->db->query("select count(*) as total from db_cashheader where voucher like 'Bk%'")->row()->total;
+					$new_no = $this->db->query("select count(*) as total from db_cashheader where voucher like 'BK%'")->row()->total;
 					if($new_no<=9){
 						$doc_no = "BK-0000".$new_no;
 						}elseif($new_no<=99){
@@ -455,6 +457,15 @@
 						$doc_no = "BK-".$new_no;
 						}
 					$no_arsip = $doc_no;
+					$sql = $this->db->query("select trx_amt,base_amt from db_apinvoice where apinvoice_id = '$id_ap'")->row();
+					$trx = $sql->trx_amt;
+					$base = $sql->base_amt;
+					$new_trx = $rx+replace_numeric($amount);
+					if($base-$new_trx==0){
+						$this->db->query("update db_apinvoice set trx_amt = '$new_trx',status='3' where apinvoice_id='$id_ap'");
+					}else{
+						$this->db->query("update db_apinvoice set trx_amt = '$new_trx' where apinvoice_id='$id_ap'");
+					}
 					}
 					//die($voucher."','".$nocek."','".inggris_date($cek_date)."','".inggris_date($payment_date)."','".inggris_date($paid_date)."','".$no_arsip);
 					/*$ap = $this->db->query("select a.* from db_apinvoice a join db_cashplan b on a.apinvoice_id = b.id_ap where b.id_plan = '$id_plan'")->row();
@@ -576,7 +587,7 @@
 			}
 		
 			function pyd($id){
-				$id_cash = $id;
+				$id_cash = $id; 
 			$id = $this->db->query("select a.id_plan from db_cashplan a join db_cashheader b on a.id_ap = b.apinvoice_id where b.id_cash =  '$id'")->row()->id_plan;
 			$cek = $this->db->query("select c.status as status from db_cashplan a
 							join db_apinvoice b on a.id_ap = b.apinvoice_id 
@@ -587,9 +598,10 @@
 			}else{*/
 			$data['id_cash'] = $id_cash;
 			$data['nilai'] = $this->db->query("select amount from db_cashheader where id_cash = '$id_cash'")->row()->amount;
-			$data['row'] = $this->db->query("select c.slip_date,c.payment_date,c.paid_date,c.slipno,c.no_arsip,c.trans_date,c.voucher,c.bankacc,c.descs,c.amount,c.paidby,b.doc_no,c.id_cash,a.id_plan from db_cashplan a
-							join db_apinvoice b on a.id_ap = b.apinvoice_id 
-							join db_cashheader c on a.id_cash = c.id_cash where a.id_plan = '$id'")->row();
+			$data['row'] = $this->db->query("select c.slip_date,c.payment_date,c.paid_date,c.slipno,c.no_arsip,c.trans_date,c.voucher,c.bankacc,c.descs,c.amount,c.paidby,b.doc_no,c.id_cash,a.id_plan from db_cashheader c
+							join db_cashplan a on a.id_ap = c.apinvoice_id 
+							join db_apinvoice b on c.apinvoice_id = b.apinvoice_id
+							where c.id_cash = '$id_cash'")->row();
 		
 			$data['bank'] = $this->db->query("select bank_nm,bank_acc from db_bank where bank_id='".$data['row']->bankacc."'")->row();
 			$this->load->view('cb/bankkeluar_payment',$data);
