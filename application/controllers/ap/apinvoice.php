@@ -322,6 +322,8 @@
 			//var_dump($data['all_proj']);exit;
 			}
 			
+#https://localhost/fabsu/ap/apinvoice/pojurnal_view/ACADEMIA++--++EDUCATION++--++&++--++TRAINING/JAMES++--++G.T.H./20,000,000/33875/18,181,818/7989-+-+-18,181,818/3/2.01.02.01.02/AP-Trade-Consultant/ope/0/0
+
 			if($ppn==0){
 				$data['ppn'] = 0;
 			}else{

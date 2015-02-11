@@ -307,11 +307,11 @@ $(document).ready(function() {
 	$persen  = $this->db->query("select alokasi_persen from project where kd_project = '$aloc'")->row()->alokasi_persen;
 	$datrow = $this->db->query("select a.remark,b.acc from db_trbgtdiv a
 	join db_mstbgt b on b.code = a.code_id 
-	where a.id_trbgt = $idtrbgt and b.thn = '2014' and b.id_pt = 11")->row();
+	where a.id_trbgt = $idtrbgt and b.thn = '2015' and b.id_pt = 11")->row();
 	?>
 	<tr height="25px">
-		<td align="center"><input type="text"  name="acc_dr_5" id="acc_dr_5"  class="mytextbox get_addcoaacno5"  value="<?php echo $datrow->acc;?>" style="width:100%"></td>
-		<td align="center"><input type="text" readonly="true" name="name_dr_5" id="name_dr_5"  class="mytextbox auto-add_name5"  value="<?php echo $datrow->remark;?>" style="width:100%"></td>
+		<td align="center"><input type="text"  name="acc_dr_5" id="acc_dr_5"  class="mytextbox get_addcoaacno5"  value="<?php echo @$datrow->acc;?>" style="width:100%"></td>
+		<td align="center"><input type="text" readonly="true" name="name_dr_5" id="name_dr_5"  class="mytextbox auto-add_name5"  value="<?php echo @$datrow->remark;?>" style="width:100%"></td>
 		<td align="right"><input type="text"   name="acc_debet_5" id="acc_debet_5" class="mytextbox"    value="<?php if($ppn!=0){ $kr = replace_numeric($kredit)-(int)$h; echo $cc = number_format((int)replace_numeric($kr)*(int)$persen/100); }else{ echo $cc = number_format((int)replace_numeric($kredit)*(int)$persen/100); }?>"  style="text-align:right;width:100%"></td>
 		<td align="center"><input type="text"  name="acc_credit_5" id="acc_credit_5" class="mytextbox"   value="0"  style="text-align:right;width:100%"></td>
 	</tr>
