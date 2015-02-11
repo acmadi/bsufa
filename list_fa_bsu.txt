@@ -1,5 +1,5 @@
 1. Laporan Invoice AP Belum di filter by Date 
-2. Penguraan Ap pada saat payment bukan tanggal cair / paid --> Progress
+2. Penguraan Ap pada saat payment bukan tanggal cair / paid --> OK
 3. Pengurangan AP hanya di report bukan di grid --> Progress
 4. Header coa cashflow msh masuk pada autocomplete pada saat payment form ----> OK
 5. Report kartu hutang blm terfilter bedasarkan data bank payment yang telah paid 
