@@ -122,6 +122,8 @@ $(document).ready(function(){
 	});
 });
 
+
+
 	$(function(){
 		/* Choise customer and get value */
 		$(".id-ap_project").change(function(){
@@ -472,6 +474,20 @@ function loadData(type,parentId){
 		});	
 	});	
 		
+	$('#formAdd')
+		//.validationEngine()
+		.ajaxForm({
+			
+			success:function(response){
+				//alert(response);
+				if(response=="sukses"){
+					alert(response);
+					refreshTable();
+				}else{
+					alert(response);
+				}
+			}
+		});			
 
 	$('#ppn1').click(function(){
 		if(!$("#ppn1").is(":checked")){
@@ -815,7 +831,7 @@ $(document).ready(function(){
 </script>
 <!-- Eof Pop -->
 
-<form method="post" action="<?=site_url('ap/apinvoice/saveheader')?>" id="form1">
+<form method="post" action="<?=site_url('ap/apinvoice/saveheader')?>" id="formAdd">
 <input type="hidden" name="type" id="type" value="<?php echo $this->session->userdata('type');?>">
 <input type="hidden" name="flag" id="flag" value="<?php echo $this->session->userdata('flag');?>">
  <?php $tgl = date('d-m-Y'); ?>
@@ -1574,6 +1590,9 @@ $(document).ready(function(){
 			</td>
 			
 			<script type="text/javascript">
+
+
+
 				/* ::-- PO-JURNAL --:: */
 				$("#view-jurnal-po").click(function(){
 				var totap = parseInt($('#nett1').val().replace(/,/g,''));
@@ -1982,3 +2001,5 @@ function submitForm(x,y){
 			<td colspan='3'><input type="reset" name="cancel" class="btn-normal reset_btn" value="Cancel"/></td>
 		</tr>
 </form>
+
+
