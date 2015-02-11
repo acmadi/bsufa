@@ -48,7 +48,7 @@ class jurnaltransfer extends DBController{
 		$this->set_grid_column('nm_subproject','Project',array('width'=>60,'align'=>'left', 'formatter' => 'cellColumn'));		
 		$this->set_grid_column('debit','Debit',array('width'=>60,'align'=>'right', 'formatter' => 'cellColumn'));		
 		//$this->set_grid_column('credit','Credit',array('width'=>80,'align'=>'right', 'formatter' => 'cellColumn'));
-		$this->set_jqgrid_options_ceklist(array('width'=>1200,'height'=>400,'caption'=>'Jurnal Transaction','rownumbers'=>true,'sortname'=>'a.gl_id','sortorder'=>'ASC'));
+		$this->set_jqgrid_options_ceklist(array('width'=>1200,'height'=>400,'caption'=>'Jurnal Transaction','rownumbers'=>true,'sortname'=>'transdate','sortorder'=>'DESC'));
 		parent::index();
 	}
 	
