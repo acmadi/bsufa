@@ -10,12 +10,12 @@
 			if($project==0){
 			$oo = $this->db->query("select a.vendor_acct,b.nm_supplier from db_apinvoice a 
 			join pemasokmaster b on a.vendor_acct = b.kd_supplier
-			where a.doc_date >= '".inggris_date($startdate)."' and doc_date <= '".inggris_date($enddate)."'
+			where a.doc_date <= '".inggris_date($enddate)."'
 			group by a.vendor_acct,b.nm_supplier");
 			}else{
 			$oo = $this->db->query("select a.vendor_acct,b.nm_supplier from db_apinvoice a 
 			join pemasokmaster b on a.vendor_acct = b.kd_supplier
-			where (a.doc_date >= '".inggris_date($startdate)."' and doc_date <= '".inggris_date($enddate)."') and a.project_no = '$project'
+			where a.doc_date <= '".inggris_date($enddate)."' and a.project_no = '$project'
 			group by a.vendor_acct,b.nm_supplier");
 			}
 			$dd = $oo->result();

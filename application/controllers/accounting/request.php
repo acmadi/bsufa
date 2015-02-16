@@ -35,7 +35,7 @@ Class request extends AdminPage{
 		
 		$this->db->query("select * from db_subproject where id_pt='".$this->pt."' and pt_id <> 12 order by nm_subproject")->result();
 */
-$data['project'] = $this->db->query("select * from db_subproject where id_pt=11 and pt_id <> 12 order by nm_subproject")->result();
+		$data['project'] = $this->db->query("select * from db_subproject where id_pt=11 and pt_id <> 12 order by nm_subproject")->result();
 		
 
 		$this->parameters['data'] = $data;
