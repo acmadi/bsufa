@@ -7,18 +7,38 @@
 			extract(PopulateForm());
 			$pdf=new PDF('L','mm','A4');
 			
-			//die($checkbox);
-			//die($vendor);
+			#die($enddate);
+			#die($vendor);
 			//$data = $this->db->query("sp_InvoiceAP '".$vendor."','".$project_detail."','".$checkbox."','".inggris_date($startdate)."','".inggris_date($enddate)."'")
 			//				 ->result();
-			if($vendor==0){
-			$data = $this->db->query("select a.pphtb,a.doc_no,a.doc_date,b.nm_supplier,a.inv_no,CASE WHEN a.inv_date IS NULL THEN '-' ELSE CONVERT(varchar(50), a.inv_date, 121) END AS inv_date,CASE WHEN a.due_date IS NULL THEN '-' ELSE CONVERT(varchar(50), a.due_date, 121) END AS due_date,a.descs,a.base_amt
+			if($checkbox==1){
+			$g = "select a.pphtb,a.doc_no,a.doc_date,b.nm_supplier,a.inv_no,
+									CASE 
+										WHEN a.inv_date IS NULL 
+									THEN '-' 
+										ELSE CONVERT(varchar(50), a.inv_date, 121) 
+									END AS inv_date,
+									CASE 
+										WHEN a.due_date IS NULL 
+									THEN '-' 
+										ELSE CONVERT(varchar(50), a.due_date, 121) 
+									END AS due_date,
+									a.descs,a.base_amt
 									from db_apinvoice a 
-									join pemasokmaster b on b.kd_supplier = a.vendor_acct")->result();
+									inner join pemasokmaster b on b.kd_supplier = a.vendor_acct 
+									inner join db_subproject c on a.project_no = c.subproject_id 
+									where a.doc_date <= '".inggris_date($enddate)."' and a.project_no =".$project_detail." and c.id_pt = 11
+									order by a.doc_date desc";	
+			#var_dump($g);exit();
+			$data = $this->db->query($g)->result();
 			}else{
-			$data = $this->db->query("select a.pphtb,a.doc_no,a.doc_date,b.nm_supplier,a.inv_no,CASE WHEN a.inv_date IS NULL THEN '-' ELSE CONVERT(varchar(50), a.inv_date, 121) END AS inv_date,CASE WHEN a.due_date IS NULL THEN '-' ELSE CONVERT(varchar(50), a.due_date, 121) END AS due_date,a.descs,a.base_amt
+			$gh = "select a.pphtb,a.doc_no,a.doc_date,b.nm_supplier,a.inv_no,CASE WHEN a.inv_date IS NULL THEN '-' ELSE CONVERT(varchar(50), a.inv_date, 121) END AS inv_date,CASE WHEN a.due_date IS NULL THEN '-' ELSE CONVERT(varchar(50), a.due_date, 121) END AS due_date,a.descs,a.base_amt
 									from db_apinvoice a 
-									join pemasokmaster b on b.kd_supplier = a.vendor_acct where a.vendor_acct = '$vendor'")->result();
+									inner join pemasokmaster b on b.kd_supplier = a.vendor_acct 
+									inner join db_subproject c on a.project_no = c.subproject_id  
+									where a.vendor_acct = ".$vendor."and a.doc_date <= '".$enddate."' and a.project_no = ".$project_detail." and c.id_pt = 11
+									order by a.doc_date desc";	
+			$data = $this->db->query($gh)->result();
 			}
 			$pdf->SetMargins(2,10,2);
 			$pdf->AliasNbPages();	

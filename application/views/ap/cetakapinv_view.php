@@ -84,7 +84,7 @@ $(document).ready(function(){
 	<td>
 	<select name="project_detail" id="project_detail">
 		<option></option>
-		<option value=1>INFRASTRUKTUR KAWASAN</option>
+		<!--option value=1>INFRASTRUKTUR KAWASAN</option-->
 		<option value=0>ALL</option>
 		<?php foreach($project as $row){?>
 		<option value="<?php echo $row->subproject_id;?>"><?php echo $row->nm_subproject;?></option>
