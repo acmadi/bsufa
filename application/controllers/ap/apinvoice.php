@@ -180,6 +180,14 @@
 			else die("The Page Not Found");
 		}		
 		
+		function apmulti(){
+			
+
+			
+		}
+
+
+
 		function get_unitcus($idp,$idc){
 			$tmp = '';
 			if($idc){

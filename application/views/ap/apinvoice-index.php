@@ -71,6 +71,15 @@ function generateGrid(gridData,moduleURL,width,height){
 		})
 		
 		.navButtonAdd('#pager',{
+		   caption:"Multi", 
+		   buttonicon:"ui-icon-plus", 
+		   onClickButton: function(){ 
+				popupForm("<?=site_url()?>"  + 'ap/apinvoice/apmulti/?width='+1100+'&height='+600);	
+		   }, 
+		   position:"last"
+		})
+		
+		.navButtonAdd('#pager',{
 		   caption:"Print", 
 		   buttonicon:"ui-icon-pencil", 
 		   onClickButton: function(){ 
