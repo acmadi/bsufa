@@ -87,9 +87,7 @@ $('#amount1').keyup(function(){
 		$("#btn-multi-po").trigger( "click" );
 		}
 	var afj = $("#aktif_flagjurnal").val();
-	if(afj=="po") {	$( "#view-jurnal-po" ).trigger( "click" );}
-	if(afj=="cjc"){	$( "#view-jurnal-cjc" ).trigger( "click" );}
-	if(afj=="ope"){	$( "#view-jurnal-ope" ).trigger( "click" );}
+	
 	if(afj=="pro"){	$( "#view-jurnal-pro" ).trigger( "click" );}
 	
 });
@@ -139,121 +137,11 @@ $(document).ready(function(){
 			});
 		});
 		
-		$('#billing_cus').change(function(){
-			var c = $('#billing_cus').val();
-			$.ajax({
-				url		: '<?=site_url();?>/ap/apinvoice/get_bankname',
-				type	: 'post',
-				data	: {'c':c},
-				success	: function(data){
-					$("#bank_nama").val(data)
-					
-				}
-			});
-		});
+		
 						
 		<!-- start autocomplete parsing data -->
 		<!-- PO -->
-         $( ".auto-complete-po" ).autocomplete({
-			source: function(request, response) {
-					$.ajax({ url: "<?php echo site_url();?>autocomplete/get_autocomplete_po",
-					data: { term: $(".auto-complete-po").val().replace(/ /g,'')},
-					dataType: "json",
-					type: "POST",
-					success: function(data){
-						response(data);
-					}
-				});
-			},
-			select: function (event, ui) {
-				var id = ui.item.id;
-				$(".id-complete-po").val(id);
-				//alert(id);return false;
-				$.getJSON('<?=site_url()?>/ap/apinvoice/getdetBUDPO/' + id,
-				function(getdata){				
-					$('#vendor').val(getdata.nm_supp);	
-					$('#vendor_id').val(getdata.kd_supp);
-					$('#remark').val(getdata.remark);
-					//$('#npwppo').val(getdata.NPWP);
-					//$('#alamat').val(getdata.ALAMAT);	
-					//$('#category').val(getdata.KEL_USAHA);
-					$('#paid_billing').val(numToCurr(getdata.costamount));
-					$('#total_billing').val(numToCurr(getdata.harga_tot));
-					if(getdata.costamount>0){
-					$('#balance').val(numToCurr(getdata.harga_tot-getdata.costamount))
-					}else{
-					$('#balance').val(0);
-					}
-					//$('#paid_billing').val(numToCurr(getdata.costamount));
-					
-					// var h = $('#paid_billing').val(getdata.costamount);
-					// var x = $('#total_billing').val(getdata.harga_tot);
-					
-					// if(h > 0){
-					// var hx = x - h;
-					
-					// );
-					// }
-					
-					//$('#balance').val(numToCurr(getdata.BALANCE));
-					//$('#total_invoice').val(numToCurr(getdata.TRX_AMT));
-				});
-			},
-			minLength: 1
-		});
-		
-		<!-- CJC -->
-		$( ".auto-complete-cjc" ).autocomplete({
-			source: function(request, response) {
-					$.ajax({ url: "<?php echo site_url();?>autocomplete/get_autocomplete_cjc",
-					data: { term: $(".auto-complete-cjc").val().replace(/ /g,'')},
-					dataType: "json",
-					type: "POST",
-					success: function(data){
-						response(data);
-					}
-				});
-			},
-			select: function (event, ui) {
-				var id = ui.item.id;
-				$(".id-complete-cjc").val(id);
-				
-				$.getJSON('<?=site_url()?>/apinvoice/getcjc/' + id,
-				function(getcjc){				
-					$('#vendor-cjc').val(getcjc.nm_supplier);	
-					$('#vendor_id').val(getcjc.kd_supp_gb);	
-					$('#total_billing').val(numToCurr(getcjc.contract_amount));
-				});
-
-			},
-			minLength: 1
-		});
-		
-		<!-- Project -->
-		$( ".auto-complete-pro" ).autocomplete({
-			source: function(request, response) {
-					$.ajax({ url: "<?php echo site_url();?>autocomplete/get_autocomplete_pro",
-					data: { term: $(".auto-complete-pro").val().replace(/ /g,'')},
-					dataType: "json",
-					type: "POST",
-					success: function(data){
-						response(data);
-					}
-				});
-			},
-			select: function (event, ui) {
-				var id = ui.item.id;
-				$(".id-complete-pro").val(id);
-				var a = $(".id-complete-pro").val();
-				$.getJSON('<?=site_url()?>/apinvoice/nonkontrak/' + id,
-				function(nonkontrak){				
-				//alert(a);
-					$('#remark').val(nonkontrak.mainjob_desc);	
-					$('#total_billing').val(numToCurr(nonkontrak.mainjob_total));	
-				});
-			},
-			minLength: 1
-		});
+         
 		
 		<!-- Operasional -->
 		$( ".auto-complete-ope" ).autocomplete({
@@ -279,27 +167,7 @@ $(document).ready(function(){
 			minLength: 1
 		});
 		
-		<!-- Customer -->
-		$( ".auto-complete-cus" ).autocomplete({
-			source: function(request, response) {
-					$.ajax({ url: "<?php echo site_url();?>autocomplete/get_autocomplete_cus",
-					data: { 
-						term: $(".auto-complete-cus").val().replace(/ /g,''),
-						idprojek: $(".id-project").val()
-					},
-					dataType: "json",
-					type: "POST",
-					success: function(data){
-						response(data);
-					}
-				});
-			},
-			select: function (event, ui) {
-				var id = ui.item.id;
-				$(".id-complete-cus").val(id);
-			},
-			minLength: 1
-		});
+		
 		
 		<!-- end autocomplete parsing data -->
 		
@@ -516,10 +384,9 @@ function loadData(type,parentId){
 		$("#btn-multi-po").trigger( "click" );
 		}
 		var afj = $("#aktif_flagjurnal").val();
-		if(afj=="po") {	$( "#view-jurnal-po" ).trigger( "click" );}
-		if(afj=="cjc"){	$( "#view-jurnal-cjc" ).trigger( "click" );}
+
 		if(afj=="ope"){	$( "#view-jurnal-ope" ).trigger( "click" );}
-		if(afj=="pro"){	$( "#view-jurnal-pro" ).trigger( "click" );}
+	
 	});
 	
 	/*$(document).keyup(function(){
@@ -570,10 +437,7 @@ function loadData(type,parentId){
 	}
 		
 		var afj = $("#aktif_flagjurnal").val();
-		if(afj=="po") {	$( "#view-jurnal-po" ).trigger( "click" );}
-		if(afj=="cjc"){	$( "#view-jurnal-cjc" ).trigger( "click" );}
 		if(afj=="ope"){	$( "#view-jurnal-ope" ).trigger( "click" );}
-		if(afj=="pro"){	$( "#view-jurnal-pro" ).trigger( "click" );}
 	});
 	
 	$('#pph_val1').keyup(function(){
@@ -611,10 +475,7 @@ function loadData(type,parentId){
 		//alert(dpp_pph1);
 		$('#percen_pph').val(pph_val1);
 		var afj = $("#aktif_flagjurnal").val();
-		if(afj=="po") {	$( "#view-jurnal-po" ).trigger( "click" );}
-		if(afj=="cjc"){	$( "#view-jurnal-cjc" ).trigger( "click" );}
 		if(afj=="ope"){	$( "#view-jurnal-ope" ).trigger( "click" );}
-		if(afj=="pro"){	$( "#view-jurnal-pro" ).trigger( "click" );}
 	});
 	
 	/* Choise Type ArEA & Work Obj-property */

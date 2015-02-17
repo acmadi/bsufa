@@ -181,9 +181,9 @@
 		}		
 		
 		function apmulti(){
-			
+			$this->load->view('ap/apinvoice-multi');
+		//	parent::add();
 
-			
 		}
 
 

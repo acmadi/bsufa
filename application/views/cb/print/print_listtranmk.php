@@ -2,14 +2,18 @@
 
 		
 			require('fpdf/tanpapage.php');
-			extract(PopulateForm());
+			#extract(PopulateForm());
 				$pdf=new PDF('L','mm','A4');
 			
-					#$startdate = in
-				//die($trx."','".$project_detail."','".inggris_date($startdate)."','".inggris_date($enddate));
-				$data = $this->db->query("sp_listtranmk '".$trx."','".$project_detail."','".inggris_date($startdate)."','".inggris_date($enddate)."','".$bank."'")
-							 ->result();
-							 
+					#$startdate = in 'BK','11202','2015-01-01','2015-02-17',0
+				#die($trx."','".$project_detail."','".inggris_date($startdate)."','".inggris_date($enddate).","."$bank");
+				#die($bank);
+				$yu = "sp_listtranmk '".$trx."','".$project_detail."','".inggris_date($startdate)."','".inggris_date($enddate)."',".$bank;
+
+				#die($yu);
+
+				$data = $this->db->query($yu)->result();
+					#$data = $this->db->query("sp_listtranmk 'BK','11202','2015-01-01','2015-02-17',0")->result();		 
 			
 			$pdf->SetMargins(2,10,2);
 			$pdf->AliasNbPages();	

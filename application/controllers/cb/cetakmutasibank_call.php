@@ -29,9 +29,15 @@
 			
 		function cetakmutasi(){
 		
-			
+			extract(PopulateForm());
 
-				 $this->load->view('cb/print/print_listtranmk');
+				$data['trx'] = $trx;
+				$data['project_detail'] = $project_detail;
+				$data['startdate'] = $startdate;
+				$data['enddate'] = $enddate;
+				$data['bank'] = $bank;
+
+				 $this->load->view('cb/print/print_listtranmk',$data);
 				 /*
 				if($trx=='BM'){ 
 					 $this->load->view('cb/print/print_listtranmk');
