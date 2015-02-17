@@ -62,12 +62,12 @@ function generateGrid(gridData,moduleURL,width,height){
 		   caption:"Closing", 
 		   buttonicon:"ui-icon-pencil", 
 		   onClickButton: function(){ 
-		//	 var id = getSelectedID();
-		//	 if(id){
-				 popupForm(moduleURL + '/close/' + '/?width='+750+'&height='+200);
-		//	 }else{
-		//		 alert('Pilih baris yang ingin diedit');
-		//	 }
+			 var id = getSelectedID();
+			 if(id){
+				 popupForm(moduleURL + '/close/' + id + '/?width='+750+'&height='+200);
+			 }else{
+				 alert('Pilih baris yang ingin diedit');
+			 }
 		   }, 
 		   position:"last"
 		})

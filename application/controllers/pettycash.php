@@ -102,24 +102,46 @@
 		function input(){
 				    //extract(PopulateForm());
 					extract(PopulateForm());
-					$type 		= $this->input->post('type');
-					$pettycash_id 		= $this->input->post('pettycash_id');
-					$claim_no 	= $this->input->post('claim_no');
-					$claim_date 		= $this->input->post('claim_date');
-					$petty_desc 		= $this->input->post('petty_desc');
-					$acc_no 	= $this->input->post('acc_no');
-					$amount 	= $this->input->post('amount');
-					$saldo 	= $this->input->post('saldo');
+					#die($acc_no);
+
+
+					$rata['type'] 				= $this->input->post('type');
+					$rata['pettycash_id'] 		= $this->input->post('pettycash_id');
+					$rata['claim_no'] 			= $this->input->post('claim_no');
+					$rata['claim_date'] 		= $this->input->post('claim_date');
+					$rata['petty_desc'] 		= $this->input->post('petty_desc');
+					$rata['acc_no'] 			= $this->input->post('acc_no');
+					$rata['amount'] 			= $this->input->post('amount');
+					$rata['saldo'] 				= $this->input->post('saldo');
 			
-					if($acc_no == 0){
+					//var_dump(sizeof($rata));exit();
+
+					if(empty($claim_date)){
+						die('Date Tidak Boleh Kosong');
+								
+					}
+					else if(empty($type)){
+						die('Type Tidak Boleh Kosong');
+					}
+					else if(empty($acc_no) && $type == 2){
+						die('Cash Out Tidak Boleh Kosong');
+					}
+					else if(empty($amount)){
+						die('Amount Tidak Boleh Kosong');
+					}		
+/*					else if(!isset($acc_no)){
 						echo"
 								<script type='text/javascript'>
-									alert('Harap Isi COA Finance !!');
+									alert('Blm Ada Opening Balance !!');
 									refreshTable();
 								</script>
-							";
-					}else{
+							";			
 
+					}
+*/
+					else{
+					extract(PopulateForm());
+					/*
 					$data = array
 					(
 						//'pettycash_id'=>$pettycash_id,
@@ -131,7 +153,7 @@
 						'saldo'=>$amount		
 						
 					);
-					
+					*/
 						$cek_opening = $this->db->select('count(status) as status')
 							   ->where('status',1)
 							   ->get('db_pettyclaim')->row();
@@ -145,12 +167,18 @@
 							
 							
 							   
-						if($cek_status->status == 0 and $type==2 ){
-						die("Cash Out Harus DIisi");
+						/*if($cek_status->status == 0 and $type==2 ){
+						die("Cash Out Tidak Boleh Kosong");
 						}else
+						*/
 						if($cek_opening->status == 1 and $type==1 ){
 						die("Petty Cash Belum Closing");
 						}else{
+						if($type == 1){
+							$acc_no = 0;
+
+						}		
+
 						$query = $this->db->query("sp_pettycash_input '".$type."','".$claim_no."','".inggris_date($claim_date)."','".$petty_desc."','".$acc_no."',".replace_numeric($amount).",".replace_numeric($saldo)."");
 						//$this->db->insert('db_pettyclaim',$data);								
 						 //redirect('pettycash');
@@ -228,29 +256,30 @@
 	
 			}
 			
-		function close(){		
+		function close($id){		
 		
+			#die($id);
 				extract(PopulateForm());
 		
 				
 		
-				$cek_close = $this->db->select('type as id')
-								   ->where('type',1)
-								   ->where('status',1)
+				$cek_close = $this->db->select('status as id')
+								   ->where('pettycash_id',$id)
 								   ->get('db_pettyclaim')->row();
 								   
-								   
-				if($cek_close->id == NULL ){
+				#var_dump($cek_close);exit();
+
+				if($cek_close->id == 2 ){
 				echo"
 					<script type='text/javascript'>
-						alert('Blm Ada Opening Balance !!');
+						alert('Sudah di Closing');
 						refreshTable();
 					</script>
 				";
 				}else{
 				
 						$cek_id = $this->db->select('pettycash_id as id')
-								  // ->where('type',1)
+								   ->where('type',1)
 								   ->where('status',1)
 								   ->get('db_pettyclaim')->row();
 								   
