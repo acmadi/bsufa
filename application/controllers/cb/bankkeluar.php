@@ -101,35 +101,41 @@
 		
 		function payment($id){
 			$id_cash = $id;
-			$id = $this->db->query("select a.id_plan from db_cashplan a join db_cashheader b on a.id_ap = b.apinvoice_id where b.id_cash =  '$id'")->row()->id_plan;
-			//var_dump($id);exit;
-		#var_dump($id);exit;
-			$no = 1;
-			$proj = 11;														   
-			$sql = $this->db->query("sp_cekbkno ".$no.",".$proj."")->row();
-			//var_dump($sql);
-			$data['nobk'] = $sql->no_bk;	
-			
-			/*$data['nil'] = $this->db->query("select c.*, a.id_plan,b.doc_no,b.base_amt as jumlah_tagihan,a.plan_amount as jumlah_bayar,debet-d.base_amount as balance from db_cashplan a
-							join db_apinvoice b on a.id_ap = b.apinvoice_id 
-							join db_apinvoiceoth c on c.doc_no = b.doc_no 
-							join db_cashheader d on d.apinvoice_id = b.apinvoice_id
-							where a.id_plan = '".$id."' and debet != 0 and acc_name not like '%ppn%' and acc_no!='' ")->row();*/
-			$data['bayar'] = $this->db->query("select amount from db_cashheader where id_cash = '$id_cash'")->row();
-			//}else{
-				$data['id_plan'] = $id;
-				$data['id_cash'] = $id_cash;
-			$data['row'] = $this->db->query("select b.project_no,b.descs as rem,a.id_plan,c.nm_supplier,c.alamat,b.doc_no,b.base_amt,b.project_no from db_cashplan a
-							join db_apinvoice b on a.id_ap = b.apinvoice_id 
-							join PemasokMaster c on b.vendor_acct = c.kd_supplier where a.id_plan = '$id' ")->row(); 
-			$data['cashflow'] = $this->db->query("select cashflow_id,kodecash,nama from db_cashflow order by nama asc")->result();
-			$data['coa'] = 	$this->db->query("select c.* from db_cashplan a
-							join db_apinvoice b on a.id_ap = b.apinvoice_id 
-							join db_apinvoiceoth c on c.doc_no = b.doc_no 
-							where a.id_plan = '$id' and debet != 0 and acc_name not like '%ppn%' and acc_no!=''")->result();
-			$data['bank'] = $this->db->query("select bank_id,bank_nm,bank_acc from db_bank where bank_nm not like ('%transit%') and id_pt=11")->result();
-			$this->load->view('cb/bankkeluar_add',$data);
-			//}
+			$status = $this->db->query("select status from db_cashheader where id_cash = $id_cash")->row()->status;
+			if($status>0){
+				echo "<script>alert('Sudah Payment');
+				document.location.href='".base_url()."bankkeluar';</script>";
+			}else{
+								$id = $this->db->query("select a.id_plan from db_cashplan a join db_cashheader b on a.id_ap = b.apinvoice_id where b.id_cash =  '$id'")->row()->id_plan;
+								//var_dump($id);exit;
+							#var_dump($id);exit;
+								$no = 1;
+								$proj = 11;														   
+								$sql = $this->db->query("sp_cekbkno ".$no.",".$proj."")->row();
+								//var_dump($sql);
+								$data['nobk'] = $sql->no_bk;	
+								
+								/*$data['nil'] = $this->db->query("select c.*, a.id_plan,b.doc_no,b.base_amt as jumlah_tagihan,a.plan_amount as jumlah_bayar,debet-d.base_amount as balance from db_cashplan a
+												join db_apinvoice b on a.id_ap = b.apinvoice_id 
+												join db_apinvoiceoth c on c.doc_no = b.doc_no 
+												join db_cashheader d on d.apinvoice_id = b.apinvoice_id
+												where a.id_plan = '".$id."' and debet != 0 and acc_name not like '%ppn%' and acc_no!='' ")->row();*/
+								$data['bayar'] = $this->db->query("select amount from db_cashheader where id_cash = '$id_cash'")->row();
+								//}else{
+									$data['id_plan'] = $id;
+									$data['id_cash'] = $id_cash;
+								$data['row'] = $this->db->query("select b.project_no,b.descs as rem,a.id_plan,c.nm_supplier,c.alamat,b.doc_no,b.base_amt,b.project_no from db_cashplan a
+												join db_apinvoice b on a.id_ap = b.apinvoice_id 
+												join PemasokMaster c on b.vendor_acct = c.kd_supplier where a.id_plan = '$id' ")->row(); 
+								$data['cashflow'] = $this->db->query("select cashflow_id,kodecash,nama from db_cashflow order by nama asc")->result();
+								$data['coa'] = 	$this->db->query("select c.* from db_cashplan a
+												join db_apinvoice b on a.id_ap = b.apinvoice_id 
+												join db_apinvoiceoth c on c.doc_no = b.doc_no 
+												where a.id_plan = '$id' and debet != 0 and acc_name not like '%ppn%' and acc_no!=''")->result();
+								$data['bank'] = $this->db->query("select bank_id,bank_nm,bank_acc from db_bank where bank_nm not like ('%transit%') and id_pt=11")->result();
+								$this->load->view('cb/bankkeluar_add',$data);
+								//}
+		}
 		}
 						
 		// function cekdata(){			
@@ -423,6 +429,7 @@
 			}		
 			
 			function Editheader2(){
+				
 				$month_now = date('m');
 				$year_now = date('Y');
 				$closing = $this->db->query("select top 1 * from db_closingfinance order by id_closf desc")->row();
@@ -460,7 +467,7 @@
 					$sql = $this->db->query("select trx_amt,base_amt from db_apinvoice where apinvoice_id = '$id_ap'")->row();
 					$trx = $sql->trx_amt;
 					$base = $sql->base_amt;
-					$new_trx = $rx+replace_numeric($amount);
+					$new_trx = $trx+replace_numeric($amount);
 					if($base-$new_trx==0){
 						$this->db->query("update db_apinvoice set trx_amt = '$new_trx',status='3' where apinvoice_id='$id_ap'");
 					}else{
@@ -524,12 +531,12 @@
 					);
 					$this->db->insert('db_gldetail',$data);
 					}*/
-					$jurcb = $this->db->query("select f.gl_id,c.project_no,b.bank_coa,b.bank_acc,b.bank_nm,d.*,a.voucher,a.amount,b.plan_amount  from db_cashheader a 
+					$jurcb = $this->db->query("select f.gl_id,c.project_no,b.bank_coa,b.bank_acc,b.bank_nm,d.*,a.voucher,a.amount from db_cashheader a 
 												join db_bank b on a.bankacc = b.bank_id
 												join db_apinvoice c on c.apinvoice_id = a.apinvoice_id 
 												join db_apinvoiceoth d on d.doc_no = c.doc_no 
 												join db_cashplan e on e.id_ap = a.apinvoice_id 
-												join db_glheader f on f.voucher = a.voucher
+												join db_glheader f on f.voucher = c.doc_no
 												where a.id_cash = '$id_cash' and d.acc_name like 'ap trade%'")->row();
 					$data1 = array(
 					'voucher'		=> $jurcb->voucher,
@@ -540,7 +547,7 @@
 					'ref_no'		=> $jurcb->gl_id,
 					'acc_name'		=> $jurcb->acc_name,
 					'line_desc'		=> $jurcb->descs,
-					'debit'			=> $jurcb->plan_amount,
+					'debit'			=> $amount,
 					'credit'		=> '0',
 					'trans_date'	=> date('Y-m-d h:i:s'),
 					'audit_user'	=> 'mgr.bsu',
@@ -558,7 +565,7 @@
 					'acc_name'		=> $jurcb->bank_nm,
 					'line_desc'		=> ' ',
 					'debit'			=> '0',
-					'credit'		=> $jurcb->plan_amount,
+					'credit'		=> $amount,
 					'trans_date'	=> date('Y-m-d h:i:s'),
 					'audit_user'	=> 'mgr.bsu',
 					'audit_date'	=> date('Y-m-d h:i:s'),
@@ -587,25 +594,35 @@
 			}
 		
 			function pyd($id){
-				$id_cash = $id; 
-			$id = $this->db->query("select a.id_plan from db_cashplan a join db_cashheader b on a.id_ap = b.apinvoice_id where b.id_cash =  '$id'")->row()->id_plan;
-			$cek = $this->db->query("select c.status as status from db_cashplan a
-							join db_apinvoice b on a.id_ap = b.apinvoice_id 
-							join db_cashheader c on a.id_cash = c.id_cash where a.id_plan = '$id'")->row()->status;
-			/*if($cek=3){
-			echo "<script>alert('Sudah Payment Plan');
-				refreshTable();</script>";
-			}else{*/
-			$data['id_cash'] = $id_cash;
-			$data['nilai'] = $this->db->query("select amount from db_cashheader where id_cash = '$id_cash'")->row()->amount;
-			$data['row'] = $this->db->query("select c.slip_date,c.payment_date,c.paid_date,c.slipno,c.no_arsip,c.trans_date,c.voucher,c.bankacc,c.descs,c.amount,c.paidby,b.doc_no,c.id_cash,a.id_plan from db_cashheader c
-							join db_cashplan a on a.id_ap = c.apinvoice_id 
-							join db_apinvoice b on c.apinvoice_id = b.apinvoice_id
-							where c.id_cash = '$id_cash'")->row();
-		
-			$data['bank'] = $this->db->query("select bank_nm,bank_acc from db_bank where bank_id='".$data['row']->bankacc."'")->row();
-			$this->load->view('cb/bankkeluar_payment',$data);
-			//}
+			$id_cash = $id; 
+			$status = $this->db->query("select status from db_cashheader where id_cash = '$id_cash'")->row()->status;
+			//ar_dump($status);exit;
+			if($status==3){
+				echo "<script>alert('Sudah Lunas');
+				document.location.href='".base_url()."bankkeluar';</script>";
+				}elseif($status==0){
+				echo "<script>alert('Payment Terlebih Dahulu');
+				document.location.href='".base_url()."bankkeluar';</script>";
+			}else{
+							$id = $this->db->query("select a.id_plan from db_cashplan a join db_cashheader b on a.id_ap = b.apinvoice_id where b.id_cash =  '$id'")->row()->id_plan;
+							$cek = $this->db->query("select c.status as status from db_cashplan a
+											join db_apinvoice b on a.id_ap = b.apinvoice_id 
+											join db_cashheader c on a.id_cash = c.id_cash where a.id_plan = '$id'")->row()->status;
+							/*if($cek=3){
+							echo "<script>alert('Sudah Payment Plan');
+								refreshTable();</script>";
+							}else{*/
+							$data['id_cash'] = $id_cash;
+							$data['nilai'] = $this->db->query("select amount from db_cashheader where id_cash = '$id_cash'")->row()->amount;
+							$data['row'] = $this->db->query("select c.slip_date,c.payment_date,c.paid_date,c.slipno,c.no_arsip,c.trans_date,c.voucher,c.bankacc,c.descs,c.amount,c.paidby,b.doc_no,c.id_cash,a.id_plan from db_cashheader c
+											join db_cashplan a on a.id_ap = c.apinvoice_id 
+											join db_apinvoice b on c.apinvoice_id = b.apinvoice_id
+											where c.id_cash = '$id_cash'")->row();
+						
+							$data['bank'] = $this->db->query("select bank_nm,bank_acc from db_bank where bank_id='".$data['row']->bankacc."'")->row();
+							$this->load->view('cb/bankkeluar_payment',$data);
+							//}
+			}
 			}
 			
 			function delete(){

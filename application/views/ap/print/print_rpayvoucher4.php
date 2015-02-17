@@ -17,6 +17,7 @@
 						}	 
 							 	$rows = $this->db->query("sp_cetakpayvoucherall '".$id."'")
 							 ->row();
+					
 			//var_dump($data);
 							 
 			$pdf->SetMargins(2,10,2);

@@ -12,7 +12,7 @@
 |
 */
 #<<<<<<< HEAD
-$config['base_url']	= "https://localhost/fabsu";
+$config['base_url']	= "https://localhost/fa-bsu";
 #=======
 #<<<<<<< HEAD
 #$config['base_url']	= "https://localhost/fabsu";
