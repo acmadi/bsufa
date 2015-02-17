@@ -4,7 +4,7 @@
 <?=link_tag(CSS_PATH.'demo.css')?>
 <?=script('jquery.easyui.min.js')?>
 <?=script('jquery.edatagrid.js')?>
-<?=script('currency.js')?>
+
 <?=script('jquery.numeric.js')?>
 <link href="<?=site_url()?>assets/css/validationEngine.jquery.css" rel="stylesheet" type="text/css">
 <!--<script language="javascript" src="<?=site_url()?>assets/js/jquery-1.6.minx.js"></script>-->
@@ -48,10 +48,13 @@
 								  $('#amount').val(0);
 				
 								}else
-								if (amount > 300000 ){
-								alert('Nilai Tidak Boleh lebih dari Rp 300.000');
-								  $('#amount').val(0);
-				
+							if (amount>nilai){
+							alert('Nilai Harus 15.000.000');
+							  $('#amount').val(0);
+			
+
+
+
 								}
 			}else {
 			if (saldo <  amount) {
