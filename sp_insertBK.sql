@@ -1,6 +1,6 @@
 USE [BSUALL2005trial]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertBK]    Script Date: 2/7/2015 12:59:41 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_InsertBK]    Script Date: 2/17/2015 5:59:31 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -47,7 +47,7 @@ DECLARE @vendor varchar(20), @id_ap int, @doc_no varchar(20), @project_detail va
 			update DB_CASHHEADER set
 			project_cd = @project_detail,trx_type = 'BK',voucher = @voucher,module = 'CB',trans_date = @tgl,
 			descs = @remark,paidby = @paid,currency = '1',amount = @Amount,rate = '1',base_amount = @Amount,
-			amt_balance = '0',vendor_acct = @vendor,refno = @apno,bankacc = @bank,payment_date = '',
+			amt_balance = '0',vendor_acct = @vendor,refno = @apno,bankacc = @bank,
 			[status] = '0',user_ = @input_user,[datetime] = getdate(),apinvoice_id = @id_ap,pph = '0'
 			where id_cash = @idcash		
 			
