@@ -35,8 +35,8 @@
 			$gh = "select a.pphtb,a.doc_no,a.doc_date,b.nm_supplier,a.inv_no,CASE WHEN a.inv_date IS NULL THEN '-' ELSE CONVERT(varchar(50), a.inv_date, 121) END AS inv_date,CASE WHEN a.due_date IS NULL THEN '-' ELSE CONVERT(varchar(50), a.due_date, 121) END AS due_date,a.descs,a.base_amt
 									from db_apinvoice a 
 									inner join pemasokmaster b on b.kd_supplier = a.vendor_acct 
-									inner join db_subproject c on a.project_no = c.subproject_id  
-									where a.vendor_acct = ".$vendor."and a.doc_date <= '".$enddate."' and a.project_no = ".$project_detail." and c.id_pt = 11
+									inner join db_subproject c on a.project_no = c.subproject_id  and c.pt_id=11
+									where a.vendor_acct = ".$vendor."and a.doc_date <= '".inggris_date($enddate)."' and a.project_no = ".$project_detail." and c.id_pt = 11
 									order by a.doc_date desc";	
 			$data = $this->db->query($gh)->result();
 			}
