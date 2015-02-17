@@ -451,28 +451,28 @@
 					if($paid_date == ''){
 					$no_arsip = '';
 					}else{
-					$new_no = $this->db->query("select count(*) as total from db_cashheader where voucher like 'BK%'")->row()->total;
-					if($new_no<=9){
-						$doc_no = "BK-0000".$new_no;
-						}elseif($new_no<=99){
-						$doc_no = "BK-000".$new_no;
-						}elseif($new_no<=999){
-						$doc_no = "BK-00".$new_no;
-						}elseif($new_no<=9999){
-						$doc_no = "BK-0".$new_no;
-						}elseif($new_no<=99999){
-						$doc_no = "BK-".$new_no;
+						$new_no = $this->db->query("select count(*) as total from db_cashheader where voucher like 'BK%'")->row()->total;
+						if($new_no<=9){
+							$doc_no = "BK-0000".$new_no;
+							}elseif($new_no<=99){
+							$doc_no = "BK-000".$new_no;
+							}elseif($new_no<=999){
+							$doc_no = "BK-00".$new_no;
+							}elseif($new_no<=9999){
+							$doc_no = "BK-0".$new_no;
+							}elseif($new_no<=99999){
+							$doc_no = "BK-".$new_no;
 						}
-					$no_arsip = $doc_no;
-					$sql = $this->db->query("select trx_amt,base_amt from db_apinvoice where apinvoice_id = '$id_ap'")->row();
-					$trx = $sql->trx_amt;
-					$base = $sql->base_amt;
-					$new_trx = $trx+replace_numeric($amount);
-					if($base-$new_trx==0){
-						$this->db->query("update db_apinvoice set trx_amt = '$new_trx',status='3' where apinvoice_id='$id_ap'");
-					}else{
-						$this->db->query("update db_apinvoice set trx_amt = '$new_trx' where apinvoice_id='$id_ap'");
-					}
+							$no_arsip = $doc_no;
+							$sql = $this->db->query("select trx_amt,base_amt from db_apinvoice where apinvoice_id = '$id_ap'")->row();
+							$trx = $sql->trx_amt;
+							$base = $sql->base_amt;
+							$new_trx = $trx+replace_numeric($amount);
+							if($base-$new_trx==0){
+								$this->db->query("update db_apinvoice set trx_amt = '$new_trx',status='3' where apinvoice_id='$id_ap'");
+							}else{
+								$this->db->query("update db_apinvoice set trx_amt = '$new_trx' where apinvoice_id='$id_ap'");
+							}
 					}
 					//die($voucher."','".$nocek."','".inggris_date($cek_date)."','".inggris_date($payment_date)."','".inggris_date($paid_date)."','".$no_arsip);
 					/*$ap = $this->db->query("select a.* from db_apinvoice a join db_cashplan b on a.apinvoice_id = b.id_ap where b.id_plan = '$id_plan'")->row();
@@ -496,86 +496,130 @@
 					$gldetail = $this->db->query("select count(*) as total from db_gldetail where voucher = '$voucher'")->row()->total;
 					//die($gldetail." ".$glheader);
 					if($glheader==0 && $gldetail==0){
-					$cb = $this->db->query("select * from db_cashheader where id_cash = '$id_cash'")->row();
-					$data = array(
-					'project_cd'	=> $cb->project_cd,
-					'voucher'		=> $cb->voucher,
-					'trans_date'	=> $cb->trans_date,
-					'[desc]'		=> $cb->voucher." ".$cb->descs,
-					'debit'			=> $cb->amount,
-					'credit'		=> $cb->amount,
-					'module'		=> 'CB',
-					'[status]'		=> '0',
-					'audit_user'	=> 'mgr.bsu',
-					'audit_date'	=> date('Y-m-d h:i:s'),
-					'entry_date'	=> date('Y-m-d h:i:s')
-					);
-					$t = $this->db->insert('db_glheader',$data);
-		
-					/*$jurap = $this->db->query("select a.*,b.project_no from db_apinvoiceoth a
-												join db_apinvoice b on b.doc_no = a.doc_no 
-												join db_cashplan c on c.id_ap = b.apinvoice_id 
-												where c.id_plan = '$id_plan'")->result();
-					foreach($jurap as $rowa){
-					$data = array(
-					'voucher'		=> $rowa->doc_no,
-					'acc_no'		=> $rowa->acc_no,
-					'acc_name'		=> $rowa->acc_name,
-					'line_desc'		=> $rowa->descs,
-					'debit'			=> $rowa->debet,
-					'credit'		=> $rowa->credit,
-					'trans_date'	=> date('Y-m-d h:i:s'),
-					'audit_user'	=> 'mgr.bsu',
-					'audit_date'	=> date('Y-m-d h:i:s'),
-					'project_no'	=> $rowa->project_no
-					);
-					$this->db->insert('db_gldetail',$data);
-					}*/
-					$jurcb = $this->db->query("select f.gl_id,c.project_no,b.bank_coa,b.bank_acc,b.bank_nm,d.*,a.voucher,a.amount from db_cashheader a 
-												join db_bank b on a.bankacc = b.bank_id
-												join db_apinvoice c on c.apinvoice_id = a.apinvoice_id 
-												join db_apinvoiceoth d on d.doc_no = c.doc_no 
-												join db_cashplan e on e.id_ap = a.apinvoice_id 
-												join db_glheader f on f.voucher = c.doc_no
-												where a.id_cash = '$id_cash' and d.acc_name like 'ap trade%'")->row();
-					$data1 = array(
-					'voucher'		=> $jurcb->voucher,
-					'acc_no'		=> $jurcb->acc_no,
-					'acc_curr'		=> 'IDR',
-					'module'		=> 'CB',
-					'dept'			=> 'Finance',
-					'ref_no'		=> $jurcb->gl_id,
-					'acc_name'		=> $jurcb->acc_name,
-					'line_desc'		=> $jurcb->descs,
-					'debit'			=> $amount,
-					'credit'		=> '0',
-					'trans_date'	=> date('Y-m-d h:i:s'),
-					'audit_user'	=> 'mgr.bsu',
-					'audit_date'	=> date('Y-m-d h:i:s'),
-					'project_no'	=> $jurcb->project_no
-					);
-					$this->db->insert('db_gldetail',$data1);
-					$data2 = array(
-					'voucher'		=> $jurcb->voucher,
-					'acc_no'		=> $jurcb->bank_coa,
-					'acc_curr'		=> 'IDR',
-					'module'		=> 'CB',
-					'dept'			=> 'Finance',
-					'ref_no'		=> $jurcb->gl_id,
-					'acc_name'		=> $jurcb->bank_nm,
-					'line_desc'		=> ' ',
-					'debit'			=> '0',
-					'credit'		=> $amount,
-					'trans_date'	=> date('Y-m-d h:i:s'),
-					'audit_user'	=> 'mgr.bsu',
-					'audit_date'	=> date('Y-m-d h:i:s'),
-					'project_no'	=> $jurcb->project_no
-					);
-					$this->db->insert('db_gldetail',$data2);
-					//die($voucher."','".$nocek."','".inggris_date($cek_date)."','".inggris_date($payment_date)."','".inggris_date($paid_date));
-					$query = $this->db->query("sp_EditBK2 '".$voucher."','".$nocek."','".inggris_date($cek_date)."','".inggris_date($payment_date)."','".inggris_date($paid_date)."','".$no_arsip."'");
+						$cb = $this->db->query("select * from db_cashheader where id_cash = '$id_cash'")->row();
+						$data = array(
+						'project_cd'	=> $cb->project_cd,
+						'voucher'		=> $cb->voucher,
+						'trans_date'	=> $cb->trans_date,
+						'[desc]'		=> $cb->voucher." ".$cb->descs,
+						'debit'			=> $cb->amount,
+						'credit'		=> $cb->amount,
+						'module'		=> 'CB',
+						'[status]'		=> '0',
+						'audit_user'	=> 'mgr.bsu',
+						'audit_date'	=> date('Y-m-d h:i:s'),
+						'entry_date'	=> date('Y-m-d h:i:s')
+						);
+						$t = $this->db->insert('db_glheader',$data);
+			
+						/*$jurap = $this->db->query("select a.*,b.project_no from db_apinvoiceoth a
+													join db_apinvoice b on b.doc_no = a.doc_no 
+													join db_cashplan c on c.id_ap = b.apinvoice_id 
+													where c.id_plan = '$id_plan'")->result();
+						foreach($jurap as $rowa){
+						$data = array(
+						'voucher'		=> $rowa->doc_no,
+						'acc_no'		=> $rowa->acc_no,
+						'acc_name'		=> $rowa->acc_name,
+						'line_desc'		=> $rowa->descs,
+						'debit'			=> $rowa->debet,
+						'credit'		=> $rowa->credit,
+						'trans_date'	=> date('Y-m-d h:i:s'),
+						'audit_user'	=> 'mgr.bsu',
+						'audit_date'	=> date('Y-m-d h:i:s'),
+						'project_no'	=> $rowa->project_no
+						);
+						$this->db->insert('db_gldetail',$data);
+						}*/
+						$jurcb = $this->db->query("select f.gl_id,c.project_no,b.bank_coa,b.bank_acc,b.bank_nm,d.*,a.voucher,a.amount from db_cashheader a 
+													join db_bank b on a.bankacc = b.bank_id
+													join db_apinvoice c on c.apinvoice_id = a.apinvoice_id 
+													join db_apinvoiceoth d on d.doc_no = c.doc_no 
+													join db_cashplan e on e.id_ap = a.apinvoice_id 
+													join db_glheader f on f.voucher = c.doc_no
+													where a.id_cash = '$id_cash' and d.acc_name like 'ap trade%'")->row();
+						$data1 = array(
+						'voucher'		=> $jurcb->voucher,
+						'acc_no'		=> $jurcb->acc_no,
+						'acc_curr'		=> 'IDR',
+						'module'		=> 'CB',
+						'dept'			=> 'Finance',
+						'ref_no'		=> $jurcb->gl_id,
+						'acc_name'		=> $jurcb->acc_name,
+						'line_desc'		=> $jurcb->descs,
+						'debit'			=> $amount,
+						'credit'		=> '0',
+						'trans_date'	=> date('Y-m-d h:i:s'),
+						'audit_user'	=> 'mgr.bsu',
+						'audit_date'	=> date('Y-m-d h:i:s'),
+						'project_no'	=> $jurcb->project_no
+						);
+						$this->db->insert('db_gldetail',$data1);
+						$data2 = array(
+						'voucher'		=> $jurcb->voucher,
+						'acc_no'		=> $jurcb->bank_coa,
+						'acc_curr'		=> 'IDR',
+						'module'		=> 'CB',
+						'dept'			=> 'Finance',
+						'ref_no'		=> $jurcb->gl_id,
+						'acc_name'		=> $jurcb->bank_nm,
+						'line_desc'		=> ' ',
+						'debit'			=> '0',
+						'credit'		=> $amount,
+						'trans_date'	=> date('Y-m-d h:i:s'),
+						'audit_user'	=> 'mgr.bsu',
+						'audit_date'	=> date('Y-m-d h:i:s'),
+						'project_no'	=> $jurcb->project_no
+						);
+						$this->db->insert('db_gldetail',$data2);
+						//die($voucher."','".$nocek."','".inggris_date($cek_date)."','".inggris_date($payment_date)."','".inggris_date($paid_date));
+						$query = $this->db->query("sp_EditBK2 '".$voucher."','".$nocek."','".inggris_date($cek_date)."','".inggris_date($payment_date)."','".inggris_date($paid_date)."','".$no_arsip."'");
+						
+
+						$rowtrxdt 	= $this->db->query("select * from db_apinvoice where doc_no = '$voucher'")->row();
+						$dara=array(
+						'vendor_acct' 	=> $rowtrxdt->vendor_acct,
+						'doc_no' 		=> $rowtrxdt->doc_no, 
+						'doc_date' 		=> $rowtrxdt->doc_date, 
+						'trx_type' 		=> 'CB', 
+						'project_no' 	=> $rowtrxdt->project_no, 
+						'tax_cd' 		=> 1,
+						'tax_rate' 		=> 1.00,
+						'tax_amt' 		=> $amount, 
+						'base_amt' 		=> $amount,
+						'deduct_amt' 	=> $amount,
+						'deduct_alloc' 	=> 0.00,
+						'alloc_amt' 	=> 0.00,
+						'trx_mode' 		=> 'M',
+						'audit_user' 	=> 'MGR',
+						'audit_date' 	=> date('Y-m-d h:i:s'),
+						'cdoc_no'		=> $rowtrxdt->doc_no
+						);
+						$this->db->insert('db_aptrxdt',$dara);
+
 					}else{
-					$query = $this->db->query("sp_EditBK2 '".$voucher."','".$nocek."','".inggris_date($cek_date)."','".inggris_date($payment_date)."','".inggris_date($paid_date)."','".$no_arsip."'");
+						$query = $this->db->query("sp_EditBK2 '".$voucher."','".$nocek."','".inggris_date($cek_date)."','".inggris_date($payment_date)."','".inggris_date($paid_date)."','".$no_arsip."'");
+
+						$rowtrxd 	= $this->db->query("select * from db_apinvoice where doc_no = '$voucher'")->row();
+						$dafa=array(
+						'vendor_acct' 	=> $rowtrxd->vendor_acct,
+						'doc_no' 		=> $rowtrxd->doc_no, 
+						'doc_date' 		=> $rowtrxd->doc_date, 
+						'trx_type' 		=> 'CB', 
+						'project_no' 	=> $rowtrxd->project_no, 
+						'tax_cd' 		=> 1,
+						'tax_rate' 		=> 1.00,
+						'tax_amt' 		=> $amount, 
+						'base_amt' 		=> $amount,
+						'deduct_amt' 	=> $amount,
+						'deduct_alloc' 	=> 0.00,
+						'alloc_amt' 	=> 0.00,
+						'trx_mode' 		=> 'M',
+						'audit_user' 	=> 'MGR',
+						'audit_date' 	=> date('Y-m-d h:i:s'),
+						'cdoc_no'		=> $rowtrxd->doc_no
+						);
+						$this->db->insert('db_aptrxdt',$dafa);	
 					}
 					//$this->load->view('cb/print/print_rpayvoucher',$dtprv);
 					die('sukses');
