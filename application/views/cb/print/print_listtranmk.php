@@ -8,6 +8,7 @@
 					#$startdate = in 'BK','11202','2015-01-01','2015-02-17',0
 				#die($trx."','".$project_detail."','".inggris_date($startdate)."','".inggris_date($enddate).","."$bank");
 				#die($bank);
+				//die("sp_listtranmk '".$trx."','".$project_detail."','".inggris_date($startdate)."','".inggris_date($enddate)."',".$bank);
 				$yu = "sp_listtranmk '".$trx."','".$project_detail."','".inggris_date($startdate)."','".inggris_date($enddate)."',".$bank;
 
 				#die($yu);

@@ -473,6 +473,28 @@
 							}else{
 								$this->db->query("update db_apinvoice set trx_amt = '$new_trx' where apinvoice_id='$id_ap'");
 							}
+							$rowtrxd 	= $this->db->query("select b.* from db_cashheader a join db_apinvoice b on a.apinvoice_id = b.apinvoice_id")->row();
+						//var_dump($rowtrxd);exit;
+						$dafa=array(
+						'vendor_acct' 	=> $rowtrxd->vendor_acct,
+						'doc_no' 		=> $voucher, 
+						'doc_date' 		=> inggris_date($paid_date), 
+						'trx_type' 		=> 'CB', 
+						'project_no' 	=> $rowtrxd->project_no, 
+						'tax_cd' 		=> 1,
+						'tax_rate' 		=> 1,
+						'tax_amt' 		=>replace_numeric( $amount), 
+						'base_amt' 		=>replace_numeric($amount),
+						'deduct_amt' 	=> replace_numeric($amount),
+						'deduct_alloc' 	=> 0,
+						'alloc_amt' 	=> 0,
+						'trx_mode' 		=> 'M',
+						'audit_user' 	=> 'MGR',
+						'audit_date' 	=> date('Y-m-d h:i:s'),
+						'payment_date' => inggris_date($paid_date),
+						'cdoc_no'		=> $rowtrxd->doc_no
+						);
+						$this->db->insert('db_aptrxdt',$dafa);	
 					}
 					//die($voucher."','".$nocek."','".inggris_date($cek_date)."','".inggris_date($payment_date)."','".inggris_date($paid_date)."','".$no_arsip);
 					/*$ap = $this->db->query("select a.* from db_apinvoice a join db_cashplan b on a.apinvoice_id = b.id_ap where b.id_plan = '$id_plan'")->row();
@@ -547,7 +569,7 @@
 						'ref_no'		=> $jurcb->gl_id,
 						'acc_name'		=> $jurcb->acc_name,
 						'line_desc'		=> $jurcb->descs,
-						'debit'			=> $amount,
+						'debit'			=> replace_numeric($amount),
 						'credit'		=> '0',
 						'trans_date'	=> date('Y-m-d h:i:s'),
 						'audit_user'	=> 'mgr.bsu',
@@ -565,7 +587,7 @@
 						'acc_name'		=> $jurcb->bank_nm,
 						'line_desc'		=> ' ',
 						'debit'			=> '0',
-						'credit'		=> $amount,
+						'credit'		=> replace_numeric($amount),
 						'trans_date'	=> date('Y-m-d h:i:s'),
 						'audit_user'	=> 'mgr.bsu',
 						'audit_date'	=> date('Y-m-d h:i:s'),
@@ -576,50 +598,13 @@
 						$query = $this->db->query("sp_EditBK2 '".$voucher."','".$nocek."','".inggris_date($cek_date)."','".inggris_date($payment_date)."','".inggris_date($paid_date)."','".$no_arsip."'");
 						
 
-						$rowtrxdt 	= $this->db->query("select * from db_apinvoice where doc_no = '$voucher'")->row();
-						$dara=array(
-						'vendor_acct' 	=> $rowtrxdt->vendor_acct,
-						'doc_no' 		=> $rowtrxdt->doc_no, 
-						'doc_date' 		=> $rowtrxdt->doc_date, 
-						'trx_type' 		=> 'CB', 
-						'project_no' 	=> $rowtrxdt->project_no, 
-						'tax_cd' 		=> 1,
-						'tax_rate' 		=> 1.00,
-						'tax_amt' 		=> $amount, 
-						'base_amt' 		=> $amount,
-						'deduct_amt' 	=> $amount,
-						'deduct_alloc' 	=> 0.00,
-						'alloc_amt' 	=> 0.00,
-						'trx_mode' 		=> 'M',
-						'audit_user' 	=> 'MGR',
-						'audit_date' 	=> date('Y-m-d h:i:s'),
-						'cdoc_no'		=> $rowtrxdt->doc_no
-						);
-						$this->db->insert('db_aptrxdt',$dara);
+					
 
 					}else{
+						
 						$query = $this->db->query("sp_EditBK2 '".$voucher."','".$nocek."','".inggris_date($cek_date)."','".inggris_date($payment_date)."','".inggris_date($paid_date)."','".$no_arsip."'");
 
-						$rowtrxd 	= $this->db->query("select * from db_apinvoice where doc_no = '$voucher'")->row();
-						$dafa=array(
-						'vendor_acct' 	=> $rowtrxd->vendor_acct,
-						'doc_no' 		=> $rowtrxd->doc_no, 
-						'doc_date' 		=> $rowtrxd->doc_date, 
-						'trx_type' 		=> 'CB', 
-						'project_no' 	=> $rowtrxd->project_no, 
-						'tax_cd' 		=> 1,
-						'tax_rate' 		=> 1.00,
-						'tax_amt' 		=> $amount, 
-						'base_amt' 		=> $amount,
-						'deduct_amt' 	=> $amount,
-						'deduct_alloc' 	=> 0.00,
-						'alloc_amt' 	=> 0.00,
-						'trx_mode' 		=> 'M',
-						'audit_user' 	=> 'MGR',
-						'audit_date' 	=> date('Y-m-d h:i:s'),
-						'cdoc_no'		=> $rowtrxd->doc_no
-						);
-						$this->db->insert('db_aptrxdt',$dafa);	
+						
 					}
 					//$this->load->view('cb/print/print_rpayvoucher',$dtprv);
 					die('sukses');
@@ -639,12 +624,15 @@
 		
 			function pyd($id){
 			$id_cash = $id; 
-			$status = $this->db->query("select status from db_cashheader where id_cash = '$id_cash'")->row()->status;
+			$qry = $this->db->query("select status,voucher from db_cashheader where id_cash = '$id_cash'")->row();
+			$status = $qry->status;
+			$voucher = $qry->voucher;
+			//var_dump($voucher);
 			//ar_dump($status);exit;
 			if($status==3){
 				echo "<script>alert('Sudah Lunas');
 				document.location.href='".base_url()."bankkeluar';</script>";
-				}elseif($status==0){
+				}elseif($status==0  and $voucher == ''){
 				echo "<script>alert('Payment Terlebih Dahulu');
 				document.location.href='".base_url()."bankkeluar';</script>";
 			}else{

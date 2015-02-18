@@ -9,9 +9,13 @@
 			$session_id = $this->UserLogin->isLogin();
 			$id_pt = $session_id['id_pt'];
 			
-			
+					
+				if($checkbox==1){
+					$data = $this->db->query("sp_PaymentAP '0','".$checkbox."','".inggris_date($startdate)."','".inggris_date($enddate)."',".$id_pt.",'".$bank."'")->result();
+				}else{
 						$data = $this->db->query("sp_PaymentAP '".$vendor."','".$checkbox."','".inggris_date($startdate)."','".inggris_date($enddate)."',".$id_pt.",'".$bank."'")->result();
 						//var_dump($vendor." - ".$checkbox." - ".$startdate." - ".$enddate);exit();
+				}
 			
 			$pdf->SetMargins(7,10,2);
 			$pdf->AliasNbPages();	
