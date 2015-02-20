@@ -1227,6 +1227,71 @@
 							'".$acc_dr_3."','".$name_dr_3."',".replace_numeric($acc_debet_3).",".replace_numeric($acc_credit_3).",
 							'".$acc_dr_4."','".$name_dr_4."',".replace_numeric($acc_debet_4).",".replace_numeric($acc_credit_4));
 						$ap = $this->db->query("select doc_no from db_apinvoice where flagap='$flagap'")->row()->doc_no;
+					#-- INPUT TRXDT
+						
+						$adt = array(
+							'vendor_acct'	=> $vendor[0], 
+							'doc_no' 		=> $doc_no, 
+							'doc_date'		=> inggris_date($receipt_date), 
+							'trx_type'		=> 'AP', 
+							'project_no'	=> $ap_project, 
+							'tax_cd'		=> 1,
+							'tax_rate'		=> 1.00, 
+							'tax_amt'		=> replace_numeric($nett), 
+							'base_amt'		=> replace_numeric($nett),
+							'deduct_amt'	=> replace_numeric($nett),
+							'deduct_alloc'	=> 0.00,
+							'alloc_amt'		=> 0.00, 
+							'trx_mode'		=> 'I', 
+							'audit_user'	=> 'MGR',
+							'audit_date'	=> inggris_date($receipt_date),
+							'payment_date'  => inggris_date($receipt_date)+$cr_term,
+							'cdoc_no'		=> $doc_no
+							);
+						$this->db->insert('db_aptrxdt',$adt);
+					
+/*
+						INSERT INTO db_aptrxdt
+						(vendor_acct, 
+						doc_no, 
+						doc_date, 
+						trx_type, 
+						project_no, 
+						tax_cd,
+						tax_rate, 
+						tax_amt, 
+						base_amt,
+						deduct_amt,
+						deduct_alloc,
+						alloc_amt, 
+						trx_mode, 
+						audit_user,
+						audit_date,
+						cdoc_no)
+						VALUES
+						(@vendor,
+						@doc_no,
+						@receipt_date,
+						'AP', 
+						@ap_proj, 
+						1,
+						1.00,
+						@nett,
+						@nett,
+						@nett,
+						0.00,
+						0.00,
+						'I',
+						'MGR',
+						getdate(),
+						@doc_no )
+						
+						#--update db_aptrxdt set payment_date=payment_date+@cr_term where doc_no=@doc_no
+*/						
+						#-- END INPUT TRXDT
+
+
+
 					$nm = $this->input->post('nm');
 					$dataglheader = array(
 					'project_cd'		=> $ap_project,
@@ -1554,6 +1619,7 @@
 							'".$acc_dr_4."','".$name_dr_4."',".replace_numeric($acc_debet_4).",".replace_numeric($acc_credit_4).",".$vendor_id.",".$flagap."
 							");
 						$ap = $this->db->query("select doc_no from db_apinvoice where flagap='$flagap'")->row()->doc_no;
+						
 					$nm = $this->input->post('nm');
 					for($m = 5;$m <= $nm;$m++){
 					$data = array(
