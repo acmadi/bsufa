@@ -181,7 +181,20 @@
 		}		
 		
 		function apmulti(){
-			$this->load->view('ap/apinvoice-multi');
+			$session_id = $this->UserLogin->isLogin();
+			$this->user = $session_id['username'];
+			$this->pt	= $session_id['id_pt'];
+
+			$data['sproject'] = $this->db->query("select * from db_subproject where id_pt='".$this->pt."' and pt_id <> 12 order by nm_subproject")
+			 								->result();
+			$data['vendor'] = $this->db->select('kd_supp_gb,nm_supplier')
+									->join('db_subproject','kd_project = subproject_id')
+									->where('pt_id',$this->pt)
+									->order_by('nm_supplier','ASC')
+									->get('pemasok')
+									->result();	
+			$data['ap_category'] = $this->db->query("select * from db_coa where acc_name like '%ap trade%' and id_pt='11'")->result();						
+			$this->load->view('ap/apinvoice-multi',$data);
 		//	parent::add();
 
 		}
@@ -1226,9 +1239,11 @@
 							'".$acc_dr_2."','".$name_dr_2."',".replace_numeric($acc_debet_2).",".replace_numeric($acc_credit_2).",
 							'".$acc_dr_3."','".$name_dr_3."',".replace_numeric($acc_debet_3).",".replace_numeric($acc_credit_3).",
 							'".$acc_dr_4."','".$name_dr_4."',".replace_numeric($acc_debet_4).",".replace_numeric($acc_credit_4));
-						$ap = $this->db->query("select doc_no from db_apinvoice where flagap='$flagap'")->row()->doc_no;
+						$ap = $this->db->query("select doc_no,due_date from db_apinvoice where flagap='$flagap'")->row()->doc_no;
 					#-- INPUT TRXDT
-						
+						$apd = $this->db->query("select due_date from db_apinvoice where flagap='$flagap'")->row();
+
+
 						$adt = array(
 							'vendor_acct'	=> $vendor[0], 
 							'doc_no' 		=> $doc_no, 
@@ -1245,7 +1260,7 @@
 							'trx_mode'		=> 'I', 
 							'audit_user'	=> 'MGR',
 							'audit_date'	=> inggris_date($receipt_date),
-							'payment_date'  => inggris_date($receipt_date)+$cr_term,
+							'payment_date'  => $apd->due_date,
 							'cdoc_no'		=> $doc_no
 							);
 						$this->db->insert('db_aptrxdt',$adt);

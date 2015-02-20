@@ -39,59 +39,7 @@
 		border:1px solid #cbcbcb;
 	}
 </style>
-<script type="text/javascript">
 
-	
-$(function() {
-	$(".get_vendorname").hide();
-	$(".save_btn").hide();
-	$(".reset_btn").hide();
-	
-	
-	$(".opt-get_row").click(function(){
-		var c = this.getAttribute('opt_get_povalue');
-		var is_check = $("#opt"+c).is(":checked");
-		if(is_check){
-			$("#z"+c).css("background-color","#ffffff");
-			$("#opt"+c).attr("checked",false);
-		}else{
-			$("#z"+c).css("background-color","#ff8379");
-			$("#opt"+c).attr("checked","checked");
-		}
-		
-	});
-	
-	
-});
-$('#amount1').keyup(function(){
-	
-	var a = parseInt($('#total_billing').val().replace(/,/g,''));
-	var p = parseInt($('#total_billing').val().replace(/,/g,''))*10/100;
-	var t = a+p;
-
-	//alert(a);
-	$('#nett1').val(numToCurr($('#amount1').val().replace(/,/g,'')));
-	var c = parseInt($('#amount1').val().replace(/,/g,''));
-	var b = parseInt($('#total_billing').val().replace(/,/g,''));
-	//alert(c+' '+t);
-	/*if(c > t){
-	alert('Tidak Boleh Melebihi Nominal Total PO');
-	$('#amount1').val(0);
-	}*/
-	$('#nett1').val(numToCurr(c));
-		var type = $('#type').val();
-		var flag = $('#flag').val();
-		if(type+flag=='multiope'){
-		$("#btn-multi-ope").trigger( "click" );
-		}else if(type+flag=='multipo'){
-		$("#btn-multi-po").trigger( "click" );
-		}
-	var afj = $("#aktif_flagjurnal").val();
-	
-	if(afj=="pro"){	$( "#view-jurnal-pro" ).trigger( "click" );}
-	
-});
-</script>
 </head>
 
 <body>
@@ -115,7 +63,17 @@ $(document).ready(function(){
 	$("#pph").change(function(){
 		$("#inputpph").show();
 	});
+$('#al_proj').attr('disabled',true);
+	$('#alocation').click(function(){
+	if($('#alocation').is(':checked')){
+	$('#al_proj').attr('disabled',false);
+	}else{
+	$('#al_proj').attr('disabled',true);
+	}
+	});
 });
+
+
 
 	$(function(){
 		/* Choise customer and get value */
@@ -484,7 +442,7 @@ function loadData(type,parentId){
 		$("#rdo_po").prop("checked", true);
 		$(".obj-po").show();
 		$(".obj-cjc").hide();
-		$(".obj-ope").hide();
+		$(".obj-ope").show();
 		$(".obj-pro").hide();
 		$('#cip3').attr('disabled',true);
 		$('#dpp_pph1').attr('disabled',true);
@@ -658,7 +616,7 @@ $(document).ready(function(){
 <!-- Eof Pop -->
 <input type="hidden" id="type" value="<?php echo $this->session->userdata('type');?>">
 <input type="hidden" id="flag" value="<?php echo $this->session->userdata('flag');?>">
-<form method="post" action="<?=site_url('ap/apinvoice/saveheader')?>" id="form1">
+<form method="post" action="<?=site_url('ap/apinvoice/saveheader_multi')?>" id="form1">
  <?php $tgl = date('d-m-Y'); ?>
 <body>
 	
@@ -878,7 +836,7 @@ $(document).ready(function(){
 					<tr class="listmulti-header">
 						<td>
 						<select id="ope_select_search">
-							<option value="sbc">-- Search by No. PO --</option>
+							<option value="sbc">-- Search by Form Kode --</option>
 							<option value="sbs">-- Search by KOde --</option>
 							<option value="sbr">-- Search by Remark --</option>
 						</select>
@@ -1175,7 +1133,7 @@ $(document).ready(function(){
 			<select name="ap_project" id="project" style="border:1px solid #CBCBCB;padding:2px">
 				<option value="">- Select Here -</option>
 				<? foreach($sproject as $row): ?>
-				<option value="<?=@$row->kd_project?>"><?=@$row->nm_project?></option> 
+				<option value="<?=@$row->subproject_id?>"><?=@$row->nm_subproject?></option> 
 				<? endforeach;?>
             </select>   
 			</td>
@@ -1185,7 +1143,7 @@ $(document).ready(function(){
 
 	</tr>
 
-	<tr>
+	<!--tr>
 	<td>Type</td>
 	<td>:</td>
 	<td>
@@ -1200,12 +1158,12 @@ $(document).ready(function(){
 			<td>
 			<input id="inv_date" name="inv_date"  size="30" style="width:207px"></input>
 			</td>
-	</tr>
+	</tr-->
 	<tr>
 	<td>AP Date</td>
 			<td>:</td>
 			<td>
-			<input id="receipt_date" name="receipt_date" size="30" value="<?=@$tgl?>" style="width:207px"></input>
+			<input id="receipt_date" name="receipt_date" size="20" value="<?=@$tgl?>" style="width:207px"></input>
 	</td>
 	<td>Due Date</td>
 			<td>:</td>
@@ -1224,21 +1182,21 @@ $(document).ready(function(){
 		<td>
 			<!-- area edit-update *)remove this mark after copy  -->
 			<!-- PO AREA -->
-			<input type="text" name ="po" class="auto-complete-po obj-po" size="35" />
+			<!--input type="text" name ="po" class="auto-complete-po obj-po" size="35" />
 			<input type="hidden" name="poid" class="id-complete-po componen1" size="5" />
 			<a href="#multi-po"><input type="button" id="mulpo" class="obj-po btn-small" value="Multi"></a>
 			
 			<!-- CJC AREA -->
-			<input type="text" name ="kbcjc" class="auto-complete-cjc obj-cjc" size="35" />
-			<input type="hidden" name="cjcid" class="id-complete-cjc componen2" size="5" />
+			<!--input type="text" name ="kbcjc" class="auto-complete-cjc obj-cjc" size="35" />
+			<input type="hidden" name="cjcid" class="id-complete-cjc componen2" size="5" /-->
 			
 			<!-- OPErasional Area -->
-			<input type="text" name="kbope" id="operational2" class="auto-complete-ope obj-ope" size="35"/>
+			<input type="text" name="kbope" id="operational2" class="auto-complete-ope obj-ope" size="35" placeholder="Choose Budget with Multi Button" readonly="true"/>
 			<input type="hidden" name="opeid" class="id-complete-ope" size="5" id="id_bgt_opr2"/>
 			<a href="#multi-ope"><input type="button" id="mul-opr" class="obj-ope btn-small" value="Multi"></a>
 			
 			<!-- PRojeCT ArEA-->
-			<input type="text" name="kbpro" id="" class="auto-complete-pro obj-pro" size="35"/>
+			<!--input type="text" name="kbpro" id="" class="auto-complete-pro obj-pro" size="35"/>
 			<input type="hidden" name="proid" class="id-complete-pro" size="5" id="id_bgt_pro2"/>
 			<a href="#multi-pro"><input type="button" id="mul-pro" class="obj-pro btn-small" value="Multi"></a>
 			<!-- area area edit-update *)remove this mark after copy  -->
@@ -1250,8 +1208,12 @@ $(document).ready(function(){
 	<tr>
 	<td>Alocation</td>
 	<td>:</td>
-	<td><input type="checkbox" name="alocation1" id="alocation"></td>
-	
+	<td><input type="checkbox" name="alocation1" id="alocation" style="float:left">
+	<select name="al_proj" id="al_proj" style="background:white;border:1px solid #cbcbcb;padding:3px;width:205px">
+	<option value="11">BSU Parent</option>
+	<option value="111">BSU TRA</option>
+	<option value="112">BSU Rasuna Epicentrum</option>
+	</select></td>
 			<td>Ppn</td><!-- PO -->
 			<td>:</td>
 			<td><input type="checkbox" id="ppn1" class="poppn">
@@ -1263,11 +1225,10 @@ $(document).ready(function(){
 			<td>:</td>
 			<td>
 				<!-- PO Area -->
-				<input type="text" name="vendor" id="vendor" class="validate[required] xinput obj-po" xinput" value="<?=@$data->vendor?>"  style="width:198px;background-color:whitesmoke;border:1px solid #cbcbcb;padding:3px" readonly="true"  size="50" />
-				<input type="hidden" name="vendor_id" id="vendor_id" class="validate[required] xinput" xinput" value="<?=@$data->vendor?>"  style="width:198px;background-color:whitesmoke;border:1px solid #cbcbcb;padding:3px" readonly="true"  size="50" />
+				<!--input type="text" name="vendor" id="vendor" class="validate[required] xinput obj-po" value="<?=@$data->vendor?>"  style="width:198px;background-color:whitesmoke;border:1px solid #cbcbcb;padding:3px" readonly="true"  size="50" /-->
 				
 				<!-- CJC Area -->
-				<input type="text" name="vendor3" id="vendor-cjc" class="validate[required] xinput  obj-cjc" xinput" value="<?=@$data->vendor3?>"  style="width:198px;background-color:whitesmoke;border:1px solid #cbcbcb;padding:3px" readonly="true"  size="50" />
+				<!--input type="text" name="vendor3" id="vendor-cjc" class="validate[required] xinput  obj-cjc" value="<?=@$data->vendor3?>"  style="width:198px;background-color:whitesmoke;border:1px solid #cbcbcb;padding:3px" readonly="true"  size="50" /-->
 				
 				<!-- OPErasional Area -->
 				<select name="vendor-ope" id="vendor-ope" class="obj-ope" style="border:1px solid #cbcbcb;width:207px;padding:3px">
@@ -1278,12 +1239,12 @@ $(document).ready(function(){
 				</select>
 				
 				<!-- PROject Area -->
-				<select name="vendor-pro" id="vendor-pro" class="obj-pro" style="border:1px solid #cbcbcb;width:207px;padding:3px">
+				<!--select name="vendor-pro" id="vendor-pro" class="obj-pro" style="border:1px solid #cbcbcb;width:207px;padding:3px">
 					<option>-- Choose --</option>
 					<? foreach($vendor as $row): ?>
 					<option value="<?=@$row->kd_supp_gb?>"><?=@$row->nm_supplier?></option> 
 					<? endforeach;?>
-				</select>
+				</select-->
 			</td>
 	<td>Dpp Ppn</td>
 			<td>:</td>
@@ -1385,7 +1346,7 @@ $(document).ready(function(){
 			<td rowspan=2><!--textarea name="alamat" id="alamat" class="validate[required] xinput" xinput" class="validate[required]" style="width:400px"><?=@$data->remark?></textarea-->&nbsp;</td>
 			<td rowspan=2>Remark</td>
 			<td rowspan=2>:</td>
-			<td rowspan=2><textarea name="remark" id="remark" class="validate[required] xinput" xinput" class="validate[required]" style="width:400px;border:1px solid #cbcbcb;padding:3px"><?=@$data->remark?></textarea></td>
+			<td rowspan=2><textarea name="remark" id="remark" class="validate[required] xinput" class="validate[required]" style="width:400px;border:1px solid #cbcbcb;padding:3px"><?=@$data->remark?></textarea></td>
 	
 			</tr>	
 	<tr>
@@ -1402,6 +1363,65 @@ $(document).ready(function(){
 				<input type="button" name="view-jurnal-ope" id="view-jurnal-ope"  class="btn-normal obj-ope"  value="View Jurnal"/>
 				<input type="button" name="view-jurnal-pro" id="view-jurnal-pro"  class="btn-normal obj-pro"  value="View Jurnal"/>
 			</td>
+			<script type="text/javascript">
+
+	
+$(function() {
+	$(".get_vendorname").hide();
+	$(".save_btn").hide();
+	$(".reset_btn").hide();
+	
+	
+	$(".opt-get_row").click(function(){
+		var c = this.getAttribute('opt_get_povalue');
+		var is_check = $("#opt"+c).is(":checked");
+		if(is_check){
+			$("#z"+c).css("background-color","#ffffff");
+			$("#opt"+c).attr("checked",false);
+		}else{
+			$("#z"+c).css("background-color","#ff8379");
+			$("#opt"+c).attr("checked","checked");
+		}
+		
+	});
+	
+	
+});
+$('#amount1').keyup(function(){
+	
+	var a = parseInt($('#total_billing').val().replace(/,/g,''));
+	var p = parseInt($('#total_billing').val().replace(/,/g,''))*10/100;
+	var t = a+p;
+
+	//alert(a);
+	$('#nett1').val(numToCurr($('#amount1').val().replace(/,/g,'')));
+	var c = parseInt($('#amount1').val().replace(/,/g,''));
+	var b = parseInt($('#total_billing').val().replace(/,/g,''));
+	//alert(c+' '+t);
+	/*if(c > t){
+	alert('Tidak Boleh Melebihi Nominal Total PO');
+	$('#amount1').val(0);
+	}*/
+	$('#nett1').val(numToCurr(c));
+		var type = $('#type').val();
+		var flag = $('#flag').val();
+		if(type+flag=='multiope'){
+		$("#btn-multi-ope").trigger( "click" );
+		}else if(type+flag=='multipo'){
+		$("#btn-multi-po").trigger( "click" );
+		}
+	var afj = $("#aktif_flagjurnal").val();
+
+
+	
+	if(afj=="pro"){	$( "#view-jurnal-pro" ).trigger( "click" );}
+	
+});
+</script>
+
+
+
+
 			
 			<script type="text/javascript">
 				/* ::-- PO-JURNAL --:: */
